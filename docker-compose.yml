@@ -42,43 +42,18 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
     volumes:
       - umb_media:/app/wwwroot/media
-      - umb_scripts:/app/wwwroot/scripts
-      - umb_styles:/app/wwwroot/css
       - umb_logs:/app/umbraco/Logs
-      - umb_views:/app/Views
-      - umb_data:/app/umbraco
-      - umb_models:/app/umbraco/models
 
 volumes:
   umb_media:
     driver: local
     driver_opts:
       type: none
-      device: ./Blog/wwwroot/media
-      o: bind
-  umb_scripts:
-    driver: local
-    driver_opts:
-      type: none
-      device: ./Blog/wwwroot/scripts
-      o: bind
-  umb_styles:
-    driver: local
-    driver_opts:
-      type: none
-      device: ./Blog/wwwroot/css
+      device: /home/docker/Blog/media
       o: bind
   umb_logs:
-  umb_views:
     driver: local
     driver_opts:
       type: none
-      device: ./Blog/Views
-      o: bind
-  umb_data:
-  umb_models:
-    driver: local
-    driver_opts:
-      type: none
-      device: ./Blog/umbraco/models
+      device: /home/docker/Blog/Logs
       o: bind
