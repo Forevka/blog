@@ -41,19 +41,5 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     volumes:
-      - umb_media:/app/wwwroot/media
-      - umb_logs:/app/umbraco/Logs
-
-volumes:
-  umb_media:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/docker/Blog/media
-      o: bind
-  umb_logs:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/docker/Blog/Logs
-      o: bind
+      - /home/docker/Blog/media:/app/wwwroot/media
+      - /home/docker/Blog/Logs:/app/umbraco/Logs
