@@ -35,6 +35,7 @@ WebApplication app = builder.Build();
 
 await app.BootUmbracoAsync();
 
+app.UseForwardedHeaders();
 
 app.UseUmbraco()
     .WithMiddleware(u =>
