@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.HttpOverrides;
 using Umbraco.Cms.Web.Common.PublishedModels;
 using Umbraco.Community.BlockPreview.Extensions;
 
@@ -23,6 +24,12 @@ builder.CreateUmbracoBuilder()
         };
     })
     .Build();
+
+// Configure Forwarded Headers Options
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+});
 
 WebApplication app = builder.Build();
 
