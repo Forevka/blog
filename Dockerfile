@@ -19,11 +19,14 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 # Set the working directory
 WORKDIR /app
 
+EXPOSE 80
+EXPOSE 443
+
+ENV ASPNETCORE_HTTPS_PORT https://+:443
+ENV ASPNETCORE_URLS http://+:80
+
 # Copy the published output from the build stage
 COPY --from=build /app/publish .
-
-# Expose the port your application runs on (adjust if necessary)
-EXPOSE 80
 
 # Start the application
 ENTRYPOINT ["dotnet", "Blog.dll"]
