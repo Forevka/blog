@@ -40,6 +40,8 @@ services:
       - 1451:443
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_HTTPS_PORT=https://+:443
+      - ASPNETCORE_URLS=http://+:80
     volumes:
       - /home/docker/Blog/media:/app/wwwroot/media
       - /home/docker/Blog/Logs:/app/umbraco/Logs
