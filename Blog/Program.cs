@@ -33,9 +33,9 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 
 WebApplication app = builder.Build();
 
-await app.BootUmbracoAsync();
-
 app.UseForwardedHeaders();
+
+await app.BootUmbracoAsync();
 
 app.UseUmbraco()
     .WithMiddleware(u =>
