@@ -28,5 +28,9 @@ ENV ASPNETCORE_URLS http://+:80
 # Copy the published output from the build stage
 COPY --from=build /app/publish .
 
+# Copy the production config file from the build context into the container.
+# This line assumes that the file is located at Blog/appsettings.Production.json
+COPY Blog/appsettings.Production.json /app/appsettings.Production.json
+
 # Start the application
 ENTRYPOINT ["dotnet", "Blog.dll"]
