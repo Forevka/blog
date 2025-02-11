@@ -57,6 +57,9 @@ jobs:
               },
               "Hosting": {
                 "Debug": false
+              },
+              "Security": {
+                "BackOfficeHost": "https://genshin.forevka.dev"
               }
             }
           },
