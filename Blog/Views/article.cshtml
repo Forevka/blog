@@ -1,0 +1,140 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage<ArticlesItem>
+@{
+
+    Layout = "master.cshtml";
+
+
+    var tocItems = Model.Content!
+        .Where(x => x.Settings is ITocEntry { IsEnabled: true })
+        .Select(x => x.Settings as ITocEntry)
+        .ToList();
+}
+
+@await Html.PartialAsync("ScrollToTop")
+
+<!-- Post Header (sticky section with title, short description, and details) -->
+<div class="section sticky">
+    <div class="container no-bottom-padding">
+        <div class="text-box centre">
+            <div class="text-align-centre">
+                <h1 class="heading extra-large">@Model.Title</h1>
+                <div class="spacer _24"></div>
+                <div class="text-color-600">
+                    <div class="paragraph large">@Model.Description</div>
+                </div>
+                <div class="spacer _24"></div>
+                <div class="post-details-wrapper is-centre">
+                    <div class="post-detail">@string.Join(',', Model.Category!.Select(x => (x as ArticleCategory)?.ArticleCategoryName).ToList())</div>
+                    <div class="post-detail">·</div>
+                    <div class="post-detail">@Model.ReadTime min</div>
+                </div>
+            </div>
+            <div class="spacer _80"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Header Image Section -->
+<div class="section">
+    <div class="inset-container">
+        <div class="header-image-wrapper">
+            <img src="@Model.HeroImage!.Url()" loading="lazy" alt="" class="post-item-image" />
+        </div>
+    </div>
+</div>
+
+<!-- Post Content Section -->
+<div class="section">
+    <div class="inset-container post-content">
+        <div class="container article-container">
+            <div class="text-box centre article-container-item">
+
+                <div id="light-toc" class="color-block background-3">
+                    <div id="toc_list" onclick="if (document.getElementById('toc').style.display === 'none') { document.getElementById('toc').style.display = 'block'; } else { document.getElementById('toc').style.display = 'none'; }" role="button" tabindex="0">
+                        Table of content <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#ffb88f" d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" /></svg>
+                    </div>
+                    <div id="toc">
+                        <ol>
+
+                            @foreach (var tocEntry in tocItems)
+                            {
+                                <li><a href="#@tocEntry!.TocAnchor">@tocEntry.TocText</a></li>
+                            }
+
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="rich-text w-richtext">
+                    <article class="blog-post">
+                        <h1 class="heading">@Model.BodyTitle</h1>
+                        <p class="paragraph">@Model.BodyDescription</p>
+
+                        @{
+                            foreach (var item in Model.Content!)
+                            {
+                                var content = item.Content;
+
+                                @await Html.PartialAsync("/Views/Shared/ArticleComponents/" + content.ContentType.Alias + ".cshtml", item)
+                                ;
+
+                                if (item is BlockGridItem<CodeBlockContent, CodeBlockContentSettings>)
+                                {
+                                    if (!Context.Items.TryGetValue("CodeHighlightInitialized", out var _))
+                                    {
+
+                                        @section HeadContent {
+                                            <script src="https://unpkg.com/@@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+                                            <script src="https://unpkg.com/@@highlightjs/cdn-assets@11.9.0/languages/csharp.min.js"></script>
+                                            <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js/dist/highlightjs-line-numbers.min.js"></script>
+                                        }
+
+
+                                        @section Scripts {
+                                            <script>hljs.highlightAll();</script>
+                                            <script>hljs.initLineNumbersOnLoad();</script>
+                                        }
+
+
+
+                                        Context.Items["CodeHighlightInitialized"] = true;
+                                    }
+                                }
+                            }
+                        }
+                    </article>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+@if (Model.RelatedArticles != null && Model.RelatedArticles.Any())
+{
+    <!-- Related Posts Section -->
+    <div class="section">
+        <div class="inset-container post-content">
+            <div class="container">
+                <div class="text-box centre">
+                    <div class="related-title-wrapper">
+                        <h2 class="heading large">A lil’ more goodness</h2>
+                    </div>
+                </div>
+                <div class="spacer _80"></div>
+                <div class="posts-wrapper w-dyn-list">
+                    <div role="list" class="posts-grid all-articles w-dyn-items">
+                        @foreach (var related in Model.RelatedArticles)
+                        {
+                            @await Html.PartialAsync("_BlogPostItem", related as ArticlesItem)
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

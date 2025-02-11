@@ -1,0 +1,54 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage<About>
+@{
+	Layout = "master.cshtml";
+}
+
+
+<div class="section sticky">
+    <div class="container no-bottom-padding">
+        <div class="text-box centre">
+            <div class="text-align-centre">
+                <h1 class="heading extra-large">Who am I?</h1>
+                <div class="spacer _24"></div>
+                <div class="spacer _24"></div>
+                <div class="spacer _24"></div>
+            </div>
+            <div class="spacer _80"></div>
+        </div>
+    </div>
+</div>
+
+<div class="section posts">
+
+    <div class="inset-container">
+
+        <div class="container">
+            <div class="_1-2-column-layout">
+                <h2>@Model.WhoLeftText</h2>
+                <div class="rich-text w-richtext">
+                    @Model.WhatDescription
+                </div>
+            </div>
+        </div>
+
+        <div class="about-images-wrapper">
+
+            @foreach (var img in Model.AboutImagesList!.Select((x, i) => new { x, i = i + 1 }))
+            {
+                <img src="@img.x.Url()" loading="eager" alt="About image" class="about-image-@img.i">
+            }
+
+        </div>
+
+        <div class="container">
+            <div class="_1-2-column-layout">
+                <h2>@Model.WhoLeftText</h2>
+                <div class="rich-text w-richtext">
+                    @Model.WhoDescription
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ImageContent, ImageContentSettings>>
+@{
+    Layout = "ArticleComponents/BaseContainer";
+}
+
+
+<div class="style-guide-section-header">
+    <figure style="max-width" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
+        <div>
+            <img src="@Model.Content.Image!.Url()" loading="lazy" alt="">
+        </div>
+        <figcaption>@Model.Content.Title</figcaption>
+    </figure>
+</div>

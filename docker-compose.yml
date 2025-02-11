@@ -1,0 +1,42 @@
+services:
+
+  postgres:
+    restart: always
+    container_name: postgres
+    image: postgres:latest
+    user: root
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=werdwerd2012_
+      - POSTGRES_DB=my_database
+    volumes:
+      - /home/postgres/data:/var/lib/postgresql/data
+      - /home/postgres/secrets:/var/lib/postgresql/secrets
+
+  postgres-dev:
+    restart: always
+    container_name: postgresdev
+    image: postgres:latest
+    user: root
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=werdwerd2012_
+      - POSTGRES_DB=my_database
+    volumes:
+      - /home/postgresdev/data:/var/lib/postgresql/data
+      - /home/postgresdev/secrets:/var/lib/postgresql/secrets
+
+  backoffice:
+    restart: always
+    container_name: backoffice
+    image: forevka/gi-backoffice:latest
+    user: root
+    ports:
+      - 1450:80
+      - 1451:443
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production

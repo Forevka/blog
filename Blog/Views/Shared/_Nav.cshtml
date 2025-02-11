@@ -1,0 +1,36 @@
+﻿@using Blog.Helper
+@using Umbraco.Cms.Web.Common
+@inject UmbracoHelper helper
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var home = Model.AncestorOrSelf<Home>()!;
+
+    // Retrieve all root nodes
+    var contactsPage = Umbraco.GetPageByAlias("contacts");
+    var aboutPage = Umbraco.GetPageByAlias("about");
+}
+
+<div data-w-id="7ecd2c46-248a-916e-eb95-08abb6aec6a5" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
+    <div class="nav-container">
+        <div class="inset-nav-container">
+            <div class="logo-wrapper">
+                <a href="@home.Url()" aria-label="Logo" class="logo w-nav-brand">
+                    <div>@home.HeaderText</div>
+                </a>
+            </div>
+            <nav role="navigation" class="nav-menu w-nav-menu">
+                <div class="links-wrapper">
+                    <a href="@aboutPage!.Url()" class="navigation-link w-nav-link">About</a>
+                    <a href="@contactsPage!.Url()" class="navigation-link w-nav-link">Contact</a>
+                </div>
+            </nav>
+            <div class="menu-button w-nav-button" style="-webkit-user-select: text" aria-label="menu" role="button" tabindex="0">
+                <div class="menu-icon">
+                    <div class="menu-icon-line-top"></div>
+                    <div class="menu-icon-line-bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-nav-overlay"></div>
+</div>

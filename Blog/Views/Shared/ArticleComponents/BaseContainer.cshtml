@@ -1,0 +1,12 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@{
+    var includeInToc = string.Empty;
+
+    if (Model.Settings is ITocEntry { IsEnabled: true } tocEntry) 
+        includeInToc = tocEntry.TocAnchor;
+}
+
+<div class="section" id="@includeInToc">
+    @RenderBody()
+</div>
+

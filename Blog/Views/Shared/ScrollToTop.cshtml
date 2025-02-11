@@ -1,0 +1,98 @@
+﻿
+<div class="progress-wrap">
+
+    <div class="arrow">
+        <div class="arrow-top"></div>
+        <div class="arrow-bottom"></div>
+    </div>
+
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+    </svg>
+</div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+      "use strict";
+
+      // Get the SVG path element inside the .progress-wrap container
+      var progressPath = document.querySelector('.progress-wrap path');
+      if (!progressPath) return; // Exit if the element isn't found
+
+      // Get the total length of the SVG path
+      var pathLength = progressPath.getTotalLength();
+
+      // Prepare the SVG path for animation by setting up the dash properties.
+      progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+      progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+      progressPath.style.strokeDashoffset = pathLength;
+
+      // Force a layout so that the browser picks up the starting position before animating.
+      progressPath.getBoundingClientRect();
+      progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+
+      // Function to update the strokeDashoffset based on scroll position.
+      function updateProgress() {
+        // Get current scroll position (supporting various browsers)
+        var scroll = window.pageYOffset || document.documentElement.scrollTop;
+        // Calculate the scrollable height of the document
+        var height = document.documentElement.scrollHeight - window.innerHeight;
+        // Calculate how far along the path should be drawn
+        var progress = pathLength - (scroll * pathLength / height);
+        progressPath.style.strokeDashoffset = progress;
+      }
+
+      // Update progress immediately and on every scroll event.
+      updateProgress();
+      window.addEventListener('scroll', updateProgress);
+
+      // Variables for when to show the progress element and for the scroll animation duration.
+      var offset = 50,
+          duration = 550;
+
+      // Toggle the active-progress class based on the scroll position.
+      window.addEventListener('scroll', function() {
+        var progressWrap = document.querySelector('.progress-wrap');
+        if (!progressWrap) return;
+        if ((window.pageYOffset || document.documentElement.scrollTop) > offset) {
+          progressWrap.classList.add('active-progress');
+        } else {
+          progressWrap.classList.remove('active-progress');
+        }
+      });
+
+      // Add a click event to the progress element that scrolls smoothly to the top.
+      var progressWrap = document.querySelector('.progress-wrap');
+      if (progressWrap) {
+        progressWrap.addEventListener('click', function(event) {
+          event.preventDefault();
+          scrollToTop(duration);
+        });
+      }
+
+      // A helper function to smoothly scroll to the top over a specified duration.
+      function scrollToTop(duration) {
+        var start = window.pageYOffset || document.documentElement.scrollTop;
+        var startTime = null;
+
+        // An easing function for a smooth animation (easeInOutQuad)
+        function easeInOutQuad(t) {
+          return t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+        }
+
+        // The animation loop, which will be called recursively.
+        function animateScroll(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var timeElapsed = timestamp - startTime;
+          var progress = Math.min(timeElapsed / duration, 1);
+          var ease = easeInOutQuad(progress);
+          // Calculate the new scroll position
+          window.scrollTo(0, start * (1 - ease));
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animateScroll);
+          }
+        }
+        requestAnimationFrame(animateScroll);
+      }
+    });
+</script>

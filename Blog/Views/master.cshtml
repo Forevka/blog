@@ -1,0 +1,35 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>@ViewData["Title"] - Monograph</title>
+        <link rel="stylesheet" href="~/css/site.css" />
+        <!-- Add other CSS links, fonts, or meta tags as needed -->
+        @await RenderSectionAsync("HeadContent", required: false)
+    </head>
+    <body>
+
+    @* Navigation bar (partial view) *@
+    @await Html.PartialAsync("_Nav")
+
+    @* Main content placeholder *@
+    <div class="main-content">
+        @RenderBody()
+    </div>
+
+    @* Subscribe CTA (partial view) *@
+    @await Html.PartialAsync("_SubscribeCTA")
+
+    @* Footer (partial view) *@
+    @await Html.PartialAsync("_Footer")
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    </body>
+</html>

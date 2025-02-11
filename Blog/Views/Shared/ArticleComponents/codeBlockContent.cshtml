@@ -1,0 +1,7 @@
+﻿@using Blog.Helper
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<CodeBlockContent, CodeBlockContentSettings>>
+@{
+    Layout = "ArticleComponents/BaseContainer";
+}
+
+<pre class="theme-@Model.Settings!.LanguageTheme"><code class="language-@Model.Settings!.LanguageName">@Model.Content.Content</code></pre>

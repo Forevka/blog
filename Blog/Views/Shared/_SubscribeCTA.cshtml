@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var home = Model.AncestorOrSelf<Home>()!;
+}
+
+<div class="section">
+    <div class="inset-container cta">
+        <img src="@home.MainBackgroundImage!.Url()" loading="lazy" alt="" class="noise-layer" />
+        <div class="container">
+            <div class="text-box _700px centre">
+                <div class="text-align-centre">
+                    <h1 class="heading extra-large">Stay in the loop</h1>
+                    <div class="spacer _40"></div>
+                    <div class="form-block">
+                        <form id="subscribeForm" method="post" action="@Url.Action("Subscribe", "Home")" class="email-form-wrapper">
+                            <input class="text-field w-input" maxlength="256" name="Email" placeholder="Your email" type="email" required />
+                            <input type="submit" class="button in-input w-button" value="Subscribe →" />
+                        </form>
+                        <div class="spacer _16"></div>
+                        <div class="paragraph small text-color-600">
+                            No spam, just certified good stuff
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blurred-circle"></div>
+            <div class="blurred-circle bottom-right"></div>
+        </div>
+    </div>
+</div>

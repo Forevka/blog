@@ -1,0 +1,100 @@
+﻿.theme-base16-onedark {
+    background-color: #282c34;
+}
+
+.theme-base16-onedark pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+
+.theme-base16-onedark code.hljs {
+
+}
+
+.theme-base16-onedark .hljs {
+    color: #abb2bf;
+    background: #282c34
+}
+
+    .theme-base16-onedark .hljs ::-moz-selection, .theme-base16-onedark .hljs::-moz-selection {
+        background-color: #3e4451;
+        color: #abb2bf
+    }
+
+    .theme-base16-onedark .hljs ::selection, .theme-base16-onedark .hljs::selection {
+        background-color: #3e4451;
+        color: #abb2bf
+    }
+
+.theme-base16-onedark .hljs-comment {
+    color: #545862
+}
+
+.theme-base16-onedark .hljs-tag {
+    color: #565c64
+}
+
+.theme-base16-onedark .hljs-operator, .theme-base16-onedark .hljs-punctuation, .theme-base16-onedark .hljs-subst {
+    color: #abb2bf
+}
+
+.theme-base16-onedark .hljs-operator {
+    opacity: .7
+}
+
+.theme-base16-onedark .hljs-bullet, .theme-base16-onedark .hljs-deletion, .theme-base16-onedark .hljs-name, .theme-base16-onedark .hljs-selector-tag, .theme-base16-onedark .hljs-template-variable, .theme-base16-onedark .hljs-variable {
+    color: #e06c75
+}
+
+    .theme-base16-onedark .hljs-attr, .theme-base16-onedark .hljs-link, .theme-base16-onedark .hljs-literal, .theme-base16-onedark .hljs-number, .theme-base16-onedark .hljs-symbol, .theme-base16-onedark .hljs-variable.constant_ {
+        color: #d19a66
+    }
+
+.theme-base16-onedark .hljs-class .hljs-title, .theme-base16-onedark .hljs-title, .theme-base16-onedark .hljs-title.class_ {
+    color: #e5c07b
+}
+
+.theme-base16-onedark .hljs-strong {
+    font-weight: 700;
+    color: #e5c07b
+}
+
+.theme-base16-onedark .hljs-addition, .theme-base16-onedark .hljs-code, .theme-base16-onedark .hljs-string, .theme-base16-onedark .hljs-title.class_.inherited__ {
+    color: #98c379
+}
+
+.theme-base16-onedark .hljs-built_in, .theme-base16-onedark .hljs-doctag, .theme-base16-onedark .hljs-keyword.hljs-atrule, .theme-base16-onedark .hljs-quote, .theme-base16-onedark .hljs-regexp {
+    color: #56b6c2
+}
+
+.theme-base16-onedark .hljs-attribute, .theme-base16-onedark .hljs-function .hljs-title, .theme-base16-onedark .hljs-section, .theme-base16-onedark .hljs-title.function_, .theme-base16-onedark .ruby .hljs-property {
+    color: #61afef
+}
+
+.theme-base16-onedark .diff .hljs-meta, .theme-base16-onedark .hljs-keyword, .theme-base16-onedark .hljs-template-tag, .theme-base16-onedark .hljs-type {
+    color: #c678dd
+}
+
+.theme-base16-onedark .hljs-emphasis {
+    color: #c678dd;
+    font-style: italic
+}
+
+.theme-base16-onedark .hljs-meta, .theme-base16-onedark .hljs-meta .hljs-keyword, .theme-base16-onedark .hljs-meta .hljs-string {
+    color: #be5046
+}
+
+    .theme-base16-onedark .hljs-meta .hljs-keyword, .theme-base16-onedark .hljs-meta-keyword {
+        font-weight: 700
+    }
+
+.hljs-ln-n {
+    border-right-color: darkseagreen;
+    border-right-style: outset;
+}
+
+.hljs-ln-n {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}

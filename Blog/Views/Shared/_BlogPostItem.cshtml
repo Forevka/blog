@@ -1,0 +1,17 @@
+﻿@inherits UmbracoViewPage<ArticlesItem>
+
+<div role="listitem" class="post-item w-dyn-item">
+    <a href="@Model.Url()" class="post-item-content w-inline-block">
+        <div class="image-wrapper">
+            <img alt="@Model.Title" loading="lazy" src="@Model.HeroImage!.Url()" class="post-item-image" />
+        </div>
+        <div class="content">
+            <h2 class="heading medium">@Model.Title</h2>
+            <div class="post-details-wrapper">
+                <div class="post-detail">@string.Join(',', Model.Category!.Select(x => (x as ArticleCategory)?.ArticleCategoryName).ToList())</div>
+                <div class="post-detail">·</div>
+                <div class="post-detail">@Model.ReadTime min</div>
+            </div>
+        </div>
+    </a>
+</div>
