@@ -59,7 +59,7 @@ jobs:
                 "Debug": false
               },
               "Security": {
-                "BackOfficeHost": "https://genshin.forevka.dev"
+                "BackOfficeHost": "https://forevka.dev"
               }
             }
           },
