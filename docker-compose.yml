@@ -1,34 +1,34 @@
 services:
 
-  postgres:
+  mssql-blog:
     restart: always
-    container_name: postgres
-    image: postgres:latest
+    container_name: sql_server2019
+    image: mcr.microsoft.com/mssql/server:2019-latest
     user: root
     ports:
-      - 5432:5432
+      - 1433:1433
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=werdwerd2012_
-      - POSTGRES_DB=my_database
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=werdwerd2012_
     volumes:
-      - /home/postgres/data:/var/lib/postgresql/data
-      - /home/postgres/secrets:/var/lib/postgresql/secrets
+      - /home/sqlserver19/data:/var/opt/mssql/data
+      - /home/sqlserver19/log:/var/opt/mssql/log
+      - /home/sqlserver19/secrets:/var/opt/mssql/secrets
 
-  postgres-dev:
+  mssql-blog-dev:
     restart: always
-    container_name: postgresdev
-    image: postgres:latest
+    container_name: sql_server2019dev
+    image: mcr.microsoft.com/mssql/server:2019-latest
     user: root
     ports:
-      - 5433:5432
+      - 1434:1433
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=werdwerd2012_
-      - POSTGRES_DB=my_database
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=werdwerd2012_
     volumes:
-      - /home/postgresdev/data:/var/lib/postgresql/data
-      - /home/postgresdev/secrets:/var/lib/postgresql/secrets
+      - /home/sqlserver19dev/data:/var/opt/mssql/data
+      - /home/sqlserver19dev/log:/var/opt/mssql/log
+      - /home/sqlserver19dev/secrets:/var/opt/mssql/secrets
 
   blog:
     restart: always
