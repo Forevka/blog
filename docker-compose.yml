@@ -11,9 +11,9 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=werdwerd2012_
     volumes:
-      - /home/sqlserver19/data:/var/opt/mssql/data
-      - /home/sqlserver19/log:/var/opt/mssql/log
-      - /home/sqlserver19/secrets:/var/opt/mssql/secrets
+      - /home/sqlserver19-blog/data:/var/opt/mssql/data
+      - /home/sqlserver19-blog/log:/var/opt/mssql/log
+      - /home/sqlserver19-blog/secrets:/var/opt/mssql/secrets
 
   mssql-blog-dev:
     restart: always
@@ -26,9 +26,9 @@ services:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=werdwerd2012_
     volumes:
-      - /home/sqlserver19dev/data:/var/opt/mssql/data
-      - /home/sqlserver19dev/log:/var/opt/mssql/log
-      - /home/sqlserver19dev/secrets:/var/opt/mssql/secrets
+      - /home/sqlserver19-blog-dev/data:/var/opt/mssql/data
+      - /home/sqlserver19-blog-dev/log:/var/opt/mssql/log
+      - /home/sqlserver19-blog-dev/secrets:/var/opt/mssql/secrets
 
   blog:
     restart: always
