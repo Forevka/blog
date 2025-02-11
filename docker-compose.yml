@@ -30,10 +30,10 @@ services:
       - /home/postgresdev/data:/var/lib/postgresql/data
       - /home/postgresdev/secrets:/var/lib/postgresql/secrets
 
-  backoffice:
+  blog:
     restart: always
-    container_name: backoffice
-    image: forevka/gi-backoffice:latest
+    container_name: blog
+    image: forevka/blog:latest
     user: root
     ports:
       - 1450:80
