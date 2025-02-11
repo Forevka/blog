@@ -66,6 +66,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string BodyTitle => global::Umbraco.Cms.Web.Common.PublishedModels.ArticleBase.GetBodyTitle(this, _publishedValueFallback);
 
 		///<summary>
+		/// CardImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.0+41b7696")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("cardImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops CardImage => global::Umbraco.Cms.Web.Common.PublishedModels.ArticleBase.GetCardImage(this, _publishedValueFallback);
+
+		///<summary>
 		/// Category
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.0+41b7696")]

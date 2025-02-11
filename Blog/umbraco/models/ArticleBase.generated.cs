@@ -32,6 +32,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		string BodyTitle { get; }
 
+		/// <summary>CardImage</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.0+41b7696")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.MediaWithCrops CardImage { get; }
+
 		/// <summary>Category</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.0+41b7696")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -123,6 +128,19 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.0+41b7696")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static string GetBodyTitle(IArticleBase that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "bodyTitle");
+
+		///<summary>
+		/// CardImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.0+41b7696")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("cardImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops CardImage => GetCardImage(this, _publishedValueFallback);
+
+		/// <summary>Static getter for CardImage</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.0+41b7696")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetCardImage(IArticleBase that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "cardImage");
 
 		///<summary>
 		/// Category

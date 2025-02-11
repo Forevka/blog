@@ -28,6 +28,59 @@ jobs:
       run: |
         docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
     
+    - name: Create production config file
+      run: |
+        cat <<EOF > Blog/appsettings.Production.json
+        {
+          "$schema": "appsettings-schema.json",
+          "Serilog": {
+            "MinimumLevel": {
+              "Default": "Information"
+            },
+            "WriteTo": [
+              {
+                "Name": "Async",
+                "Args": {
+                  "configure": [
+                    {
+                      "Name": "Console"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "Umbraco": {
+            "CMS": {
+              "Content": {
+                "MacroErrors": "Throw"
+              },
+              "Hosting": {
+                "Debug": false
+              }
+            }
+          },
+          "ConnectionStrings": {
+            "umbracoDbDSN": "${{ secrets.PROD_CONNECTION_STRING }}",
+            "umbracoDbDSN_ProviderName": "System.Data.SqlClient"
+          }
+        }
+        EOF
+
+    - name: Verify production config file exists
+      run: |
+        echo "Listing contents of Blog directory:"
+        ls -la Blog
+
+    - name: Check for appsettings.Production.json file
+      run: |
+        if [ -f Blog/appsettings.Production.json ]; then
+          echo "Production config file successfully created."
+        else
+          echo "Error: Production config file not found!" >&2
+          exit 1
+        fi
+
     - name: Build the Docker image
       run: docker build . --tag ${{env.dockerRepositoryName}}
       
