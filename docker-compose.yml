@@ -33,7 +33,7 @@ services:
   blog:
     restart: always
     container_name: blog
-    image: forevka/blog:latest
+    image: forevka/blog.slim:latest
     user: root
     ports:
       - 1450:80
