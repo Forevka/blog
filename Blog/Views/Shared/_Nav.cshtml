@@ -24,7 +24,7 @@
                     <a href="@contactsPage!.Url()" class="navigation-link w-nav-link">Contact</a>
                 </div>
             </nav>
-            <div class="menu-button w-nav-button" style="-webkit-user-select: text" aria-label="menu" role="button" tabindex="0">
+            <div class="menu-button w-nav-button" style="-webkit-user-select: text" aria-label="menu" role="button" tabindex="0" id="nav-button">
                 <div class="menu-icon">
                     <div class="menu-icon-line-top"></div>
                     <div class="menu-icon-line-bottom"></div>
@@ -32,5 +32,49 @@
             </div>
         </div>
     </div>
-    <div class="w-nav-overlay"></div>
+    <div class="w-nav-overlay">
+        <nav role="navigation" id="w-node-_7ecd2c46-248a-916e-eb95-08abb6aec6aa-b6aec6a5" class="nav-menu w-nav-menu" style="transition: all, transform 400ms; transform: translateY(0px) translateX(0px);" data-nav-menu-open="">
+
+            <div class="links-wrapper">
+                <a href="@aboutPage!.Url()" class="navigation-link w-nav-link w--current w--nav-link-open">About</a>
+                <link rel="prefetch" href="@aboutPage!.Url()">
+                <a href="@contactsPage!.Url()" class="navigation-link w-nav-link w--nav-link-open">Contact</a>
+                <link rel="prefetch" href="@contactsPage!.Url()">
+            </div>
+        </nav>
+
+    </div>
 </div>
+
+<script>
+    document.getElementById('nav-button').addEventListener('click', function () {
+        const overlay = document.querySelector('.w-nav-overlay');
+        const topLine = document.querySelector('.menu-icon-line-top');
+        const bottomLine = document.querySelector('.menu-icon-line-bottom');
+
+        if (overlay.hasAttribute('data-nav-menu-open')) {
+            overlay.removeAttribute('data-nav-menu-open');
+
+            // Remove inline styles
+            if (topLine) topLine.style.transform = 'translate3d(0px, 0.0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)';
+            if (topLine) topLine.style.transformStyle = '';
+
+            if (bottomLine) bottomLine.style.transform = 'translate3d(0px, 0.0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)';
+            if (bottomLine) bottomLine.style.transformStyle = '';
+        } else {
+            overlay.setAttribute('data-nav-menu-open', '');
+
+            // Apply inline styles
+            if (topLine) {
+                topLine.style.transform = 'translate3d(0px, 0.25rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg)';
+                topLine.style.transformStyle = 'preserve-3d';
+            }
+
+            if (bottomLine) {
+                bottomLine.style.transform = 'translate3d(0px, -0.25rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg)';
+                bottomLine.style.transformStyle = 'preserve-3d';
+            }
+        }
+    });
+
+</script>

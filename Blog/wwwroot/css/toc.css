@@ -73,3 +73,22 @@
     margin-top: -40px;
     visibility: hidden
 }
+
+.section {
+    scroll-margin: 60px; /* Adjust to your header's height */
+}
+
+:target {
+    animation: highlightAnimation 1s ease-out forwards;
+    border-radius: 8px; /* Rounded borders added here */
+}
+
+@keyframes highlightAnimation {
+    from {
+        background-color: rgba(255, 255, 0, .8);
+    }
+
+    to {
+        background-color: transparent;
+    }
+}

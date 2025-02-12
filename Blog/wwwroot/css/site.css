@@ -21,7 +21,7 @@
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    font-family: sans-serif
+    font-family: sans-serif;
 }
 
 body {
@@ -1869,7 +1869,7 @@ textarea.w-input, textarea.w-select {
     top: 100%;
     left: 0;
     right: 0;
-    overflow: visible;
+    visibility: visible;
     display: block !important
 }
 
@@ -1880,16 +1880,23 @@ textarea.w-input, textarea.w-select {
 
 .w-nav-overlay {
     width: 100%;
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    overflow: hidden
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.w-nav-overlay[data-nav-menu-open] nav {
+    visibility: visible;
+}
+
+.w-nav-overlay nav {
+    visibility: hidden;
 }
 
     .w-nav-overlay [data-nav-menu-open] {
-        top: 0
+        top: 0;
     }
 
 .w-nav[data-animation=over-left] .w-nav-overlay {
@@ -2021,7 +2028,6 @@ textarea.w-input, textarea.w-select {
 .w-tab-content {
     display: block;
     position: relative;
-    overflow: hidden
 }
 
 .w-tab-pane {
@@ -2774,7 +2780,6 @@ figcaption {
 .section {
     z-index: 1;
     position: relative;
-    overflow: hidden
 }
 
     .section._404 {
@@ -2866,7 +2871,6 @@ figcaption {
 .post-item {
     transition: opacity .3s cubic-bezier(.165,.84,.44,1),transform .3s cubic-bezier(.165,.84,.44,1);
     display: flex;
-    overflow: hidden
 }
 
     .post-item:hover {
@@ -3119,7 +3123,6 @@ figcaption {
     width: 100%;
     display: flex;
     position: relative;
-    overflow: hidden
 }
 
 .email-form-wrapper {
@@ -3520,7 +3523,8 @@ figcaption {
         height: .125rem;
         margin-top: .1875rem;
         padding-bottom: 0;
-        padding-right: 0
+        padding-right: 0;
+        transition: transform 0.2s ease-in;
     }
 
     .menu-icon {
@@ -3538,7 +3542,8 @@ figcaption {
         height: .125rem;
         margin-bottom: .1875rem;
         padding-bottom: 0;
-        padding-right: 0
+        padding-right: 0;
+        transition: transform 0.2s ease-in;
     }
 
     .menu-button {
@@ -3871,7 +3876,7 @@ figcaption {
     }
 
     .container {
-        padding: 3rem 2rem
+        padding: 3rem 0.8rem
     }
 
         .container.banner {
@@ -4045,8 +4050,8 @@ p > strong {
 }
 
 p > strong::after {
-    bottom: -0.2rem;
-    height: 0.5rem;
+    bottom: -0.5rem;
+    height: 0.8rem;
     left: -0.25rem;
     right: -0.25rem;
 }
