@@ -5,6 +5,7 @@
 
     Layout = "master.cshtml";
 
+    ViewData["Title"] = Model.Title;
 
     var tocItems = Model.Content!
         .Where(x => x.Settings is ITocEntry { IsEnabled: true })
@@ -95,6 +96,117 @@
                                         @section Scripts {
                                             <script>hljs.highlightAll();</script>
                                             <script>hljs.initLineNumbersOnLoad();</script>
+
+
+                                            <script>
+                                                // for beutiful strong underline
+                                                const magicalUnderlines = Array.from(document.querySelectorAll('strong'));
+
+                                                const gradientAPI = 'https://gist.githubusercontent.com/wking-io/3e116c0e5675c8bcad8b5a6dc6ca5344/raw/4e783ce3ad0bcd98811c6531e40256b8feeb8fc8/gradient.json';
+
+                                                // HELPER FUNCTIONS
+
+                                                // 1. Get random number in range. Used to get random index from array.
+                                                const randNumInRange = max => Math.floor(Math.random() * (max - 1));
+
+                                                // 2. Merge two separate array values at the same index to
+                                                // be the same value in new array.
+                                                const mergeArrays = (arrOne, arrTwo) => arrOne.
+                                                map((item, i) => `${item} ${arrTwo[i]}`).
+                                                join(', ');
+
+                                                // 3. Curried function to add a background to array of elms
+                                                const addBackground = elms => color => {
+                                                  elms.forEach(el => {
+                                                    el.style.backgroundImage = color;
+                                                  });
+                                                };
+                                                // 4. Function to get data from API
+                                                const getData = async url => {
+                                                    return [
+                                                        {
+                                                            "name": "fierySpark",
+                                                            "direction": "90deg",
+                                                            "colors": ["#E52020", "#FBA518"],
+                                                            "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "goldenFlare",
+                                                        "direction": "to right",
+                                                        "colors": ["#FBA518", "#F9CB43"],
+                                                        "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "sunsetFusion",
+                                                        "direction": "45deg",
+                                                        "colors": ["#E52020", "#FBA518", "#F9CB43"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "amberTwilight",
+                                                        "direction": "to top",
+                                                        "colors": ["#FBA518", "#F9CB43", "#A89C29"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "radiantBurst",
+                                                        "direction": "to left",
+                                                        "colors": ["#E52020", "#FBA518", "#F9CB43", "#A89C29"],
+                                                        "positions": ["0%", "33%", "67%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "reverseGlow",
+                                                        "direction": "to bottom",
+                                                        "colors": ["#A89C29", "#F9CB43", "#FBA518", "#E52020"],
+                                                        "positions": ["0%", "33%", "67%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "crimsonHeat",
+                                                        "direction": "120deg",
+                                                        "colors": ["#E52020", "#F9CB43"],
+                                                        "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "saffronDream",
+                                                        "direction": "to right",
+                                                        "colors": ["#FBA518", "#A89C29"],
+                                                        "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "vividEmber",
+                                                        "direction": "135deg",
+                                                        "colors": ["#E52020", "#F9CB43", "#A89C29"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "citrusFlare",
+                                                        "direction": "200deg",
+                                                        "colors": ["#FBA518", "#F9CB43", "#E52020"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        }
+                                                    ];
+                                                };
+
+                                                // 5. Partial Application of addBackground to always apply
+                                                // background to the magicalUnderlines constant
+                                                const addBackgroundToUnderlines = addBackground(magicalUnderlines);
+
+                                                // GRADIENT FUNCTIONS
+
+                                                // 1. Build CSS formatted linear-gradient from API data
+                                                const buildGradient = obj => `linear-gradient(${obj.direction}, ${mergeArrays(obj.colors, obj.positions)})`;
+
+                                                // 2. Get single gradient from data pulled in array and
+                                                // apply single gradient to a callback function
+                                                const applyGradient = async (url, callback) => {
+                                                  const data = await getData(url);
+                                                  const gradient = buildGradient(data[randNumInRange(data.length)]);
+                                                  callback(gradient);
+                                                };
+
+                                                // RESULT
+                                                applyGradient(gradientAPI, addBackgroundToUnderlines);
+                                            </script>
                                         }
 
 

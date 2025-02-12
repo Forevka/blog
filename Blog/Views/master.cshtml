@@ -1,35 +1,47 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = null;
+    Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YGYX48ND7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-3YGYX48ND7');
+        </script>
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>@ViewData["Title"] - Monograph</title>
+        <title>@ViewData["Title"] - Forevka</title>
+
         <link rel="stylesheet" href="~/css/site.css" />
+
         <!-- Add other CSS links, fonts, or meta tags as needed -->
         @await RenderSectionAsync("HeadContent", required: false)
     </head>
     <body>
 
-    @* Navigation bar (partial view) *@
-    @await Html.PartialAsync("_Nav")
+        @* Navigation bar (partial view) *@
+        @await Html.PartialAsync("_Nav")
 
-    @* Main content placeholder *@
-    <div class="main-content">
-        @RenderBody()
-    </div>
+        @* Main content placeholder *@
+        <div class="main-content">
+            @RenderBody()
+        </div>
 
-    @* Subscribe CTA (partial view) *@
-    @await Html.PartialAsync("_SubscribeCTA")
+        @* Subscribe CTA (partial view) *@
+        @await Html.PartialAsync("_SubscribeCTA")
 
-    @* Footer (partial view) *@
-    @await Html.PartialAsync("_Footer")
+        @* Footer (partial view) *@
+        @await Html.PartialAsync("_Footer")
 
-    @await RenderSectionAsync("Scripts", required: false)
-
+        @await RenderSectionAsync("Scripts", required: false)
+        
     </body>
 </html>

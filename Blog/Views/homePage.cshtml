@@ -5,6 +5,7 @@
 
     Layout = "master.cshtml";
 
+    ViewData["Title"] = "Home";
 
     var categories = (Umbraco.GetPageByAlias("articleCategories") as ArticleCategories)?.Descendants().Select(x => x as ArticleCategory);
 }

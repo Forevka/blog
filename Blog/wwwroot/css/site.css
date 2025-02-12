@@ -3798,26 +3798,6 @@ figcaption {
             font-size: 1.375rem
         }
 
-    .rich-text h3 {
-        margin-top: 3rem
-    }
-
-    .rich-text h1, .rich-text h2 {
-        margin-top: 3.5rem
-    }
-
-    .rich-text h4 {
-        margin-top: 2.5rem
-    }
-
-    .rich-text h5 {
-        margin-top: 2rem
-    }
-
-    .rich-text h6 {
-        margin-top: 1.5rem
-    }
-
     .rich-text p {
         margin-bottom: 1.25rem;
         font-size: 1rem
@@ -4029,29 +4009,13 @@ figcaption {
 
 
 strong {
-    position: relative;
-}
-
-strong::after {
-    content: "";
-    position: absolute;
-    bottom: -0.125rem;
-    left: -0.5rem;
-    right: -0.5rem;
-    height: 0.75rem;
-    z-index: -1;
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/664131/underline.svg");
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 0.2em;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-in;
 }
 
-p > strong {
-    font-weight: 400;
-}
-
-p > strong::after {
-    bottom: -0.5rem;
-    height: 0.8rem;
-    left: -0.25rem;
-    right: -0.25rem;
+strong:hover {
+    background-size: 100% 88%;
 }
