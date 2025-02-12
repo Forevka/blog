@@ -1,6 +1,3 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 env:
   dockerRepositoryName: 'forevka/blog'
 
@@ -15,78 +12,87 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        submodules: 'recursive'
-    
-    - name: Docker Login
-      run: |
-        docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
-    
-    - name: Create production config file
-      run: |
-        cat <<EOF > Blog/appsettings.Production.json
-        {
-          "$schema": "appsettings-schema.json",
-          "Serilog": {
-            "MinimumLevel": {
-              "Default": "Information"
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: 'recursive'
+      
+      - name: Docker Login
+        run: |
+          docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Create production config file
+        run: |
+          cat <<EOF > Blog/appsettings.Production.json
+          {
+            "$schema": "appsettings-schema.json",
+            "Serilog": {
+              "MinimumLevel": {
+                "Default": "Information"
+              },
+              "WriteTo": [
+                {
+                  "Name": "Async",
+                  "Args": {
+                    "configure": [
+                      {
+                        "Name": "Console"
+                      }
+                    ]
+                  }
+                }
+              ]
             },
-            "WriteTo": [
-              {
-                "Name": "Async",
-                "Args": {
-                  "configure": [
-                    {
-                      "Name": "Console"
-                    }
-                  ]
+            "Umbraco": {
+              "CMS": {
+                "Content": {
+                  "MacroErrors": "Throw"
+                },
+                "Hosting": {
+                  "Debug": false
+                },
+                "Security": {
+                  "BackOfficeHost": "https://forevka.dev"
                 }
               }
-            ]
-          },
-          "Umbraco": {
-            "CMS": {
-              "Content": {
-                "MacroErrors": "Throw"
-              },
-              "Hosting": {
-                "Debug": false
-              },
-              "Security": {
-                "BackOfficeHost": "https://forevka.dev"
-              }
+            },
+            "ConnectionStrings": {
+              "umbracoDbDSN": "${{ secrets.PROD_CONNECTION_STRING }}",
+              "umbracoDbDSN_ProviderName": "System.Data.SqlClient"
             }
-          },
-          "ConnectionStrings": {
-            "umbracoDbDSN": "${{ secrets.PROD_CONNECTION_STRING }}",
-            "umbracoDbDSN_ProviderName": "System.Data.SqlClient"
           }
-        }
-        EOF
+          EOF
 
-    - name: Verify production config file exists
-      run: |
-        echo "Listing contents of Blog directory:"
-        ls -la Blog
+      - name: Verify production config file exists
+        run: |
+          echo "Listing contents of Blog directory:"
+          ls -la Blog
 
-    - name: Check for appsettings.Production.json file
-      run: |
-        if [ -f Blog/appsettings.Production.json ]; then
-          echo "Production config file successfully created."
-        else
-          echo "Error: Production config file not found!" >&2
-          exit 1
-        fi
+      - name: Check for appsettings.Production.json file
+        run: |
+          if [ -f Blog/appsettings.Production.json ]; then
+            echo "Production config file successfully created."
+          else
+            echo "Error: Production config file not found!" >&2
+            exit 1
+          fi
 
-    - name: Build the Docker image
-      run: docker build . --tag ${{env.dockerRepositoryName}}
+      - name: Build the Docker image (fat image)
+        run: docker build . --tag ${{ env.dockerRepositoryName }}
       
-    - name: Docker Push
-      run: docker push ${{env.dockerRepositoryName}}
+      - name: Install docker-slim
+        run: |
+          # Download and extract docker-slim binary
+          curl -sL https://github.com/docker-slim/docker-slim/releases/download/1.41.0/dist_linux.tar.gz \
+            | tar -xz -C /usr/local/bin --strip-components=1 docker-slim
+          chmod +x /usr/local/bin/docker-slim
       
+      - name: Slim the Docker image
+        run: docker-slim build ${{ env.dockerRepositoryName }}
+        # By default, docker-slim will tag the slim image as forevka/blog.slim
+      
+      - name: Docker Push (slim image)
+        run: docker push ${{ env.dockerRepositoryName }}.slim
