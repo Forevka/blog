@@ -2149,7 +2149,7 @@ h1 {
     letter-spacing: -.02em;
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 5.5rem;
+    font-size: 1.875rem;
     font-weight: 400;
     line-height: 1.05
 }
@@ -2160,7 +2160,7 @@ h2 {
     letter-spacing: -.02em;
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.1
 }
@@ -2170,7 +2170,7 @@ h3 {
     letter-spacing: -.02em;
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 1.875rem;
+    font-size: 1.3rem;
     font-weight: 400;
     line-height: 1.15
 }
