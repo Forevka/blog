@@ -8,6 +8,7 @@
     // Retrieve all root nodes
     var contactsPage = Umbraco.GetPageByAlias("contacts");
     var aboutPage = Umbraco.GetPageByAlias("about");
+    var pageName = Umbraco.AssignedContentItem;
 }
 
 <div data-w-id="7ecd2c46-248a-916e-eb95-08abb6aec6a5" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
@@ -20,8 +21,8 @@
             </div>
             <nav role="navigation" class="nav-menu w-nav-menu">
                 <div class="links-wrapper">
-                    <a href="@aboutPage!.Url()" class="navigation-link w-nav-link">About</a>
-                    <a href="@contactsPage!.Url()" class="navigation-link w-nav-link">Contact</a>
+                    <a href="@aboutPage!.Url()" class="navigation-link w-nav-link @(pageName.ContentType.Alias == "about" ? "w--current" : "")">About</a>
+                    <a href="@contactsPage!.Url()" class="navigation-link w-nav-link @(pageName.ContentType.Alias == "contacts" ? "w--current" : "")">Contact</a>
                 </div>
             </nav>
             <div class="menu-button w-nav-button" style="-webkit-user-select: text" aria-label="menu" role="button" tabindex="0" id="nav-button">
@@ -36,9 +37,9 @@
         <nav role="navigation" id="w-node-_7ecd2c46-248a-916e-eb95-08abb6aec6aa-b6aec6a5" class="nav-menu w-nav-menu" style="transition: all, transform 400ms; transform: translateY(0px) translateX(0px);" data-nav-menu-open="">
 
             <div class="links-wrapper">
-                <a href="@aboutPage!.Url()" class="navigation-link w-nav-link w--current w--nav-link-open">About</a>
+                <a href="@aboutPage!.Url()" class="navigation-link w-nav-link w--nav-link-open @(pageName.ContentType.Alias == "about" ? "w--current" : "")">About</a>
                 <link rel="prefetch" href="@aboutPage!.Url()">
-                <a href="@contactsPage!.Url()" class="navigation-link w-nav-link w--nav-link-open">Contact</a>
+                <a href="@contactsPage!.Url()" class="navigation-link w-nav-link w--nav-link-open @(pageName.ContentType.Alias == "contacts" ? "w--current" : "")">Contact</a>
                 <link rel="prefetch" href="@contactsPage!.Url()">
             </div>
         </nav>
