@@ -194,16 +194,22 @@
       popover.style.setProperty('transition', 'none');
       popover.addEventListener('toggle', () => {
         if (!set) {
-          // Instead of measuring popover, measure its .contents
-          const contentEl = popover.querySelector('.contents');
-          const { height, width } = contentEl.getBoundingClientRect();
-          document.documentElement.style.setProperty('--content-height', `${height}px`);
-          document.documentElement.style.setProperty('--content-width', `${width}px`);
-          set = true;
-          popover.hidePopover();
+          // Ensure the popover is open
+          popover.showPopover();
+          // Wait for layout updates: double rAF hack
           requestAnimationFrame(() => {
-            popover.showPopover();
-            popover.style.removeProperty('transition');
+            requestAnimationFrame(() => {
+              const contentEl = popover.querySelector('.contents');
+              const { height, width } = contentEl.getBoundingClientRect();
+              document.documentElement.style.setProperty('--content-height', `${height}px`);
+              document.documentElement.style.setProperty('--content-width', `${width}px`);
+              set = true;
+              popover.hidePopover();
+              requestAnimationFrame(() => {
+                popover.showPopover();
+                popover.style.removeProperty('transition');
+              });
+            });
           });
         }
       });
