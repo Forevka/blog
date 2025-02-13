@@ -16,16 +16,8 @@
     <div class="container">
         <div class="text-box _700px centre">
             <div class="text-align-centre">
-                <h1 class="heading extra-large title">
-                    @Model.HeroText
-                    <div class="aurora">
-                        <div class="aurora__item"></div>
-                        <div class="aurora__item"></div>
-                        <div class="aurora__item"></div>
-                        <div class="aurora__item"></div>
-                        <div class="aurora__item"></div>
-                    </div>
-                </h1>
+                @await Html.PartialAsync("AuroraTitle", @Model.HeroText)
+
                 <div class="spacer _40"></div>
             </div>
         </div>

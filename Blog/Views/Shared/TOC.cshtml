@@ -1,0 +1,209 @@
+﻿@model List<ITocEntry>
+
+<div class="popover-demo">
+    <!-- Trigger Button -->
+    <button class="trigger" popovertarget="index" popovertargetaction="toggle">
+        <div class="trigger__details">
+            <svg width="24"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_3000_5"
+                      maskUnits="userSpaceOnUse"
+                      x="0"
+                      y="2"
+                      width="24"
+                      height="20">
+                    <path d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25"
+                          stroke-width="2.5"
+                          stroke="gray" />
+                </mask>
+                <g mask="url(#mask0_3000_5)">
+                    <rect x="3" y="6" width="18" height="12" fill="gray" />
+                </g>
+                <mask id="mask1_3000_5"
+                      maskUnits="userSpaceOnUse"
+                      x="0"
+                      y="2"
+                      width="24"
+                      height="20">
+                    <path class="lines"
+                          d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25"
+                          stroke="white"
+                          stroke-width="2.5"
+                          pathLength="1.025"
+                          stroke-dasharray="1.025"
+                          stroke-dashoffset="1.025" />
+                </mask>
+                <g mask="url(#mask1_3000_5)">
+                    <rect x="3" y="6" width="18" height="12" fill="white" />
+                </g>
+            </svg>
+
+            <span>
+                <span>Index</span>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="size-6">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                </svg>
+            </span>
+            <span class="progress"></span>
+        </div>
+    </button>
+
+    <!-- Popover Contents -->
+    <div popover="auto" id="index">
+        <div class="contents">
+            <button popovertarget="index" popovertargetaction="hide">
+                <div class="trigger__details">
+                    <svg width="24"
+                         height="24"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_3000_5"
+                              maskUnits="userSpaceOnUse"
+                              x="0"
+                              y="2"
+                              width="24"
+                              height="20">
+                            <path d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25"
+                                  stroke-width="2.5"
+                                  stroke="gray" />
+                        </mask>
+                        <g mask="url(#mask0_3000_5)">
+                            <rect x="3" y="6" width="18" height="12" fill="gray" />
+                        </g>
+                        <mask id="mask1_3000_5"
+                              maskUnits="userSpaceOnUse"
+                              x="0"
+                              y="2"
+                              width="24"
+                              height="20">
+                            <path class="lines"
+                                  d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25"
+                                  stroke="white"
+                                  stroke-width="2.5"
+                                  pathLength="1.025"
+                                  stroke-dasharray="1.025"
+                                  stroke-dashoffset="1.025" />
+                        </mask>
+                        <g mask="url(#mask1_3000_5)">
+                            <rect x="3" y="6" width="18" height="12" fill="white" />
+                        </g>
+                    </svg>
+
+                    <span>
+                        <span>Index</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                        </svg>
+                    </span>
+                    <span class="progress"></span>
+                </div>
+            </button>
+            <ol>
+                
+                @foreach (var tocEntry in Model)
+                {
+                    <li><a href="#@tocEntry.TocAnchor">@tocEntry.TocText</a></li>
+                }
+                
+            </ol>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+</div>
+
+<script type="module">
+    //import { Pane } from 'https://cdn.skypack.dev/tweakpane@4.0.4';
+
+    const popover = document.querySelector('[popover]');
+
+    const config = {
+      alignment: 'center',
+      theme: 'light'
+    };
+
+    /*const ctrl = new Pane({
+      title: 'Config',
+      expanded: false
+    });*/
+
+    const update = () => {
+      document.documentElement.dataset.theme = config.theme;
+      document.documentElement.dataset.alignment = config.alignment;
+    };
+
+    const sync = event => {
+      if (
+        !document.startViewTransition ||
+        (event.target.controller.view.labelElement.innerText !== 'Theme' &&
+         event.target.controller.view.labelElement.innerText !== 'Alignment')
+      ) {
+        return update();
+      }
+      document.startViewTransition(() => update());
+    };
+
+    /*ctrl.addBinding(config, 'alignment', {
+      label: 'Alignment',
+      options: {
+        Left: 'left',
+        Center: 'center',
+        Right: 'right'
+      }
+    });
+
+    ctrl.addBinding(config, 'theme', {
+      label: 'Theme',
+      options: {
+        System: 'system',
+        Light: 'light',
+        Dark: 'dark'
+      }
+    });
+
+    ctrl.on('change', sync);*/
+    update();
+
+    const links = document.querySelectorAll('ol a');
+    links.forEach(link => {
+      link.addEventListener('click', () => popover.hidePopover());
+    });
+
+    // Backfill the popover width/height transition for browsers without "interpolate-size" support
+    if (!CSS.supports('interpolate-size: allow-keywords')) {
+      let set = false;
+      popover.style.setProperty('transition', 'none');
+      popover.addEventListener('toggle', () => {
+        if (!set) {
+          const { height, width } = popover.getBoundingClientRect();
+          document.documentElement.style.setProperty('--content-height', `${height}px`);
+          document.documentElement.style.setProperty('--content-width', `${width}px`);
+          set = true;
+          popover.hidePopover();
+          requestAnimationFrame(() => {
+            popover.showPopover();
+            popover.style.removeProperty('transition');
+          });
+        }
+      });
+    }
+</script>

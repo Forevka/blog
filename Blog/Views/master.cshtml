@@ -4,7 +4,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" data-alignment="center">
     <head>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YGYX48ND7"></script>
@@ -43,5 +43,31 @@
 
         @await RenderSectionAsync("Scripts", required: false)
         
+        <script>
+            function updateFloatingAlignment() {
+              // Select all components that should change alignment
+              const components = document.querySelectorAll('html');
+
+              // Check if the viewport width is at or below the mobile threshold
+              if (window.innerWidth <= 768) {
+                components.forEach(component => {
+                  // Change the alignment attribute to "left"
+                    component.setAttribute('data-alignment', 'left');
+                });
+              } else {
+                // Optionally, reset to the default (or original) alignment
+                components.forEach(component => {
+                    component.setAttribute('data-alignment', 'center');
+                });
+              }
+
+            }
+
+            // Run the function on initial page load
+            window.addEventListener('DOMContentLoaded', updateFloatingAlignment);
+
+            // Run the function when the window is resized
+            window.addEventListener('resize', updateFloatingAlignment);
+        </script>
     </body>
 </html>

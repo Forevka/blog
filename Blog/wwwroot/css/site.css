@@ -1,8 +1,9 @@
 @import 'codeHighlightOneDarkTheme.css';
 @import 'codeHighlightVs2015Theme.css';
-@import 'toc.css';
 @import 'scrollToTop.css';
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+@import 'inlineToc.css';
+
 
 :root {
     --color--100: #0d0d0d;
@@ -2827,6 +2828,7 @@ figcaption {
     margin-left: auto;
     margin-right: auto;
     padding: 7.5rem 4rem;
+    padding-top: 4rem;
     position: relative
 }
 

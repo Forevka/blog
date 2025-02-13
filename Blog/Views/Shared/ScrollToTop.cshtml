@@ -23,13 +23,13 @@
       var pathLength = progressPath.getTotalLength();
 
       // Prepare the SVG path for animation by setting up the dash properties.
-      progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
-      progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-      progressPath.style.strokeDashoffset = pathLength;
+      //progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+      //progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+      //progressPath.style.strokeDashoffset = pathLength;
 
       // Force a layout so that the browser picks up the starting position before animating.
-      progressPath.getBoundingClientRect();
-      progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+      //progressPath.getBoundingClientRect();
+      //progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
 
       // Function to update the strokeDashoffset based on scroll position.
       function updateProgress() {
@@ -44,7 +44,7 @@
 
       // Update progress immediately and on every scroll event.
       updateProgress();
-      window.addEventListener('scroll', updateProgress);
+      //window.addEventListener('scroll', updateProgress);
 
       // Variables for when to show the progress element and for the scroll animation duration.
       var offset = 50,
