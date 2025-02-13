@@ -48,17 +48,40 @@
               // Select all components that should change alignment
               const components = document.querySelectorAll('html');
 
+              const floatingToc = document.querySelectorAll('.trigger');
+              const staticToc = document.querySelectorAll('#light-toc');
+
               // Check if the viewport width is at or below the mobile threshold
               if (window.innerWidth <= 768) {
                 components.forEach(component => {
                   // Change the alignment attribute to "left"
                     component.setAttribute('data-alignment', 'left');
                 });
+
+                floatingToc.forEach(component => {
+                    component.style.display = 'none';
+                })
+
+
+                staticToc.forEach(component => {
+                        component.style.display = 'inherit';
+                    })
+
+
               } else {
                 // Optionally, reset to the default (or original) alignment
                 components.forEach(component => {
                     component.setAttribute('data-alignment', 'center');
                 });
+
+
+                floatingToc.forEach(component => {
+                    component.style.display = 'inherit';
+                })
+
+                staticToc.forEach(component => {
+                    component.style.display = 'none';
+                })
               }
 
             }
