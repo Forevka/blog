@@ -45,6 +45,17 @@
     .contents {
         background: light-dark(hsl(0 0% 8%), hsl(0 0% 14%));
     }
+    .contents {
+        display: flex;
+        overflow: hidden;
+        /* Remove fixed height/width so that content can define its own size */
+        /* height: 100%; width: 100%; */
+        flex-direction: column-reverse;
+        border-radius: .75rem;
+        padding: 0 6px;
+        transition: padding var(--speed);
+        transform: translate3d(0, 0, 0);
+    }
 
     .contents {
         display: flex;
