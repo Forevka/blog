@@ -161,7 +161,7 @@
       }
       document.startViewTransition(() => update());
     };
-
+    
     /*ctrl.addBinding(config, 'alignment', {
       label: 'Alignment',
       options: {
@@ -194,22 +194,14 @@
       popover.style.setProperty('transition', 'none');
       popover.addEventListener('toggle', () => {
         if (!set) {
-          // Ensure the popover is open
-          popover.showPopover();
-          // Wait for layout updates: double rAF hack
+          const { height, width } = popover.getBoundingClientRect();
+          document.documentElement.style.setProperty('--content-height', `${height}px`);
+          document.documentElement.style.setProperty('--content-width', `${width}px`);
+          set = true;
+          popover.hidePopover();
           requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              const contentEl = popover.querySelector('.contents');
-              const { height, width } = contentEl.getBoundingClientRect();
-              document.documentElement.style.setProperty('--content-height', `${height}px`);
-              document.documentElement.style.setProperty('--content-width', `${width}px`);
-              set = true;
-              popover.hidePopover();
-              requestAnimationFrame(() => {
-                popover.showPopover();
-                popover.style.removeProperty('transition');
-              });
-            });
+            popover.showPopover();
+            popover.style.removeProperty('transition');
           });
         }
       });
