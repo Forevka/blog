@@ -48,8 +48,6 @@
               // Select all components that should change alignment
               const components = document.querySelectorAll('html');
 
-              const floatingToc = document.querySelectorAll('.trigger');
-              const staticToc = document.querySelectorAll('#light-toc');
 
               // Check if the viewport width is at or below the mobile threshold
               if (window.innerWidth <= 768) {
@@ -57,15 +55,6 @@
                   // Change the alignment attribute to "left"
                     component.setAttribute('data-alignment', 'left');
                 });
-
-                floatingToc.forEach(component => {
-                    component.style.display = 'none';
-                })
-
-
-                staticToc.forEach(component => {
-                        component.style.display = 'inherit';
-                    })
 
 
               } else {
@@ -75,13 +64,6 @@
                 });
 
 
-                floatingToc.forEach(component => {
-                    component.style.display = 'inherit';
-                })
-
-                staticToc.forEach(component => {
-                    component.style.display = 'none';
-                })
               }
 
             }
@@ -91,6 +73,30 @@
 
             // Run the function when the window is resized
             window.addEventListener('resize', updateFloatingAlignment);
+
+              const floatingToc = document.querySelectorAll('.trigger');
+              const staticToc = document.querySelectorAll('#light-toc');
+
+        if (CSS.supports('interpolate-size: allow-keywords')) {
+
+                floatingToc.forEach(component => {
+                    component.style.display = 'inherit';
+                })
+
+                staticToc.forEach(component => {
+                    component.style.display = 'none';
+                })
+        }else{
+                floatingToc.forEach(component => {
+                    component.style.display = 'none';
+                })
+
+
+                staticToc.forEach(component => {
+                        component.style.display = 'inherit';
+                    })
+
+        }
         </script>
     </body>
 </html>
