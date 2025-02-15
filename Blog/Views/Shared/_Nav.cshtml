@@ -11,9 +11,10 @@
     var pageName = Umbraco.AssignedContentItem;
 }
 
-<div data-w-id="7ecd2c46-248a-916e-eb95-08abb6aec6a5" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
+
     <div class="nav-container">
-        <div class="inset-nav-container">
+        <div class="inset-nav-container" id="nav-fill">
             <div class="logo-wrapper">
                 <a href="@home.Url()" aria-label="Logo" class="logo w-nav-brand">
                     <div>@home.HeaderText</div>
@@ -78,4 +79,28 @@
         }
     });
 
+    window.addEventListener('scroll', function() {
+      const docElement = document.documentElement;
+      const scrollTop = docElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+      const navFill = document.getElementById('nav-fill');
+      if (navFill) {
+          let notFilled = 100 - scrollPercent;
+          if (scrollPercent >= 50)
+          {
+              navFill.style.background = `linear-gradient(to right, var(--color--500) ${scrollPercent}%, var(--color--300) ${notFilled}%)`
+          }else{
+              navFill.style.background = `linear-gradient(to left, var(--color--300) ${notFilled}%, var(--color--500) ${scrollPercent}%)`
+          }
+        //navFill.style.width = scrollPercent + '%';
+        /*
+        border-top-left-radius: 1rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 2rem
+        */
+      }
+    });
 </script>

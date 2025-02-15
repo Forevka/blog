@@ -7,23 +7,37 @@
 
 
 :root {
-    --color--100: black;
-    --font--secondary: Inter,sans-serif;
-    --color--900: white;
-    --font--primary: "Instrument Serif",sans-serif;
-    --color--700: #b8b8b8;
-    --color--primary: #ffb88f;
-    --color--600: #999;
+    /* Grayscale */
+    --color--100: #000000; /* Black */
     --color--200: #1a1a1a;
-    --color--400: #2e2e2e;
     --color--300: #242424;
+    --color--400: #2e2e2e;
+    --color--500: #646464; /* Newly added mid-tone */
+    --color--600: #999999;
+    --color--700: #b8b8b8;
     --color--800: #d6d6d6;
+    --color--900: #ffffff; /* White */
+    /* Primary Color Scheme */
+    --color--primary: #ffb88f;
+    --color--primary-light: #ffe2cc; /* Lighter variant for hover or backgrounds */
+    --color--primary-dark: #e0886d; /* Darker variant for emphasis */
+    /* Secondary Color Scheme (complementary accent) */
+    --color--secondary: #7fd1b9;
+    --color--secondary-light: #a8e7d8;
+    --color--secondary-dark: #66bda3;
+    /* Additional Accents */
+    --color--accent: #ffdaaa; /* A subtle accent for highlights */
+    --color--neutral: #f2f2f2; /* Alternative very-light neutral background */
+
+    --font--secondary: Inter,sans-serif;
+    --font--primary: "Instrument Serif",sans-serif;
 
     --clr-1: #00c2ff;
     --clr-2: #33ff8c;
     --clr-3: #ffc640;
     --clr-4: #e54cff;
     --blur: 1rem;
+
     --fs: clamp(3rem, 8vw, 7rem);
     --ls: clamp(-1.75px, -0.25vw, -3.5px);
 }
@@ -4200,3 +4214,4 @@ strong:hover {
         border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
     }
 }
+
