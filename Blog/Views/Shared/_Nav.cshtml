@@ -79,28 +79,30 @@
         }
     });
 
-    window.addEventListener('scroll', function() {
-      const docElement = document.documentElement;
-      const scrollTop = docElement.scrollTop || document.body.scrollTop;
-      const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
+    if (!CSS.supports('interpolate-size: allow-keywords')) {
+        window.addEventListener('scroll', function() {
+          const docElement = document.documentElement;
+          const scrollTop = docElement.scrollTop || document.body.scrollTop;
+          const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
+          const scrollPercent = (scrollTop / scrollHeight) * 100;
 
-      const navFill = document.getElementById('nav-fill');
-      if (navFill) {
-          let notFilled = 100 - scrollPercent;
-          if (scrollPercent >= 50)
-          {
-              navFill.style.background = `linear-gradient(to right, var(--color--500) ${scrollPercent}%, var(--color--300) ${notFilled}%)`
-          }else{
-              navFill.style.background = `linear-gradient(to left, var(--color--300) ${notFilled}%, var(--color--500) ${scrollPercent}%)`
+          const navFill = document.getElementById('nav-fill');
+          if (navFill) {
+            // Calculate the inverse percentage for the gradient stop
+            let notFilled = 100 - scrollPercent;
+            let scrollGradient;
+
+            // Choose gradient direction based on scroll percent for a neat effect
+            if (scrollPercent >= 50) {
+              scrollGradient = `linear-gradient(to right, var(--color--500) ${scrollPercent}%, var(--color--300) ${notFilled}%)`;
+            } else {
+              scrollGradient = `linear-gradient(to left, var(--color--300) ${notFilled}%, var(--color--500) ${scrollPercent}%)`;
+            }
+
+            // Apply the scroll-based gradient.
+            // This layer sits on top of the animated pseudo-element.
+            navFill.style.background = scrollGradient;
           }
-        //navFill.style.width = scrollPercent + '%';
-        /*
-        border-top-left-radius: 1rem;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 2rem
-        */
-      }
-    });
+        });
+    }
 </script>
