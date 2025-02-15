@@ -3933,7 +3933,12 @@ figcaption {
     }
 
     .inset-container {
-        border-radius: 1.5rem
+        border-radius: 1.5rem;
+    }
+
+    .post-content {
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .blurred-circle {
