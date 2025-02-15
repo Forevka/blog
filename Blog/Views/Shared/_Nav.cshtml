@@ -91,31 +91,34 @@
           };
         }
 
-        const throttledProgressUpdate = throttle(() => {
-          const docElement = document.documentElement;
-          const scrollTop = docElement.scrollTop || document.body.scrollTop;
-          const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
-          const scrollPercent = (scrollTop / scrollHeight) * 100;
+        let ticking = false;
+        const progressUpdate = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const docElement = document.documentElement;
+              const scrollTop = docElement.scrollTop || document.body.scrollTop;
+              const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
+              const scrollPercent = (scrollTop / scrollHeight) * 100;
 
-          const navFill = document.getElementById('nav-fill');
-          if (navFill) {
-            // Calculate the inverse percentage for the gradient stop
-            let notFilled = 100 - scrollPercent;
-            let scrollGradient;
+              const navFill = document.getElementById('nav-fill');
+              if (navFill) {
+                let notFilled = 100 - scrollPercent;
+                let scrollGradient;
 
-            // Choose gradient direction based on scroll percent for a neat effect
-            if (scrollPercent >= 50) {
-              scrollGradient = `linear-gradient(to right, var(--color--500) ${scrollPercent}%, var(--color--300) ${notFilled}%)`;
-            } else {
-              scrollGradient = `linear-gradient(to left, var(--color--300) ${notFilled}%, var(--color--500) ${scrollPercent}%)`;
-            }
+                if (scrollPercent >= 50) {
+                  scrollGradient = `linear-gradient(to right, var(--color--500) ${scrollPercent}%, var(--color--300) ${notFilled}%)`;
+                } else {
+                  scrollGradient = `linear-gradient(to left, var(--color--300) ${notFilled}%, var(--color--500) ${scrollPercent}%)`;
+                }
 
-            // Apply the scroll-based gradient.
-            // This layer sits on top of the animated pseudo-element.
-            navFill.style.background = scrollGradient;
+                navFill.style.background = scrollGradient;
+              }
+              ticking = false;
+            });
+            ticking = true;
           }
-        }, 500);
+        };
 
-        window.addEventListener('scroll', throttledProgressUpdate);
+        window.addEventListener('scroll', progressUpdate);
     }
 </script>

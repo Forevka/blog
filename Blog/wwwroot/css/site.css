@@ -4234,6 +4234,7 @@ hr {
 }
 
 #nav-fill {
+    will-change: background;
     /* Smooth transition for changes from JS */
     transition: background 0.5s ease;
     /* Apply the animation to the entire background (affecting the second layer) */
