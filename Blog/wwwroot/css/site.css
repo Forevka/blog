@@ -4214,3 +4214,42 @@ strong:hover {
         border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
     }
 }
+
+hr {
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    margin-inline: auto;
+    height: calc(0.25rem*1);
+    width: calc(0.25rem*48);
+    border-radius: 2rem;
+    border-style: solid;
+    border-width: 0;
+    margin-block: calc(0.25rem*5);
+    background-color: #374151;
+}
+
+#nav-fill {
+    /* Smooth transition for changes from JS */
+    transition: background 0.5s ease;
+    /* Apply the animation to the entire background (affecting the second layer) */
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: center, 0% 50%;
+    }
+
+    50% {
+        background-position: center, 100% 50%;
+    }
+
+    100% {
+        background-position: center, 0% 50%;
+    }
+}
