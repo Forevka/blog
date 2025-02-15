@@ -1,0 +1,35 @@
+name: CD Deploy
+
+on:
+  workflow_run:
+    workflows: ["CI Build"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: ${{ secrets.VPS_PORT }}  # Default is 22 if not set
+          script: |
+            echo "Stopping and removing the old container (if running)..."
+            docker stop blog || true
+            docker rm -v blog || true
+
+            echo "Changing directory to /home/blog..."
+            cd /home/blog
+
+            echo "Pulling the latest image..."
+            docker-compose pull
+
+            echo "Starting the updated container..."
+            docker-compose up -d blog
