@@ -80,7 +80,18 @@
     });
 
     if (!CSS.supports('interpolate-size: allow-keywords')) {
-        window.addEventListener('scroll', function() {
+        function throttle(func, delay) {
+          let lastCall = 0;
+          return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall >= delay) {
+              func(...args);
+              lastCall = now;
+            }
+          };
+        }
+
+        const throttledProgressUpdate = throttle(() => {
           const docElement = document.documentElement;
           const scrollTop = docElement.scrollTop || document.body.scrollTop;
           const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
@@ -103,6 +114,8 @@
             // This layer sits on top of the animated pseudo-element.
             navFill.style.background = scrollGradient;
           }
-        });
+        }, 500);
+
+        window.addEventListener('scroll', throttledProgressUpdate);
     }
 </script>
