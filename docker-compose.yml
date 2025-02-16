@@ -45,3 +45,4 @@ services:
     volumes:
       - /home/docker/Blog/media:/app/wwwroot/media
       - /home/docker/Blog/Logs:/app/umbraco/Logs
+      - /home/docker/Blog/keys:/keys
