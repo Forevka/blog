@@ -13,7 +13,18 @@
         .ToList();
 }
 
-@await Html.PartialAsync("ScrollToTop")
+@section metatags
+{
+    <meta content="@Model.CardImage?.Url(mode:UrlMode.Absolute)" property="twitter:image">
+    <meta content="@Model.Description" property="twitter:description">
+    <meta content="@Model.Title" property="twitter:title">
+
+    <meta content="@Model.CardImage?.Url()" property="og:image">
+    <meta content="@Model.Description" property="og:description">
+    <meta content="@Model.Title" property="og:title">
+
+    <meta content="@Model.Description" name="description">
+}
 
 @await Html.PartialAsync("TOC", tocItems)
 
@@ -239,7 +250,7 @@
             <div class="container">
                 <div class="text-box centre">
                     <div class="related-title-wrapper">
-                        <h2 class="heading large">A lil’ more goodness</h2>
+                        <h2 class="heading large">Read also</h2>
                     </div>
                 </div>
                 <div class="spacer _80"></div>

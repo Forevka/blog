@@ -46,7 +46,7 @@
                 <div class="posts-wrapper w-dyn-list">
                     <div role="list" class="posts-grid w-dyn-items">
 
-                        @foreach (var post in Model.ArticlesHighlight!)
+                        @foreach (var post in Model.ArticlesHighlight!.OrderByDescending(x => x.CreateDate))
                         {
                             @await Html.PartialAsync("_BlogPostItem", post as ArticlesItem)
                         }
