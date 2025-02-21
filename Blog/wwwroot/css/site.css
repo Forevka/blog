@@ -4289,6 +4289,9 @@ div.rich-text.w-richtext > table tr:nth-child(even) {
         background-color: var(--color--400);
     }
 
-.section {
-    overflow-x: scroll;
+
+@media screen and (max-width:479px) {
+    .rich-text.w-richtext:has(> table) {
+        overflow-x: scroll;
+    }
 }
