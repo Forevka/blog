@@ -95,7 +95,7 @@
                                 var content = item.Content;
 
                                 @await Html.PartialAsync("/Views/Shared/ArticleComponents/" + content.ContentType.Alias + ".cshtml", item)
-                                ;
+                                
 
                                 if (item is BlockGridItem<CodeBlockContent, CodeBlockContentSettings>)
                                 {
