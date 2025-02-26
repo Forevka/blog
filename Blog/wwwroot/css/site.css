@@ -2311,6 +2311,7 @@ blockquote {
 
 blockquote p {
     color: inherit;
+    margin-bottom: 0;
 }
 
 figcaption {
@@ -2526,7 +2527,7 @@ figcaption {
     }
 
     .rich-text p {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         font-size: 1.25rem;
         text-align: justify;
     }
