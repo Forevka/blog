@@ -53,26 +53,29 @@
     @await RenderSectionAsync("HeadContent", required: false)
 </head>
 <body>
-@await Html.PartialAsync("ScrollToTop")
+    @await Html.PartialAsync("ScrollToTop")
 
-@* Navigation bar (partial view) *@
-@await Html.PartialAsync("_Nav")
+    @* Navigation bar (partial view) *@
+    @await Html.PartialAsync("_Nav")
 
-@* Main content placeholder *@
-<div class="main-content">
-    @RenderBody()
-</div>
+    @* Main content placeholder *@
+    <div class="main-content">
+        @RenderBody()
+    </div>
 
     @if (!IsSectionDefined("metatags"))
     {
     }
-@* Subscribe CTA (partial view) *@
-@await Html.PartialAsync("_SubscribeCTA")
 
-@* Footer (partial view) *@
-@await Html.PartialAsync("_Footer")
+    @await Html.PartialAsync("_SupportUkraineBanner")
 
-@await RenderSectionAsync("Scripts", required: false)
+    @* Subscribe CTA (partial view) *@
+    @await Html.PartialAsync("_SubscribeCTA")
+
+    @* Footer (partial view) *@
+    @await Html.PartialAsync("_Footer")
+
+    @await RenderSectionAsync("Scripts", required: false)
         
 <script>
             function updateFloatingAlignment() {

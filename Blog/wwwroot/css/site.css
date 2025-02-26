@@ -2847,6 +2847,10 @@ figcaption {
     position: relative
 }
 
+    .container.support-ukraine {
+        padding: 4rem 4rem;
+    }
+
     .container.centred {
         margin-left: auto;
         margin-right: auto
@@ -3883,6 +3887,10 @@ figcaption {
 
     .container {
         padding: 3rem 0.8rem
+    }
+
+    .container.support-ukraine {
+        padding: 1rem 1rem;
     }
 
         .container.banner {
