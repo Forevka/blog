@@ -10,7 +10,7 @@
         <div class="container support-ukraine">
             <div class="text-box _700px centre" style="    max-width: 60rem !important;">
                 <div class="text-align-centre">
-                    <a href="https://u24.gov.ua/" style="display: block !important;" target="_blank">
+                    <a href="https://u24.gov.ua/" style="display: block !important;" target="_blank" id="trackableLinkSupportUkraine">
                         <img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-no-action.svg">
                     </a>
                 </div>
@@ -20,3 +20,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('trackableLinkSupportUkraine').addEventListener('click', function(event) {
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            'event': 'support_ukraine_click',
+            'link_url': this.href
+        });
+    });
+</script>
