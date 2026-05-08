@@ -1,0 +1,38 @@
+[
+  {
+    "original": "https://forevka.dev/",
+    "timestamp": "20220110225136",
+    "statuscode": "200",
+    "mimetype": "text/html"
+  },
+  {
+    "original": "https://forevka.dev/about/",
+    "timestamp": "20250326135336",
+    "statuscode": "200",
+    "mimetype": "text/html"
+  },
+  {
+    "original": "https://forevka.dev/articles/crafting-a-result-pattern-in-c-a-comprehensive-guide/",
+    "timestamp": "20250326135332",
+    "statuscode": "200",
+    "mimetype": "text/html"
+  },
+  {
+    "original": "https://forevka.dev/articles/developing-a-cross-platform-pdf-to-svgpng-wrapper-for-net/",
+    "timestamp": "20250622230029",
+    "statuscode": "200",
+    "mimetype": "text/html"
+  },
+  {
+    "original": "https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/",
+    "timestamp": "20250622222220",
+    "statuscode": "200",
+    "mimetype": "text/html"
+  },
+  {
+    "original": "https://forevka.dev/contacts/",
+    "timestamp": "20250326135336",
+    "statuscode": "200",
+    "mimetype": "text/html"
+  }
+]
