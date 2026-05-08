@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 
 # Set the working directory inside the container
 WORKDIR /src
@@ -14,7 +14,7 @@ RUN dotnet restore "Blog.sln"
 RUN dotnet publish "Blog/Blog.csproj" -c Release -o /app/publish
 
 # Stage 2: Build the runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 
 # Set the working directory
 WORKDIR /app
