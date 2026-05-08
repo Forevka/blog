@@ -93,8 +93,10 @@
                             foreach (var item in Model.Content!)
                             {
                                 var content = item.Content;
+                                var alias = content.ContentType.Alias;
+                                var partialName = char.ToUpper(alias[0]) + alias.Substring(1);
 
-                                @await Html.PartialAsync("/Views/Shared/ArticleComponents/" + content.ContentType.Alias + ".cshtml", item)
+                                @await Html.PartialAsync("/Views/Shared/ArticleComponents/" + partialName + ".cshtml", item)
                                 
 
                                 if (item is BlockGridItem<CodeBlockContent, CodeBlockContentSettings>)
