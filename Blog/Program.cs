@@ -25,6 +25,8 @@ builder.CreateUmbracoBuilder()
     })
     .Build();
 
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
 // Configure Forwarded Headers Options
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
