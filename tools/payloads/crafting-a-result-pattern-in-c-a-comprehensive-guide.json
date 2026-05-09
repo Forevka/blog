@@ -1,0 +1,2922 @@
+{
+  "slug": "crafting-a-result-pattern-in-c-a-comprehensive-guide",
+  "values": [
+    {
+      "editorAlias": "Umbraco.TextArea",
+      "culture": null,
+      "segment": null,
+      "alias": "title",
+      "value": "Crafting a Result Pattern in C#: A Comprehensive Guide"
+    },
+    {
+      "editorAlias": "Umbraco.TextArea",
+      "culture": null,
+      "segment": null,
+      "alias": "description",
+      "value": "This article gathers best practices and insights from various implementations of the result pattern—spanning multiple languages and frameworks—to help you integrate these ideas seamlessly into your .NET applications."
+    },
+    {
+      "editorAlias": "Umbraco.Integer",
+      "culture": null,
+      "segment": null,
+      "alias": "readTime",
+      "value": 12
+    },
+    {
+      "editorAlias": "Umbraco.MediaPicker3",
+      "culture": null,
+      "segment": null,
+      "alias": "heroImage",
+      "value": [
+        {
+          "key": "9d7d4d55-ea09-4a85-9861-3155b3a416de",
+          "mediaKey": "89aec792-26dc-4680-95f0-9e082f500e7f",
+          "mediaTypeAlias": "Image",
+          "crops": [],
+          "focalPoint": null
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.MultiNodeTreePicker",
+      "culture": null,
+      "segment": null,
+      "alias": "category",
+      "value": [
+        {
+          "type": "document",
+          "unique": "bb9d1afe-7c12-4711-bf8a-907caa37ba95"
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.TextBox",
+      "culture": null,
+      "segment": null,
+      "alias": "bodyTitle",
+      "value": "Crafting a Result Pattern in C#: A Comprehensive Guide"
+    },
+    {
+      "editorAlias": "Umbraco.TextBox",
+      "culture": null,
+      "segment": null,
+      "alias": "bodyDescription",
+      "value": "This article gathers best practices and insights from various implementations of the result pattern—spanning multiple languages and frameworks—to help you integrate these ideas seamlessly into your "
+    },
+    {
+      "editorAlias": "Umbraco.MediaPicker3",
+      "culture": null,
+      "segment": null,
+      "alias": "cardImage",
+      "value": [
+        {
+          "key": "1a453807-ac28-41d2-955e-ee907ac1c757",
+          "mediaKey": "3a2e0343-efdf-4db9-b03f-859c58d88a66",
+          "mediaTypeAlias": "Image",
+          "crops": [],
+          "focalPoint": null
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.BlockGrid",
+      "culture": null,
+      "segment": null,
+      "alias": "content",
+      "value": {
+        "layout": {
+          "Umbraco.BlockGrid": [
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "80aeec43-4033-4e94-938a-aff82cf4c3af",
+              "settingsKey": "35b48ffa-ac33-4fe6-8b89-06fc01651430"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "4686edad-82c0-4880-8e47-b63a14385f92",
+              "settingsKey": "acdb5a26-f5df-4124-8f4b-11b442b15c58"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "2f16f76c-a640-422c-b258-6b68fca93d3f",
+              "settingsKey": "acee358f-6eed-4e63-bdf4-c95e6daf647c"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "4ce650d2-21d2-4443-8172-3bca43e3b9eb",
+              "settingsKey": "11d39cbf-cca8-4389-9f47-c6b3035fb2af"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "9246ee4c-91de-4c4d-aa6c-67ff6720695f",
+              "settingsKey": "3bb1eba9-d65a-4a56-8ed6-f1db009a8da7"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "9f2047ae-b6a4-4493-9baf-b3dfdf56327b",
+              "settingsKey": "f1f24306-cd53-4703-bf0e-518124bc2047"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "a47376bd-f1e1-41c5-9651-7fecad78dad0",
+              "settingsKey": "02a6cae4-6526-4043-9098-763e9b32bac1"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "0476ae8f-3b86-4bdf-b890-0da0adeae22c",
+              "settingsKey": "fb55296a-76f0-4d4f-b95a-7df4d4e46fe0"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "8d9a4f08-67d1-4094-a14d-2ba0dae17ba9",
+              "settingsKey": "f4747cea-b771-4a1b-910c-25f8f72721e1"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "98884027-8bb1-4eda-bdb9-8ae425c48d82",
+              "settingsKey": "0fba8033-19fa-4b1c-8ebb-8fd29e1775ec"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "36c0b28e-ebdc-4dde-8074-7e7f7e3bdd46",
+              "settingsKey": "13e9965a-5958-47ee-b7cd-4c08b88908a2"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "885bd648-2cba-4303-b24e-c5cce82038cd",
+              "settingsKey": "78db38a1-905c-41ec-85bf-cc6c1d3ec575"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "322f41e5-1705-47ca-9059-e15c6742f50b",
+              "settingsKey": "d14157d7-a421-4bb6-b7d3-7986c938a517"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "a1f3b768-db21-4019-b6ce-1705345f264a",
+              "settingsKey": "1fb3deed-4b21-41dc-b266-ab02022634b1"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "77a44b86-d1b4-4ce6-9f08-936c064cb42b",
+              "settingsKey": "de34f4cc-d40f-4c7b-ae14-d7fdc7a5a2de"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "858f4e10-8a65-4f17-a684-af615451fea0",
+              "settingsKey": "2cc14f6a-43c9-441a-abbb-e6a68e7d1939"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "98f4ef35-f13e-414e-b77e-baec9d43b270",
+              "settingsKey": "1d1a11dc-8dc7-48bc-9a57-8647de2b9f8c"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "11f92c08-4604-4a39-a9b9-0fa82e2253bd",
+              "settingsKey": "77b1f2f3-f2b4-40cf-80d2-cb7b19a235d2"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "31a9dd81-1a1b-49cc-93df-1e7631af14e6",
+              "settingsKey": "530658ec-f7ee-44fa-83c3-287016448242"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "775ddc18-ac99-4d9c-b25a-1426d5e74bc4",
+              "settingsKey": "4ad1cadd-ec6e-44c2-828c-bb732da717f0"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "f0d4c60d-68d7-43b5-ac55-6a8081e74748",
+              "settingsKey": "62269ece-911f-4265-8238-7b24cd3d9597"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "afb0d36c-d0c8-4e5e-8d9d-be8fac604888",
+              "settingsKey": "eafe52d8-3208-4534-bce8-533ede55287d"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "67a60395-ffa8-4fdd-8070-3ba6a4bbd8ca",
+              "settingsKey": "2bfcf4a4-664e-40e0-9217-4f3c5dfcb16e"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "3f820348-253a-4ec4-a9d4-e3d72c57fa7d",
+              "settingsKey": "d1c48533-cef1-4114-92af-a80a0820a911"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "19419d26-1bca-4974-a35b-6b8be9c02023",
+              "settingsKey": "59529c74-ad57-4af2-80cf-c1488b475074"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "e00c5d42-f88f-4257-a41c-4d095f27853a",
+              "settingsKey": "c2a62e40-c10a-4581-af24-5a7f0fd68d5d"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "89c7a9ff-4511-4f80-b52b-56473bb0a9ff",
+              "settingsKey": "9ef48cf4-2d6d-40eb-9cc1-6524ad497c60"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "3507d6e4-6f0f-49ee-b877-119fc8868954",
+              "settingsKey": "aa776b1d-d9e7-4ee7-a405-9df746f0eaca"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "f8567c94-0209-4e0e-b1bc-475b85c81b35",
+              "settingsKey": "c3a393f4-1dae-4834-9519-89ad9417a71f"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "c401de96-8df4-4ae8-be88-9c306bcf6237",
+              "settingsKey": "46b8dc9b-6d27-4142-8dc7-1efb33e06950"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "fd6f1608-b07b-46ef-ab8b-0cc7d816a21d",
+              "settingsKey": "1b8d0564-f01e-4abf-8bc3-dc30d726a0e2"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "4ef1f689-6e82-4b0c-ae06-f72a6bb631bd",
+              "settingsKey": "6cce2011-4377-444c-84d6-090018b15a8a"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "d177932f-dc81-4389-87ff-57b571ee5e38",
+              "settingsKey": "2d165b5a-09c9-40de-935d-89c7f518882c"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "c760d052-aafd-445c-ba23-7bdc3ba8c326",
+              "settingsKey": "e3ca15bb-412c-455e-9255-ab9bad2c17fe"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "a0c49b1a-9ad4-414f-9379-f78a18de38e6",
+              "settingsKey": "b495f854-a5d9-48d4-8475-073e9157da29"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "43f743fc-21f8-4e63-9590-4d9a2e3857b6",
+              "settingsKey": "60ee8ce8-f7f6-47f4-9f8b-aca34756973f"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "c8756c98-d735-45c6-88bf-39d8db17ab61",
+              "settingsKey": "c7c54394-e8b0-4e9b-981f-0c0c5b8347bb"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "9ea71343-bb1d-4158-8f9b-0b2982858200",
+              "settingsKey": "5d3ed6f8-48cd-4de3-8b58-e697f173a8af"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "ea5b7930-641e-412c-950f-b7c593911639",
+              "settingsKey": "92d994ba-7284-4056-8fb9-17c427398831"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "764cb060-7883-4990-8fec-20a180f83e61",
+              "settingsKey": "776b70ed-44fe-4a5f-9991-8fbf510cf6ef"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "d5b1a368-3589-41b6-bbaf-8d8591f9606f",
+              "settingsKey": "f6cec9bf-12de-49f4-ac92-828f5b420036"
+            }
+          ]
+        },
+        "contentData": [
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "80aeec43-4033-4e94-938a-aff82cf4c3af",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<h3>Introduction to Result Pattern vs. Exception-Based Flow</h3>\n<p>Traditionally, C# applications have relied on exceptions for error handling. While exceptions are invaluable for truly unexpected issues, they can be overused for expected or recoverable failures, leading to several issues:</p>\n<ul>\n<li>\n<p><strong>Performance Improvements:</strong><br>\nThrowing and catching exceptions is inherently expensive. The result pattern avoids this overhead by returning a structured value, which is especially beneficial in high-volume applications.</p>\n</li>\n<li>\n<p><strong>Simplified Code Flow:</strong><br>\nWith the result pattern, success and failure cases are explicitly represented. Developers don’t need to sift through try/catch blocks—the control flow is clearly delineated.</p>\n</li>\n<li>\n<p><strong>Maintainability:</strong><br>\nCentralizing error handling in a result type makes your code easier to maintain. When error logic is encapsulated within a well-defined type, debugging and testing become less complex.</p>\n</li>\n<li>\n<p><strong>Clarity in Intent:</strong><br>\nWhen a function returns a result, it’s immediately clear to the consumer that the operation may fail. This explicit contract improves code readability and encourages handling both outcomes.</p>\n</li>\n</ul>\n<p>The Cultural Relevance of the Result Pattern</p>\n<blockquote>\n<p>Every good programmer has likely reinvented the result pattern at least once in their life to control flow, and even languages like Go have embedded it as a core feature. This idea isn’t unique to .NET - it’s a recurring theme throughout programming history.</p>\n<p>Back in the day, C programmers would often return error codes from functions (say hello to the application exit codes), leaving it to the caller to inspect and handle each outcome. It wasn’t elegant, but it was a solution born of necessity. As programming languages evolved, exceptions emerged in languages like C++ and Java. They promised a cleaner way to handle errors by separating normal logic from error logic. Yet, as many of us have discovered, exceptions can be heavy, unpredictable, and hard to manage in high-performance or highly scalable systems. Microsoft itself strongly recommends against using exception-based control flow: <a href=\"https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/exception-throwing\" title=\"Design Guidelines\">First</a>, <a href=\"https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices?view=aspnetcore-9.0#minimize-exceptions\" title=\"Best Practice\">Second</a>, <a href=\"https://learn.microsoft.com/en-us/dotnet/standard/exceptions/\" title=\"Exceptions vs Traditional way\">Third</a> and even <a href=\"https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions\" title=\".NET standart best practice\">Fourth</a> mention.</p>\n<p>About the result pattern. Functional languages like Haskell embraced a similar concept with the “Either” type, a tool designed to express success or failure in a single, unified return value. This idea found fertile ground in languages like F#, where a built-in Result type made error handling both explicit and type-safe. Fast forward to modern times, and Rust has taken the concept to a new level with its own Result<T, E> type, ensuring that error handling is not an afterthought but a core part of the function’s contract.</p>\n<p>Even in the dynamic world of JavaScript and later in TypeScript (child of MS), developers have created patterns and libraries that mimic this approach, favoring explicit control flow over hidden exception paths. What’s fascinating is that while the syntax and language paradigms have changed over the decades, the core challenge of cleanly and predictably handling errors remains the same.</p>\n</blockquote>\n<h3>Comparing Existing Libraries in the .NET Ecosystem</h3>\n<p>The main point of this article is to help implement own Result/Exception/Error that fits your project needs, but first of all let&rsquo;s compare what community can offer.</p>\n<p>Several libraries implement variations of the result pattern, each with its own strengths and trade-offs:</p>\n<ul>\n<li><a href=\"https://github.com/mcintyre321/OneOf\" title=\"OneOf\"><strong>OneOf</strong></a>:</li>\n</ul>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "4686edad-82c0-4880-8e47-b63a14385f92",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "* _Benefits:_"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "2f16f76c-a640-422c-b258-6b68fca93d3f",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Provides a clean way to create discriminated unions in C#. It integrates well with pattern matching and allows you to return one of multiple types.</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "4ce650d2-21d2-4443-8172-3bca43e3b9eb",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "* _Limitations:_"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "9246ee4c-91de-4c4d-aa6c-67ff6720695f",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>It may require additional boilerplate or careful handling when converting between types. <strong>We are going to use this library as a base for our result pattern.</strong></p>\n<ul>\n<li><a href=\"https://github.com/vkhorikov/CSharpFunctionalExtensions\" title=\"CSharpFunctionalExtensions\"><strong>CSharpFunctionalExtensions</strong></a>:</li>\n</ul>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "9f2047ae-b6a4-4493-9baf-b3dfdf56327b",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "* _Benefits:_"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "a47376bd-f1e1-41c5-9651-7fecad78dad0",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Offers a rich set of functional constructs, including Result, Value Objects, and even support for lazy evaluation.</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "0476ae8f-3b86-4bdf-b890-0da0adeae22c",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "* _Scenarios:_"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "8d9a4f08-67d1-4094-a14d-2ba0dae17ba9",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>This library might be better suited for projects where you want a full suite of functional programming tools alongside the result pattern.</p>\n<ul>\n<li><a href=\"https://github.com/louthy/csharp-monad\" title=\"Either\"><strong>Either</strong></a>:</li>\n</ul>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "98884027-8bb1-4eda-bdb9-8ae425c48d82",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "* _Benefits:_"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "36c0b28e-ebdc-4dde-8074-7e7f7e3bdd46",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Similar to OneOf, Either provides a way to encapsulate success or failure without exceptions.</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "885bd648-2cba-4303-b24e-c5cce82038cd",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "* _Scenarios:_"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "322f41e5-1705-47ca-9059-e15c6742f50b",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Use this when you want a simpler, more lightweight implementation.</p>\n<p>Each library has its merits. Choosing one depends on your project’s complexity, the team’s familiarity with functional patterns, and specific requirements regarding type safety and boilerplate reduction.</p>\n<hr>\n<h3>Step-by-Step Implementation of a Custom Result Pattern</h3>\n<p>Basic Setup and Structure</p>\n<p>Start by defining a result type that encapsulates both success and error cases. This is a core of our pattern, that will be used across all project. I strongly recommend to move this code to separate .csproj for easier dependency management.</p>\n<p>Defining the Interfaces and Result Types</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "a1f3b768-db21-4019-b6ce-1705345f264a",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\n/// <summary>\n/// In C#, pattern matching against generic types requires a known type argument at compile time.\n/// Since IResultPattern(T) is generic and the type parameter T is unknown, direct pattern matching is not possible.\n/// To overcome this, a non-generic base interface (IResultPattern) provides a common contract,\n/// enabling type-agnostic operations without resorting to reflection, which can impact performance and maintainability.\n/// see <see cref=\"ResultActionFilter\"/>\n/// </summary>\npublic interface IResultPattern\n{\n    bool IsSuccess { get; }\n    bool IsProblem { get; }\n    object Success { get; }\n    Problem Problem { get; }\n}\n\npublic interface IResultPattern<out T> : IResultPattern\n{\n    new T Success { get; }\n}\n\n[GenerateOneOf]\npublic partial class Result<T> : OneOfBase<T, Problem>, IResultPattern<T> where T : class\n{\n    public bool IsSuccess => IsT0;\n    public bool IsProblem => IsT1;\n\n    public T Success => AsT0;\n    public Problem Problem => AsT1;\n\n    // Explicit implementation for non-generic interface\n    object IResultPattern.Success => Success;\n}\n\n[GenerateOneOf]\npublic partial class VoidResult : OneOfBase<bool, Problem>, IResultPattern<bool>\n{\n    public bool IsSuccess => IsT0 && AsT0;\n    public bool IsProblem => IsT1;\n\n    public bool Success => AsT0;\n    public Problem Problem => AsT1;\n\n    // Explicit implementation for non-generic interface\n    object IResultPattern.Success => Success;\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "77a44b86-d1b4-4ce6-9f08-936c064cb42b",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Defining the Error (Problem) Type</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "858f4e10-8a65-4f17-a684-af615451fea0",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic class Problem\n{\n    [JsonIgnore]\n    public HttpStatusCode StatusCode { get; init; }\n\n    [JsonPropertyName(\"Description\")]\n    public string? Description { get; init; }\n\n    [JsonPropertyName(\"ErrorCode\")]\n    public ErrorCode ErrorCode { get; init; }\n\n    [JsonPropertyName(\"Errors\")]\n    public List<BusinessLogicCase> Errors { get; set; } = new();\n\n    public override string ToString()\n    {\n        return JsonSerializer.Serialize(this);\n    }\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "98f4ef35-f13e-414e-b77e-baec9d43b270",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>The design starts with the IResultPattern interfaces. <br>\nThe non-generic IResultPattern defines a simple contract. It tells if an operation succeeded or failed and exposes either a success value or error details. The generic IResultPattern<T> builds on this. It replaces the untyped success property with a strongly typed version. This makes later code more type safe without losing flexibility.</p>\n<p>Next is the Result<T> class. It uses the OneOf library to hold either a value of type T or a Problem. <br>\nIt provides clear properties to check if the result is a success or a problem. The [GenerateOneOf] attribute cuts down on boilerplate by generating necessary conversion methods. This class is the <strong>backbone of the result pattern</strong>.</p>\n<p>VoidResult follows a similar approach. <br>\nIt is used when no data needs to be returned. It wraps a boolean value and a Problem. A true boolean indicates a successful operation. It standardizes how void operations are handled in this pattern.</p>\n<p>On the other hand the Problem class encapsulates error information.<br>\nIt holds a status code, a description, an error code, and a list of detailed errors. It replaces the need for exceptions by providing a structured error response. Its JSON serialization helps with logging and API responses. We intend to return this object as the result of the API in case of an error.</p>\n<p>Together, these components create a system that clearly separates success from failure. They provide a consistent way to handle outcomes throughout the application.</p>\n<hr>\n<p>At this point you are ready to go, implementation are ready to use. But I continue to add some features that are especially developed to be used in <a href=\"http://asp.net/\">ASP.NET</a> Core, such as OpenAPI specification generation and proper handling of direct return of the Result object from the API route.<br>\nBut first, let&rsquo;s dig down what benefits do we have with OneOf library</p>\n<h3>Integrating the OneOf Library</h3>\n<p>By leveraging the OneOf library, we create a discriminated union that cleanly represents either a success (with a value) or a problem (with error details). This design simplifies the handling of multiple possible states and keeps your domain logic clean.</p>\n<p>The GenerateOneOf attribute is a real game-changer. It automatically creates conversion methods that let you work with your result type almost as if it were a union of two unrelated types. Behind the scenes, it generates a constructor that wraps a union containing either a success value or an error. This means you can build a Result<T> without worrying about a common base class for T and Problem.</p>\n<p>Generated code that allow us to do &ldquo;magic&rdquo; with types:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "11f92c08-4604-4a39-a9b9-0fa82e2253bd",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npartial class Result<T>\n{\n    public Result(OneOf.OneOf<T, global::AppraiSys.Essential.ResultPattern.ResultPattern.Problem> _) : base(_) { }\n\n    public static implicit operator Result<T>(T _) => new Result<T>(_);\n    public static explicit operator T(Result<T> _) => _.AsT0;\n\n    public static implicit operator Result<T>(global::AppraiSys.Essential.ResultPattern.ResultPattern.Problem _) => new Result<T>(_);\n    public static explicit operator global::AppraiSys.Essential.ResultPattern.ResultPattern.Problem(Result<T> _) => _.AsT1;\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "31a9dd81-1a1b-49cc-93df-1e7631af14e6",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>For example, notice the implicit conversion from T to Result<T>. This lets you simply return a value of type T from a method, and the compiler wraps it for you. Likewise, if you return a Problem, it gets wrapped automatically. There’s also an explicit conversion back from Result<T> to T or to Problem. These methods allow you to extract the underlying value when you need it.</p>\n<p>Imagine you have a method that can either produce a valid model or an error. With the generated conversions, your method looks clean:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "775ddc18-ac99-4d9c-b25a-1426d5e74bc4",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic async Task<Result<ModelDto>> DoSomething()\n{\n    if (/* some error condition */)\n        return new Problem { /* error details */ };\n\n    return new ModelDto { /* model data */ };\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "f0d4c60d-68d7-43b5-ac55-6a8081e74748",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Here, you don’t need to wrap ModelDto or Problem in a special base class. The generated methods handle that. You can return either type directly. This provides you with powerful flexibility. It means your API can express multiple outcomes in a natural way. The code remains concise, and the intent stays clear.</p>\n<p>In short, the GenerateOneOf attribute drills down to the core of result handling. It removes boilerplate code and lets you focus on the business logic. With these conversion operators in place, your methods can effortlessly return different types while maintaining type safety and clarity.</p>\n<hr>\n<h3>Result object and API</h3>\n<p>Now you may ask a question, what if we directly return a Result object from API route? What outcome will we have?<br>\nWell, we need to think about it and create such integration to generate clear OpenAPI specification without mention of the Result and a proper handling for cases when our Result is not success at all but Problem returned by underlying logic. </p>\n<p>Let&rsquo;s start with simpler and update OpenAPI spec generation for all routes that returns Result<T>, to make this happen let&rsquo;s create OpenApiResultOperationFilter.<br>\nThe OpenApiResultOperationFilter is our bridge to clear and accurate API documentation. Imagine you have an API method that returns our custom Result type. Without this filter, Swagger or other OpenAPI tools might simply see an ambiguous object. They wouldn’t know if your method returns a ModelDto on success or a Problem on error. The generated docs would be vague, leaving consumers uncertain about the actual data structure.</p>\n<p>With the filter in place, the logic drills down into the method’s return type. It starts by unwrapping any Task&lt;&gt; (I hope that all your routes are async, if not Houston we have a problem) wrappers to reveal the underlying type. Then it checks if this type implements IResultPattern. This is where our non-generic IResultPattern interface comes into play. It allows a <strong>type-agnostic check so that regardless of the specific success type</strong> , the filter recognizes the pattern.</p>\n<p>Once confirmed, the filter clears the default responses and builds a clear specification. It generates a schema based on the success type if there is one. For instance, if your method returns a Result<ModelDto>, the filter uses reflection to generate a schema for ModelDto. It also sets up distinct responses for different HTTP status codes. A 200 response might indicate success with a ModelDto payload, while responses like 400 or 401 point to a Problem schema. Even a 500 response is handled, providing a schema for ProblemDetails.</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "afb0d36c-d0c8-4e5e-8d9d-be8fac604888",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic class OpenApiResultOperationFilter : IOperationFilter\n{\n    public void Apply(OpenApiOperation operation, OperationFilterContext context)\n    {\n        // Get the return type of the method (e.g., Task<Result<,>>)\n        var returnType = context.MethodInfo.ReturnType;\n\n        // Unwrap Task<>\n        if (returnType.IsGenericType && returnType.GetGenericTypeDefinition() == typeof(Task<>))\n        {\n            returnType = returnType.GetGenericArguments()[0];\n        }\n\n        // Check if returnType implements IResultPattern\n        if (!typeof(IResultPattern).IsAssignableFrom(returnType))\n        {\n            return;\n        }\n\n        var genericArgument = returnType.GetGenericArguments().FirstOrDefault();\n        operation.Responses.Clear();\n\n        var isVoidResult = genericArgument == null;\n\n        var schema = isVoidResult ? null : context.SchemaGenerator.GenerateSchema(genericArgument, context.SchemaRepository);\n\n        var isGenericIList = genericArgument?.GetInterfaces()\n            .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IList<>)) ?? false;\n\n        operation.Responses[\"200\"] = new OpenApiResponse\n        {\n            Description = isVoidResult ? \"Ok\" : isGenericIList ? $\"Ok, array of {genericArgument!.GetGenericArguments()[0].Name}\" : $\"Ok, {genericArgument!.Name}\",\n            Content = new Dictionary<string, OpenApiMediaType>\n            {\n                [\"application/json\"] = new()\n                {\n                    Schema = schema,\n                },\n            },\n        };\n\n        operation.Responses[\"204\"] = new OpenApiResponse\n        {\n            Description = \"No content\",\n        };\n\n        var notSuccessResultSchema = context.SchemaGenerator.GenerateSchema(typeof(Problem), context.SchemaRepository);\n\n        operation.Responses[\"400\"] = new OpenApiResponse\n        {\n            Description = \"Bad request, validation error\",\n            Content = new Dictionary<string, OpenApiMediaType>\n            {\n                [\"application/json\"] = new()\n                {\n                    Schema = notSuccessResultSchema,\n                },\n            },\n        };\n\n        operation.Responses[\"401\"] = new OpenApiResponse\n        {\n            Description = \"Not Authorized\",\n            Content = new Dictionary<string, OpenApiMediaType>\n            {\n                [\"application/json\"] = new()\n                {\n                    Schema = notSuccessResultSchema,\n                },\n            },\n        };\n\n        var internalServerErrorSchema = context.SchemaGenerator.GenerateSchema(typeof(ProblemDetails), context.SchemaRepository); \n\n        operation.Responses[\"500\"] = new OpenApiResponse\n        {\n            Description = \"Server side error\",\n            Content = new Dictionary<string, OpenApiMediaType>\n            {\n                [\"application/json\"] = new()\n                {\n                    Schema = internalServerErrorSchema,\n                },\n            },\n        };\n    }\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "67a60395-ffa8-4fdd-8070-3ba6a4bbd8ca",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>This logic ensures that every potential outcome of your API method is documented. If you return a Problem, clients see a well-defined error structure. If you return a successful result, they know exactly what to expect. Without this filter, your API documentation would lack this level of detail. Consumers might have to guess or read through code, instead of relying on an automatically generated, clear contract.</p>\n<p>In essence, the OpenApiResultOperationFilter elevates your API documentation. It translates our custom result pattern into a format that tools like Swagger can display, ensuring that both success and error responses are accurately represented. This makes your API more transparent and easier to integrate with, benefiting both developers and end users.</p>\n<p>So, for code like:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "3f820348-253a-4ec4-a9d4-e3d72c57fa7d",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\n[HttpGet]\n[Permission(ResourceConstant.User, ActionsConstant.Read)]\npublic async Task<Result<List<UserClientViewModel>>> GetClientsList()\n{\n    return await _userService.GetClientList(); // note, this method directly return Result<List<UserClientViewModel>>\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "19419d26-1bca-4974-a35b-6b8be9c02023",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Swagger spec will look like:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "88017cec-da1b-4467-bd8e-77267e9eccbe",
+            "key": "e00c5d42-f88f-4257-a41c-4d095f27853a",
+            "values": [
+              {
+                "editorAlias": "Umbraco.MediaPicker3",
+                "culture": null,
+                "segment": null,
+                "alias": "image",
+                "value": [
+                  {
+                    "key": "73553614-180a-4076-bf5b-cdeae9dae454",
+                    "mediaKey": "c33d8bec-2bcf-400d-828f-f09a422f3749",
+                    "mediaTypeAlias": "Image",
+                    "crops": [],
+                    "focalPoint": null
+                  }
+                ]
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "title",
+                "value": "Proper generated body for all possible return types"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "89c7a9ff-4511-4f80-b52b-56473bb0a9ff",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Proper generated body for all possible return types</p>\n<h3>Unified API Response Handling with ResultActionFilter</h3>\n<p>The ResultActionFilter is our way of centralizing response transformation. It intercepts every action result and checks if it implements the IResultPattern interface. Thanks to this, we don&rsquo;t have to clutter our controller actions with repetitive if-checks and manual response creation. When an action returns a result, the filter first waits for the action to complete. It then examines the result. If the result is an object that follows our custom pattern, the filter inspects whether it represents success or a problem.</p>\n<p>If the result signals success, the filter checks further. In cases where the success value is a boolean, it translates a true value into an HTTP 200 OK response and a false into a 400 Bad Request. Otherwise, it wraps the success value in an HTTP 200 OK response. In the event of a problem, the filter extracts the error details and creates a response using the provided HTTP status code from the error object.</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "3507d6e4-6f0f-49ee-b877-119fc8868954",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic class ResultActionFilter : IAsyncActionFilter\n{\n    public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)\n    {\n        var resultContext = await next();\n\n        if (resultContext.Result is ObjectResult { Value: IResultPattern resultPatternValue })\n        {\n            if (resultPatternValue.IsSuccess)\n                if (resultPatternValue.Success is bool voidResult)\n                    resultContext.Result = voidResult ? new OkResult() : new BadRequestResult();\n                else\n                    resultContext.Result = new OkObjectResult(resultPatternValue.Success);\n            else\n            {\n                var errorResult = resultPatternValue.Problem;\n\n                resultContext.Result = new ObjectResult(errorResult)\n                {\n                    StatusCode = (int)errorResult!.StatusCode,\n                };\n            }\n        }\n    }\n}\n\n\npublic class ResultActionFilterProvider : IFilterProvider\n{\n    public void OnProvidersExecuting(FilterProviderContext context)\n    {\n        var filter = new ResultActionFilter();\n\n        var filterItem = new FilterItem(new FilterDescriptor(filter, FilterScope.Action))\n        {\n            Filter = filter,\n            IsReusable = false,\n        };\n\n        context.Results.Add(filterItem);\n    }\n\n    public void OnProvidersExecuted(FilterProviderContext context) { }\n\n    public int Order => -1000;\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "f8567c94-0209-4e0e-b1bc-475b85c81b35",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Note: this filter intended to be used as a GlobalFilter i.e. on all routes.</p>\n<p>Without this filter, each controller action would need to handle this branching logic individually. That would lead to duplicate code scattered throughout the project and increased chances of inconsistencies. The filter makes the process seamless. The ResultActionFilterProvider ensures that this filter is automatically registered. It attaches the filter to every action without the developer needing to manually add attributes to each controller.</p>\n<p>In short, the ResultActionFilter simplifies our API responses. It guarantees that the custom result pattern is consistently transformed into appropriate HTTP responses. This not only cleans up our code but also improves the overall maintainability of the application.</p>\n<h3>Comparing Result Pattern to Exception Flow</h3>\n<p>When you compare the result pattern to the traditional exception approach, the difference becomes clear in how the flow is controlled. Imagine a method that fetches a user by ID. With the result pattern, the method simply returns a result that holds either the user or a problem. There’s no need for try/catch blocks. The code directly checks if the user exists and returns the appropriate result. For example:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "c401de96-8df4-4ae8-be88-9c306bcf6237",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic Result<User> GetUserById(int id)\n{\n    var user = repository.FindUser(id);\n    if (user is null)\n        return new Problem { StatusCode = HttpStatusCode.NotFound, Description = \"User not found\" };\n    return user;\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "fd6f1608-b07b-46ef-ab8b-0cc7d816a21d",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>In a traditional exception-based flow, the same method throws an exception when the user isn’t found. This interrupts the normal flow and requires handling the exception somewhere up the call chain:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "4ef1f689-6e82-4b0c-ae06-f72a6bb631bd",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic User GetUserById(int id)\n{\n    var user = repository.FindUser(id);\n    if (user is null)\n        throw new NotFoundException(\"User not found\");\n    return user;\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "d177932f-dc81-4389-87ff-57b571ee5e38",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>The result pattern keeps the code flow linear and clear. The consumer of the method just examines the result instead of dealing with an exception.</p>\n<p>Now consider a scenario where an operation might have multiple outcomes, such as processing a payment. With the result pattern, you can handle different cases—like validation errors, warnings, or success—by returning a structured result:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "c760d052-aafd-445c-ba23-7bdc3ba8c326",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic Result<Payment> ProcessPayment(PaymentRequest request)\n{\n    if (!Validate(request))\n        return new Problem { StatusCode = HttpStatusCode.BadRequest, Description = \"Validation error\" };\n\n    var payment = paymentService.Process(request);\n    if (payment.IsProblem)\n    {\n        logger.LogWarning(\"payment processing went wrong {Problem}\", payment.Problem);\n        return new WarningPayment(payment, \"Payment processed with warnings\"); // you can derive from Problem type if you want to\n    }\n    \n    return payment; //or payment.Success\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "a0c49b1a-9ad4-414f-9379-f78a18de38e6",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Contrast this with the traditional approach where you use try/catch blocks and throw different exceptions for each outcome:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "43f743fc-21f8-4e63-9590-4d9a2e3857b6",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic Payment ProcessPayment(PaymentRequest request)\n{\n    try\n    {\n        if (!Validate(request))\n            throw new ValidationException(\"Validation error\");\n\n        var payment = paymentService.Process(request);\n        if (payment.IsWarning)\n            throw new PaymentWarningException(\"Payment processed with warnings\");\n\n        return payment;\n    }\n    catch (Exception ex)\n    {\n        // Handle or log exception\n        throw;\n    }\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "c8756c98-d735-45c6-88bf-39d8db17ab61",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Using the result pattern creates a more predictable and clean flow. There’s no scattering of try/catch blocks throughout the code. Instead, each method clearly communicates its possible outcomes by returning a well-defined result. Consumers can then simply check if the operation was successful or if there was a problem, without digging through exception handling logic. This leads to code that is easier to maintain and test, and overall makes the developer’s life a bit simpler.</p>\n<hr>\n<h3>Benchmarking the Result Pattern</h3>\n<p>Using BenchmarkDotNet, the following code demonstrates the performance benefits of the result pattern compared to exception throwing:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "9ea71343-bb1d-4158-8f9b-0b2982858200",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\n[MemoryDiagnoser]\npublic class ResultPatternBenchmark\n{\n    private const int Iterations = 100_000;\n\n    private Result<string> GetResultPatternResult()\n    {\n        if (new Random().Next(0, 2) == 0)\n            return \"Success\";\n\n        return new Problem();\n    }\n\n    private int ThrowException()\n    {\n        if (new Random().Next(0, 2) == 0)\n            return 42;\n\n        throw new InvalidOperationException(\"An error occurred\");\n    }\n\n    [Benchmark]\n    public void BenchmarkResultPattern()\n    {\n        for (int i = 0; i < Iterations; i++)\n        {\n            var result = GetResultPatternResult();\n            // Optionally, do something with the result\n        }\n    }\n\n    [Benchmark]\n    public void BenchmarkExceptionThrowing()\n    {\n        for (int i = 0; i < Iterations; i++)\n        {\n            try\n            {\n                var value = ThrowException();\n                // Optionally, do something with the value\n            }\n            catch (Exception)\n            {\n                // Optionally, handle the exception\n            }\n        }\n    }\n}\n\n\ninternal class Program\n{\n    static void Main(string[] args)\n    {\n        BenchmarkRunner.Run<ResultPatternBenchmark>();\n    }\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "ea5b7930-641e-412c-950f-b7c593911639",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Benchmark Results:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "764cb060-7883-4990-8fec-20a180f83e61",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\nBenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5487/22H2/2022Update)\n11th Gen Intel Core i7-11700K 3.60GHz, 1 CPU, 16 logical and 8 physical cores\n.NET SDK 9.0.101\n  [Host]     : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI [AttachedDebugger]\n  DefaultJob : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI\n\n| Method                     | Mean       | Error     | StdDev    | Gen0      | Allocated |\n|--------------------------- |-----------:|----------:|----------:|----------:|----------:|\n| BenchmarkResultPattern     |   9.241 ms | 0.1739 ms | 0.4132 ms | 1765.6250 |  14.12 MB |\n| BenchmarkExceptionThrowing | 185.322 ms | 1.6657 ms | 1.3910 ms | 2000.0000 |  17.55 MB |"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "d5b1a368-3589-41b6-bbaf-8d8591f9606f",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>The result pattern method completes in just a few milliseconds and uses significantly less memory, while the exception method takes over 185 milliseconds with much higher memory allocation. This benchmark drives home the point that by avoiding exceptions for routine control flow, we can achieve much better performance, especially in high-volume scenarios.</p>\n<hr>\n<h3>Conclusion</h3>\n<p>In conclusion, adopting the result pattern transforms how our applications handle outcomes. It streamlines the code by making both success and error cases explicit, thereby eliminating the clutter of try/catch blocks. This clarity makes the code easier to maintain and test. Moreover, the centralized error management that the result pattern offers means that error handling is consistent across the application. As we have seen, the performance benefits are significant, reducing both execution time and memory overhead. In essence, the result pattern not only improves performance but also enhances the overall development experience, I believe it must be an essential tool in every programmer’s toolkit.</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "settingsData": [
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "35b48ffa-ac33-4fe6-8b89-06fc01651430",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "acdb5a26-f5df-4124-8f4b-11b442b15c58",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "acee358f-6eed-4e63-bdf4-c95e6daf647c",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "11d39cbf-cca8-4389-9f47-c6b3035fb2af",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "3bb1eba9-d65a-4a56-8ed6-f1db009a8da7",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "f1f24306-cd53-4703-bf0e-518124bc2047",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "02a6cae4-6526-4043-9098-763e9b32bac1",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "fb55296a-76f0-4d4f-b95a-7df4d4e46fe0",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "f4747cea-b771-4a1b-910c-25f8f72721e1",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "0fba8033-19fa-4b1c-8ebb-8fd29e1775ec",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "13e9965a-5958-47ee-b7cd-4c08b88908a2",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "78db38a1-905c-41ec-85bf-cc6c1d3ec575",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "d14157d7-a421-4bb6-b7d3-7986c938a517",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "1fb3deed-4b21-41dc-b266-ab02022634b1",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "de34f4cc-d40f-4c7b-ae14-d7fdc7a5a2de",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "8"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "8"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "2cc14f6a-43c9-441a-abbb-e6a68e7d1939",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "8"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "8"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "1d1a11dc-8dc7-48bc-9a57-8647de2b9f8c",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "9"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "9"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "77b1f2f3-f2b4-40cf-80d2-cb7b19a235d2",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "9"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "9"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "530658ec-f7ee-44fa-83c3-287016448242",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "10"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "10"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "4ad1cadd-ec6e-44c2-828c-bb732da717f0",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "10"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "10"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "62269ece-911f-4265-8238-7b24cd3d9597",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "11"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "11"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "eafe52d8-3208-4534-bce8-533ede55287d",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "11"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "11"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "2bfcf4a4-664e-40e0-9217-4f3c5dfcb16e",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "12"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "12"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "d1c48533-cef1-4114-92af-a80a0820a911",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "12"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "12"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "59529c74-ad57-4af2-80cf-c1488b475074",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "13"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "13"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "4115a917-6c5c-46f3-aef0-b76109c84ef9",
+            "key": "c2a62e40-c10a-4581-af24-5a7f0fd68d5d",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "13"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "13"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "9ef48cf4-2d6d-40eb-9cc1-6524ad497c60",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "14"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "14"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "aa776b1d-d9e7-4ee7-a405-9df746f0eaca",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "14"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "14"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "c3a393f4-1dae-4834-9519-89ad9417a71f",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "15"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "15"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "46b8dc9b-6d27-4142-8dc7-1efb33e06950",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "15"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "15"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "1b8d0564-f01e-4abf-8bc3-dc30d726a0e2",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "16"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "16"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "6cce2011-4377-444c-84d6-090018b15a8a",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "16"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "16"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "2d165b5a-09c9-40de-935d-89c7f518882c",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "17"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "17"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "e3ca15bb-412c-455e-9255-ab9bad2c17fe",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "17"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "17"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "b495f854-a5d9-48d4-8475-073e9157da29",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "18"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "18"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "60ee8ce8-f7f6-47f4-9f8b-aca34756973f",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "18"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "18"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "c7c54394-e8b0-4e9b-981f-0c0c5b8347bb",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "19"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "19"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "5d3ed6f8-48cd-4de3-8b58-e697f173a8af",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "19"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "19"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "92d994ba-7284-4056-8fb9-17c427398831",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "20"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "20"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "776b70ed-44fe-4a5f-9991-8fbf510cf6ef",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "20"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "20"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "f6cec9bf-12de-49f4-ac92-828f5b420036",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "21"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "21"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

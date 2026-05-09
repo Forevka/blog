@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/ -->
+<html lang="en" data-theme="light" data-alignment="center" style="--wm-toolbar-height: 67px;"><head data-locator-hook-status-message="No valid renderers found."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link id="giscus-css" rel="stylesheet" href="./Discriminated Unions &amp; Result Pattern - Forevka_files/default.css"><script src="./Discriminated Unions &amp; Result Pattern - Forevka_files/athena.js.завантаження" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app256.us.archive.org';v.server_ms=339;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Discriminated Unions &amp; Result Pattern - Forevka_files/bundle-playback.js.завантаження" charset="utf-8"></script>
+<script type="text/javascript" src="./Discriminated Unions &amp; Result Pattern - Forevka_files/wombat.js.завантаження" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="./Discriminated Unions &amp; Result Pattern - Forevka_files/ruffle.js.завантаження"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/","20250622222220","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1750630940");
+</script>
+<link rel="stylesheet" type="text/css" href="./Discriminated Unions &amp; Result Pattern - Forevka_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Discriminated Unions &amp; Result Pattern - Forevka_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="./Discriminated Unions &amp; Result Pattern - Forevka_files/js"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-3YGYX48ND7');
+        </script>
+
+    
+    <meta content="http://forevka.dev/media/qzeh50ap/1_i9rzgzxsquddu66-k_pxug.png" property="twitter:image">
+    <meta content="Have you ever wondered how you can make your code both robust and beautiful? In the realm of functional programming, discriminated unions (also known as algebraic data types) offer a powerful way to represent data with clarity and precision." property="twitter:description">
+    <meta content=" Discriminated Unions &amp; Result Pattern" property="twitter:title">
+
+    <meta content="/web/20250622222220im_/https://forevka.dev/media/qzeh50ap/1_i9rzgzxsquddu66-k_pxug.png" property="og:image">
+    <meta content="Have you ever wondered how you can make your code both robust and beautiful? In the realm of functional programming, discriminated unions (also known as algebraic data types) offer a powerful way to represent data with clarity and precision." property="og:description">
+    <meta content=" Discriminated Unions &amp; Result Pattern" property="og:title">
+
+    <meta content="Have you ever wondered how you can make your code both robust and beautiful? In the realm of functional programming, discriminated unions (also known as algebraic data types) offer a powerful way to represent data with clarity and precision." name="description">
+
+
+    <meta content="summary_large_image" name="twitter:card">
+    <meta property="og:type" content="website">
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Discriminated Unions &amp; Result Pattern - Forevka</title>
+
+    <link rel="stylesheet" href="./Discriminated Unions &amp; Result Pattern - Forevka_files/site.css">
+
+    <!-- Add other CSS links, fonts, or meta tags as needed -->
+    
+                                            <script src="./Discriminated Unions &amp; Result Pattern - Forevka_files/highlight.min.js.завантаження"></script>
+                                            <script src="./Discriminated Unions &amp; Result Pattern - Forevka_files/csharp.min.js.завантаження"></script>
+                                            <script src="./Discriminated Unions &amp; Result Pattern - Forevka_files/clojure.min.js.завантаження"></script>
+                                            <script src="./Discriminated Unions &amp; Result Pattern - Forevka_files/highlightjs-line-numbers.min.js.завантаження"></script><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style>
+                                        
+</head>
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr; height: 67px;" toolbar-mode="auto"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;height:0;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20250622222220/https%3A//forevka.dev/articles/discriminated-unions-result-pattern-part-1/" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;" nav="async">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="https://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20250622222220"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;"><a class="t" href="https://web.archive.org/web/*/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/" title="See a list of every capture for this URL">2 captures</a><div class="r" title="Timespan for captures of this URL">22 Jun 2025 - 22 Jun 2025</div></div>
+        <div class="k">
+          <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="775" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px;"></div><div class="mt" style="display: none; width: 2px; height: 27px;"></div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap">May</td>
+            <td class="c" id="displayMonthEl" title="You are here: 22:22:20 Jun 22, 2025">JUN</td>
+            <td class="f" nowrap="nowrap">Jul</td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><span class="ta"></span></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 22:22:20 Jun 22, 2025">22</td>
+            <td class="f" nowrap="nowrap"><span class="ta"></span></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap">2024</td>
+            <td class="c" id="displayYearEl" title="You are here: 22:22:20 Jun 22, 2025">2025</td>
+            <td class="f" nowrap="nowrap">2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#" title="Share via My Web Archive" style="display: none;">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in" style="display: inline-block;">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web" style="display: none;"></span>
+        </span>
+                <a class="xxs" href="https://help.archive.org/help/category/the-wayback-machine/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="https://web.archive.org/web/20250622222220/http://web.archive.org/screenshot/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#" data-url="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#" data-url="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#expand"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archiveteam);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/archiveteam" target="_new"><span class="wm-title">Archive Team</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  <img align="right" src="https://wiki.archiveteam.org/images/e/e6/Archiveteam.jpg" width="200"> Formed in 2009, the Archive Team (not to be confused with the archive.org Archive-It Team) is a rogue archivist collective dedicated to saving copies of rapidly dying or deleted websites for the sake of history and digital heritage. The group is 100% composed of volunteers and interested parties, and has expanded into a large amount of related projects for saving online and digital history.
+<p>
+History is littered with hundreds of conflicts over the future of a community, group, location or business that were "resolved" when one of the parties stepped ahead and destroyed what was there. With the original point of contention destroyed, the debates would fall to the wayside. Archive Team believes that by duplicated condemned data, the conversation and debate can continue, as well as the richness and insight gained by keeping the materials. Our projects have ranged in size from a single volunteer downloading the data to a small-but-critical site, to over 100 volunteers stepping forward to acquire terabytes of user-created data to save for future generations.
+</p><p>
+The main site for Archive Team is at <a href="https://wiki.archiveteam.org/">archiveteam.org</a> and contains up to the date information on various projects, manifestos, plans and walkthroughs.
+</p><p>
+This collection contains the output of many Archive Team projects, both ongoing and completed. Thanks to the generous providing of disk space by the Internet Archive, multi-terabyte datasets can be made available, as well as in use by the <a href="https://web.archive.org/">Wayback Machine</a>, providing a path back to lost websites and work. 
+</p><p>
+Our collection has grown to the point of having sub-collections for the type of data we acquire. If you are seeking to browse the contents of these collections, the Wayback Machine is the best first stop. Otherwise, you are free to dig into the stacks to see what you may find.
+</p><p>
+<b>The Archive Team Panic Downloads</b> are full pulldowns of currently extant websites, meant to serve as emergency backups for needed sites that are in danger of closing, or which will be missed dearly if suddenly lost due to hard drive crashes or server failures. 
+</p><p></p>
+	</div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archiveteam_urls)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/archiveteam_urls" target="_new"><span class="wm-title">Archive Team: URLs</span></a></div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./Discriminated Unions &amp; Result Pattern - Forevka_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./Discriminated Unions &amp; Result Pattern - Forevka_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(775,27,25,2,"web","https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/","20250622222220",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3","https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+    
+<div class="progress-wrap">
+
+    <div class="arrow">
+        <div class="arrow-top"></div>
+        <div class="arrow-bottom"></div>
+    </div>
+
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="stroke-dashoffset: 307.919;"></path>
+    </svg>
+</div>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+      "use strict";
+
+      // Get the SVG path element inside the .progress-wrap container
+      var progressPath = document.querySelector('.progress-wrap path');
+      if (!progressPath) return; // Exit if the element isn't found
+
+      // Get the total length of the SVG path
+      var pathLength = progressPath.getTotalLength();
+
+      // Prepare the SVG path for animation by setting up the dash properties.
+      //progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+      //progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+      //progressPath.style.strokeDashoffset = pathLength;
+
+      // Force a layout so that the browser picks up the starting position before animating.
+      //progressPath.getBoundingClientRect();
+      //progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+
+      // Function to update the strokeDashoffset based on scroll position.
+      function updateProgress() {
+        // Get current scroll position (supporting various browsers)
+        var scroll = window.pageYOffset || document.documentElement.scrollTop;
+        // Calculate the scrollable height of the document
+        var height = document.documentElement.scrollHeight - window.innerHeight;
+        // Calculate how far along the path should be drawn
+        var progress = pathLength - (scroll * pathLength / height);
+        progressPath.style.strokeDashoffset = progress;
+      }
+
+      // Update progress immediately and on every scroll event.
+      updateProgress();
+      //window.addEventListener('scroll', updateProgress);
+
+      // Variables for when to show the progress element and for the scroll animation duration.
+      var offset = 50,
+          duration = 550;
+
+      // Toggle the active-progress class based on the scroll position.
+      window.addEventListener('scroll', function() {
+        var progressWrap = document.querySelector('.progress-wrap');
+        if (!progressWrap) return;
+        if ((window.pageYOffset || document.documentElement.scrollTop) > offset) {
+          progressWrap.classList.add('active-progress');
+        } else {
+          progressWrap.classList.remove('active-progress');
+        }
+      });
+
+      // Add a click event to the progress element that scrolls smoothly to the top.
+      var progressWrap = document.querySelector('.progress-wrap');
+      if (progressWrap) {
+        progressWrap.addEventListener('click', function(event) {
+          event.preventDefault();
+          scrollToTop(duration);
+        });
+      }
+
+      // A helper function to smoothly scroll to the top over a specified duration.
+      function scrollToTop(duration) {
+        var start = window.pageYOffset || document.documentElement.scrollTop;
+        var startTime = null;
+
+        // An easing function for a smooth animation (easeInOutQuad)
+        function easeInOutQuad(t) {
+          return t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+        }
+
+        // The animation loop, which will be called recursively.
+        function animateScroll(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var timeElapsed = timestamp - startTime;
+          var progress = Math.min(timeElapsed / duration, 1);
+          var ease = easeInOutQuad(progress);
+          // Calculate the new scroll position
+          window.scrollTo(0, start * (1 - ease));
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animateScroll);
+          }
+        }
+        requestAnimationFrame(animateScroll);
+      }
+    });
+</script>
+
+    
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
+
+    <div class="nav-container">
+        <div class="inset-nav-container" id="nav-fill">
+            <div class="logo-wrapper">
+                <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/" aria-label="Logo" class="logo w-nav-brand">
+                    <div>Forevka</div>
+                </a>
+            </div>
+            <nav role="navigation" class="nav-menu w-nav-menu">
+                <div class="links-wrapper">
+                    <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/about/" class="navigation-link w-nav-link ">About</a>
+                    <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/contacts/" class="navigation-link w-nav-link ">Contact</a>
+                </div>
+            </nav>
+            <div class="menu-button w-nav-button" style="-webkit-user-select: text" aria-label="menu" role="button" tabindex="0" id="nav-button">
+                <div class="menu-icon">
+                    <div class="menu-icon-line-top"></div>
+                    <div class="menu-icon-line-bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-nav-overlay">
+        <nav role="navigation" id="w-node-_7ecd2c46-248a-916e-eb95-08abb6aec6aa-b6aec6a5" class="nav-menu w-nav-menu" style="transition: all, transform 400ms; transform: translateY(0px) translateX(0px);" data-nav-menu-open="">
+
+            <div class="links-wrapper">
+                <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/about/" class="navigation-link w-nav-link w--nav-link-open ">About</a>
+                <link rel="prefetch" href="https://web.archive.org/web/20250622222220/https://forevka.dev/about/">
+                <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/contacts/" class="navigation-link w-nav-link w--nav-link-open ">Contact</a>
+                <link rel="prefetch" href="https://web.archive.org/web/20250622222220/https://forevka.dev/contacts/">
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<script>
+    document.getElementById('nav-button').addEventListener('click', function () {
+        const overlay = document.querySelector('.w-nav-overlay');
+        const topLine = document.querySelector('.menu-icon-line-top');
+        const bottomLine = document.querySelector('.menu-icon-line-bottom');
+
+        if (overlay.hasAttribute('data-nav-menu-open')) {
+            overlay.removeAttribute('data-nav-menu-open');
+
+            // Remove inline styles
+            if (topLine) topLine.style.transform = 'translate3d(0px, 0.0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)';
+            if (topLine) topLine.style.transformStyle = '';
+
+            if (bottomLine) bottomLine.style.transform = 'translate3d(0px, 0.0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)';
+            if (bottomLine) bottomLine.style.transformStyle = '';
+        } else {
+            overlay.setAttribute('data-nav-menu-open', '');
+
+            // Apply inline styles
+            if (topLine) {
+                topLine.style.transform = 'translate3d(0px, 0.25rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg)';
+                topLine.style.transformStyle = 'preserve-3d';
+            }
+
+            if (bottomLine) {
+                bottomLine.style.transform = 'translate3d(0px, -0.25rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg)';
+                bottomLine.style.transformStyle = 'preserve-3d';
+            }
+        }
+    });
+
+    if (!CSS.supports('interpolate-size: allow-keywords')) {
+        function throttle(func, delay) {
+          let lastCall = 0;
+          return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall >= delay) {
+              func(...args);
+              lastCall = now;
+            }
+          };
+        }
+
+        let ticking = false;
+        const progressUpdate = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const docElement = document.documentElement;
+              const scrollTop = docElement.scrollTop || document.body.scrollTop;
+              const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
+              const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+              const navFill = document.getElementById('nav-fill');
+              if (navFill) {
+                let notFilled = 100 - scrollPercent;
+                let scrollGradient;
+
+                if (scrollPercent >= 50) {
+                  scrollGradient = `linear-gradient(to right, var(--color--500) ${scrollPercent}%, var(--color--300) ${notFilled}%)`;
+                } else {
+                  scrollGradient = `linear-gradient(to left, var(--color--300) ${notFilled}%, var(--color--500) ${scrollPercent}%)`;
+                }
+
+                navFill.style.background = scrollGradient;
+              }
+              ticking = false;
+            });
+            ticking = true;
+          }
+        };
+
+        //window.addEventListener('scroll', progressUpdate);
+    }
+</script>
+
+    <div class="main-content">
+        
+
+
+<div class="popover-demo">
+    <!-- Trigger Button -->
+    <button class="trigger" popovertarget="index" popovertargetaction="toggle" style="display: inherit;">
+        <div class="trigger__details">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0_3000_5" maskUnits="userSpaceOnUse" x="0" y="2" width="24" height="20">
+                    <path d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25" stroke-width="2.5" stroke="gray"></path>
+                </mask>
+                <g mask="url(#mask0_3000_5)">
+                    <rect x="3" y="6" width="18" height="12" fill="gray"></rect>
+                </g>
+                <mask id="mask1_3000_5" maskUnits="userSpaceOnUse" x="0" y="2" width="24" height="20">
+                    <path class="lines" d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25" stroke="white" stroke-width="2.5" pathLength="1.025" stroke-dasharray="1.025" stroke-dashoffset="1.025"></path>
+                </mask>
+                <g mask="url(#mask1_3000_5)">
+                    <rect x="3" y="6" width="18" height="12" fill="white"></rect>
+                </g>
+            </svg>
+
+            <span>
+                <span>Index</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+                </svg>
+            </span>
+            <span class="progress"></span>
+        </div>
+    </button>
+
+    <!-- Popover Contents -->
+    <div popover="auto" id="index">
+        <div class="contents">
+            <button popovertarget="index" popovertargetaction="hide">
+                <div class="trigger__details">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_3000_5" maskUnits="userSpaceOnUse" x="0" y="2" width="24" height="20">
+                            <path d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25" stroke-width="2.5" stroke="gray"></path>
+                        </mask>
+                        <g mask="url(#mask0_3000_5)">
+                            <rect x="3" y="6" width="18" height="12" fill="gray"></rect>
+                        </g>
+                        <mask id="mask1_3000_5" maskUnits="userSpaceOnUse" x="0" y="2" width="24" height="20">
+                            <path class="lines" d="M3 6.75L19.0541 6.75L21.027 6.75H23.0135L23 3.5L1 3.5L1 12L23 12L23.0135 21L1 21L1 17.25L13 17.25" stroke="white" stroke-width="2.5" pathLength="1.025" stroke-dasharray="1.025" stroke-dashoffset="1.025"></path>
+                        </mask>
+                        <g mask="url(#mask1_3000_5)">
+                            <rect x="3" y="6" width="18" height="12" fill="white"></rect>
+                        </g>
+                    </svg>
+
+                    <span>
+                        <span>Index</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+                        </svg>
+                    </span>
+                    <span class="progress"></span>
+                </div>
+            </button>
+            <ol>
+                
+                    <li><a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#what-are-discriminated-unions">What are Discriminated Unions?</a></li>
+                    <li><a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#pattern-matching">Pattern matching</a></li>
+                    <li><a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#unions-vs-polymorphism">Unions vs Polymorphism</a></li>
+                
+            </ol>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+</div>
+
+<script type="module">
+    //import { Pane } from 'https://web.archive.org/web/20250622222220/https://cdn.skypack.dev/tweakpane@4.0.4';
+
+    const popover = document.querySelector('[popover]');
+
+    const config = {
+      alignment: 'center',
+      theme: 'light'
+    };
+
+    /*const ctrl = new Pane({
+      title: 'Config',
+      expanded: false
+    });*/
+
+    const update = () => {
+      document.documentElement.dataset.theme = config.theme;
+      document.documentElement.dataset.alignment = config.alignment;
+    };
+
+    const sync = event => {
+      if (
+        !document.startViewTransition ||
+        (event.target.controller.view.labelElement.innerText !== 'Theme' &&
+         event.target.controller.view.labelElement.innerText !== 'Alignment')
+      ) {
+        return update();
+      }
+      document.startViewTransition(() => update());
+    };
+    
+    /*ctrl.addBinding(config, 'alignment', {
+      label: 'Alignment',
+      options: {
+        Left: 'left',
+        Center: 'center',
+        Right: 'right'
+      }
+    });
+
+    ctrl.addBinding(config, 'theme', {
+      label: 'Theme',
+      options: {
+        System: 'system',
+        Light: 'light',
+        Dark: 'dark'
+      }
+    });
+
+    ctrl.on('change', sync);*/
+    update();
+
+    const links = document.querySelectorAll('ol a');
+    links.forEach(link => {
+      link.addEventListener('click', () => popover.hidePopover());
+    });
+
+    // Backfill the popover width/height transition for browsers without "interpolate-size" support
+    if (!CSS.supports('interpolate-size: allow-keywords')) {
+      let set = false;
+      popover.style.setProperty('transition', 'none');
+      popover.addEventListener('toggle', () => {
+        if (!set) {
+          const { height, width } = popover.getBoundingClientRect();
+          document.documentElement.style.setProperty('--content-height', `${height}px`);
+          document.documentElement.style.setProperty('--content-width', `${width}px`);
+          set = true;
+          popover.hidePopover();
+          requestAnimationFrame(() => {
+            popover.showPopover();
+            popover.style.removeProperty('transition');
+          });
+        }
+      });
+    }
+</script>
+
+
+<!-- Post Header (sticky section with title, short description, and details) -->
+<div class="section sticky">
+    <div class="container no-bottom-padding">
+        <div class="text-box centre">
+            <div class="text-align-centre">
+                
+<h1 class="heading extra-large title">
+     Discriminated Unions &amp; Result Pattern
+    <div class="aurora">
+        <div class="aurora__item"></div>
+        <div class="aurora__item"></div>
+        <div class="aurora__item"></div>
+        <div class="aurora__item"></div>
+        <div class="aurora__item"></div>
+    </div>
+</h1>
+
+
+                <div class="spacer _24"></div>
+                <div class="text-color-600">
+                    <div class="paragraph large">Have you ever wondered how you can make your code both robust and beautiful? In the realm of functional programming, discriminated unions (also known as algebraic data types) offer a powerful way to represent data with clarity and precision.</div>
+                </div>
+                <div class="spacer _24"></div>
+                <div class="post-details-wrapper is-centre">
+                    <div class="post-detail">Philosophy, C#</div>
+                    <div class="post-detail">·</div>
+                    <div class="post-detail">10 min</div>
+                    <div class="post-detail">·</div>
+                    <div class="post-detail">2025/02/12</div>
+                </div>
+            </div>
+            <div class="spacer _80"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Header Image Section -->
+<div class="section">
+    <div class="inset-container">
+        <div class="header-image-wrapper">
+            <img src="./Discriminated Unions &amp; Result Pattern - Forevka_files/1_i9rzgzxsquddu66-k_pxug.png" loading="lazy" alt="" class="post-item-image">
+        </div>
+    </div>
+</div>
+
+<!-- Post Content Section -->
+<div class="section">
+    <div class="inset-container post-content">
+        <div class="container article-container">
+            <div class="text-box centre article-container-item">
+
+                <div id="light-toc" class="color-block background-3" style="display: none;">
+                    <div id="toc_list" onclick="if (document.getElementById(&#39;toc&#39;).style.display === &#39;none&#39;) { document.getElementById(&#39;toc&#39;).style.display = &#39;block&#39;; } else { document.getElementById(&#39;toc&#39;).style.display = &#39;none&#39;; }" role="button" tabindex="0">
+                        Table of content <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#ffb88f" d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"></path></svg>
+                    </div>
+                    <div id="toc">
+                        <ol>
+
+                                <li><a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#what-are-discriminated-unions">What are Discriminated Unions?</a></li>
+                                <li><a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#pattern-matching">Pattern matching</a></li>
+                                <li><a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/discriminated-unions-result-pattern-part-1/#unions-vs-polymorphism">Unions vs Polymorphism</a></li>
+
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="rich-text w-richtext">
+                    <article class="blog-post">
+                        <h1 class="heading">What Are Discriminated Unions and how it related to maintainable code </h1>
+                        <p class="paragraph">Have you ever wondered how you can make your code both robust and beautiful? In the realm of functional programming, discriminated unions (also known as algebraic data types) offer a powerful way to represent data with clarity and precision. </p>
+
+
+<div class="section" id="what-are-discriminated-unions">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <h3>What Are Discriminated Unions? </h3><p>Imagine you’re an artist with a <strong style="background-image: linear-gradient(to left, rgb(229, 32, 32) 0%, rgb(251, 165, 24) 33%, rgb(249, 203, 67) 67%, rgb(168, 156, 41) 100%);">perfectly organized palette</strong>. Each color is distinct, and you know exactly when and how to use it. Discriminated unions work similarly—they allow you to define a type that can be one of several distinct variants. Each variant can carry its own specific data, making the whole construct a clear, self-documenting model of your domain.</p><h3>A Simple Pseudocode Example: </h3><p>The Option Type Consider a common scenario: you want to represent a value that might or might not be present. In many languages, this is done using a nullable type, but discriminated unions take a more explicit approach:</p>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+<pre class="theme-base16-onedark"><code class="language-csharp hljs" data-highlighted="yes"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1">type Option&lt;T&gt; =</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2">    | Some(<span class="hljs-keyword">value</span>: T)</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3">    | None</td></tr></tbody></table></code></pre>
+
+</div>
+
+
+<div class="section" id="">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <p>Isn’t it refreshing to know that an <code>Option</code> is always either <code>Some</code> value or <code>None </code>— there’s no room for ambiguity?</p>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <h3>A Philosophical Detour: Mathematics, Art, and Code</h3><p>Let’s take a moment to appreciate the deeper roots of discriminated unions. In mathematics, there is the concept of a <em>disjoint union</em>—a way of combining sets so that each element’s origin is preserved. This idea is as old as mathematics itself, reflecting a timeless desire for clarity and order.</p><p><strong style="background-image: linear-gradient(to left, rgb(229, 32, 32) 0%, rgb(251, 165, 24) 33%, rgb(249, 203, 67) 67%, rgb(168, 156, 41) 100%);">Programming, at its best, is much like art or philosophy</strong>. Every time you choose a design pattern or a type system, you’re making a statement about how you wish to interact with the world. By opting for discriminated unions, you’re saying, “I value explicitness, safety, and elegance.” Isn’t it inspiring to think that your code can be a canvas where logic meets creativity?</p>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+<hr>
+
+
+</div>
+
+
+<div class="section" id="pattern-matching">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <h3>Pattern Matching: The Heartbeat of Functional Programming</h3><p>Once you’ve defined a discriminated union, the next step is to work with it. Enter <strong style="background-image: linear-gradient(to left, rgb(229, 32, 32) 0%, rgb(251, 165, 24) 33%, rgb(249, 203, 67) 67%, rgb(168, 156, 41) 100%);">pattern matching</strong>. This is the functional programmer’s secret weapon: a way to deconstruct and handle each variant explicitly.</p><h3>A Pseudocode Example: Handling an Option</h3>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+<pre class="theme-base16-onedark"><code class="language-csharp hljs" data-highlighted="yes"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-function">function <span class="hljs-title">process</span>(<span class="hljs-params">option: Option&lt;T&gt;</span>)</span> {</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2">    match option {</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3">        <span class="hljs-function"><span class="hljs-function"><span class="hljs-keyword">case</span> <span class="hljs-title">Some</span>(<span class="hljs-params"><span class="hljs-keyword">value</span></span>):</span></span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-function">            <span class="hljs-title">print</span>(<span class="hljs-params"><span class="hljs-string">"Found a value: "</span> + <span class="hljs-keyword">value</span></span>)</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5"><span class="hljs-function">        <span class="hljs-keyword">case</span> None:</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6"><span class="hljs-function">            <span class="hljs-title">print</span>(<span class="hljs-params"><span class="hljs-string">"No value found."</span></span>)</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7"><span class="hljs-function">    }</span></td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="8"><div class="hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="8"><span class="hljs-function">}</span></td></tr></tbody></table></code></pre>
+
+</div>
+
+
+<div class="section" id="">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <p>Ask yourself: wouldn’t it be comforting to know that every possible case is handled? That’s the promise of pattern matching—it forces you to consider all outcomes, leaving no room for forgotten edge cases.</p>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <h3>The Benefits: Clarity, Safety, and Joy</h3><p>1. Expressiveness and Self-Documentation</p><p>When you define a type with a discriminated union, you lay out all possible states right before your eyes. No hidden surprises. Every variant is explicitly named, making your code not only easier to understand but also easier to maintain.</p><p>2. Exhaustive Checking</p><p>Languages that support discriminated unions often come with compilers that check for exhaustive handling. This means if you add a new variant, your compiler will cheerfully (or sometimes sternly) remind you to handle it everywhere. Can you imagine the relief of knowing that your compiler is looking out for you?</p><p>3. Eliminating Null-Related Bugs</p><p>By modeling optional values with a type like <code>Option</code>, you force yourself to handle both the presence and absence of data explicitly. This approach virtually eliminates those annoying null pointer exceptions. Isn’t it time we said goodbye to those runtime gremlins?</p>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+<hr>
+
+
+</div>
+
+
+<div class="section" id="unions-vs-polymorphism">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <h3>Discriminated Unions vs. Object-Oriented Polymorphism</h3><p>In object-oriented programming, you might use polymorphism and inheritance to achieve similar behavior. However, discriminated unions offer a more straightforward and less error-prone alternative. Instead of navigating complex inheritance trees, you declare every possibility upfront.</p><p>A Pseudocode Example: Modeling Errors</p><p>Consider a system that can encounter different kinds of errors:</p>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+<pre class="theme-base16-onedark"><code class="language-csharp hljs" data-highlighted="yes"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1">type Error =</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2">    | NotFound(message: String)</td></tr><tr><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3">    | PermissionDenied(message: String)</td></tr></tbody></table></code></pre>
+
+</div>
+
+
+<div class="section" id="">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <p>Every time you handle an <code>Error</code>, you must account for both possibilities. There’s no chance for an unhandled error type to slip through the cracks.</p>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="">
+    
+<hr>
+
+
+</div>
+
+
+<div class="section" id="">
+    
+
+<div class="text-box">
+    <div class="rich-text w-richtext">
+        <p><em>Are you ready to let your code reflect the precision of a mathematician and the creativity of an artist?</em></p><p>We will continue journey with the unions in the next chapter of series</p>
+    </div>
+</div>
+</div>
+
+                    </article>
+
+                </div>
+            </div>
+
+            <script src="./Discriminated Unions &amp; Result Pattern - Forevka_files/client.js.завантаження" data-repo="Forevka/blog" data-repo-id="R_kgDON3w66g" data-category="Comments" data-category-id="DIC_kwDON3w66s4CoYd3" data-mapping="og:title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="en" crossorigin="anonymous" async="">
+            </script><div class="giscus"><iframe class="giscus-frame giscus-frame--loading" title="Comments" scrolling="no" allow="autoplay &#39;self&#39;; fullscreen &#39;self&#39;" src="./Discriminated Unions &amp; Result Pattern - Forevka_files/widget.html" style="opacity: 0;"></iframe></div>
+            
+        </div>
+    </div>
+</div>
+
+    <!-- Related Posts Section -->
+    <div class="section">
+        <div class="inset-container post-content">
+            <div class="container">
+                <div class="text-box centre">
+                    <div class="related-title-wrapper">
+                        <h2 class="heading large">Read also</h2>
+                    </div>
+                </div>
+                <div class="spacer _80"></div>
+                <div class="posts-wrapper w-dyn-list">
+                    <div role="list" class="posts-grid all-articles w-dyn-items">
+
+<div role="listitem" class="post-item w-dyn-item">
+    <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/articles/crafting-a-result-pattern-in-c-a-comprehensive-guide/" class="post-item-content w-inline-block">
+        <div class="image-wrapper">
+            <img alt="Crafting a Result Pattern in C#: A Comprehensive Guide" loading="lazy" src="./Discriminated Unions &amp; Result Pattern - Forevka_files/crafting-result-pattern-card.png" class="post-item-image">
+        </div>
+        <div class="content">
+            <h2 class="heading medium">Crafting a Result Pattern in C#: A Comprehensive Guide</h2>
+            <div class="post-details-wrapper">
+                <div class="post-detail">C#</div>
+                <div class="post-detail">·</div>
+                <div class="post-detail">15 min</div>
+                <div class="post-detail">·</div>
+                <div class="post-detail">2025/02/26</div>
+            </div>
+        </div>
+    </a>
+</div>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    
+<div class="section">
+    <div class="inset-container cta">
+        
+
+        <div class="container support-ukraine">
+            <div class="text-box _700px centre" style="    max-width: 60rem !important;">
+                <div class="text-align-centre">
+                    <a href="https://web.archive.org/web/20250622222220/https://u24.gov.ua/" style="display: block !important;" target="_blank" id="trackableLinkSupportUkraine">
+                        <img src="./Discriminated Unions &amp; Result Pattern - Forevka_files/banner2-no-action.svg">
+                    </a>
+                </div>
+            </div>
+            <div class="blurred-circle"></div>
+            <div class="blurred-circle bottom-right"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('trackableLinkSupportUkraine').addEventListener('click', function(event) {
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            'event': 'support_ukraine_click',
+            'link_url': this.href
+        });
+    });
+</script>
+
+    
+<div class="section">
+    <div class="inset-container cta">
+        <img src="./Discriminated Unions &amp; Result Pattern - Forevka_files/photo-1602475063211-3d98d60e3b1f.jpeg" loading="lazy" alt="" class="noise-layer">
+        <div class="container">
+            <div class="text-box _700px centre">
+                <div class="text-align-centre">
+                    <h1 class="heading extra-large">Stay in the loop</h1>
+                    <div class="spacer _40"></div>
+                    <div class="form-block">
+                        <form id="subscribeForm" method="post" class="email-form-wrapper">
+                            <input class="text-field w-input" maxlength="256" name="Email" placeholder="Your email" type="email" required="">
+                            <input type="submit" class="button in-input w-button" value="Subscribe →">
+                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8LSkjDKSS9FFj0YbXudPIi92vMNnOaV84dRNsgAFy_k2znRN81BCNI_ZQ5moDxfts9HJjHGpho0KaI5CbWunYm0sQbRUFdBx-LlUVMSyXFGyE5SMQqDqIb2V0MiMbIUxPoHlBamKA1WhuzI1kLN-o8Y"></form>
+                        <div class="spacer _16"></div>
+                        <div class="paragraph small text-color-600">
+                            Psss... want some goodies?
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blurred-circle"></div>
+            <div class="blurred-circle bottom-right"></div>
+        </div>
+    </div>
+</div>
+
+    
+<div class="section">
+    <div class="container">
+        <div class="footer-wrapper">
+
+            <ul role="list" class="footer-list w-list-unstyled">
+                <li class="footer-list-item">
+                    <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/" class="navigation-link">Home</a>
+                </li>
+                <li class="footer-list-item">
+                    <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/about" class="navigation-link">About</a>
+                </li>
+                <li class="footer-list-item">
+                    <a href="https://web.archive.org/web/20250622222220/https://forevka.dev/contacts" class="navigation-link">Contact</a>
+                </li>
+            </ul>
+
+            <ul role="list" class="footer-list w-list-unstyled">
+                <li class="footer-list-item">
+                    <div class="paragraph small text-color-600">©BohdanL 2024</div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+    
+                                            <script>hljs.highlightAll();</script>
+                                            <script>hljs.initLineNumbersOnLoad();</script>
+
+
+                                            <script>
+                                                // for beutiful strong underline
+                                                const magicalUnderlines = Array.from(document.querySelectorAll('strong'));
+
+                                                const gradientAPI = 'https://web.archive.org/web/20250622222220/https://gist.githubusercontent.com/wking-io/3e116c0e5675c8bcad8b5a6dc6ca5344/raw/4e783ce3ad0bcd98811c6531e40256b8feeb8fc8/gradient.json';
+
+                                                // HELPER FUNCTIONS
+
+                                                // 1. Get random number in range. Used to get random index from array.
+                                                const randNumInRange = max => Math.floor(Math.random() * (max - 1));
+
+                                                // 2. Merge two separate array values at the same index to
+                                                // be the same value in new array.
+                                                const mergeArrays = (arrOne, arrTwo) => arrOne.
+                                                map((item, i) => `${item} ${arrTwo[i]}`).
+                                                join(', ');
+
+                                                // 3. Curried function to add a background to array of elms
+                                                const addBackground = elms => color => {
+                                                  elms.forEach(el => {
+                                                    el.style.backgroundImage = color;
+                                                  });
+                                                };
+                                                // 4. Function to get data from API
+                                                const getData = async url => {
+                                                    return [
+                                                        {
+                                                            "name": "fierySpark",
+                                                            "direction": "90deg",
+                                                            "colors": ["#E52020", "#FBA518"],
+                                                            "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "goldenFlare",
+                                                        "direction": "to right",
+                                                        "colors": ["#FBA518", "#F9CB43"],
+                                                        "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "sunsetFusion",
+                                                        "direction": "45deg",
+                                                        "colors": ["#E52020", "#FBA518", "#F9CB43"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "amberTwilight",
+                                                        "direction": "to top",
+                                                        "colors": ["#FBA518", "#F9CB43", "#A89C29"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "radiantBurst",
+                                                        "direction": "to left",
+                                                        "colors": ["#E52020", "#FBA518", "#F9CB43", "#A89C29"],
+                                                        "positions": ["0%", "33%", "67%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "reverseGlow",
+                                                        "direction": "to bottom",
+                                                        "colors": ["#A89C29", "#F9CB43", "#FBA518", "#E52020"],
+                                                        "positions": ["0%", "33%", "67%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "crimsonHeat",
+                                                        "direction": "120deg",
+                                                        "colors": ["#E52020", "#F9CB43"],
+                                                        "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "saffronDream",
+                                                        "direction": "to right",
+                                                        "colors": ["#FBA518", "#A89C29"],
+                                                        "positions": ["0%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "vividEmber",
+                                                        "direction": "135deg",
+                                                        "colors": ["#E52020", "#F9CB43", "#A89C29"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        },
+                                                        {
+                                                        "name": "citrusFlare",
+                                                        "direction": "200deg",
+                                                        "colors": ["#FBA518", "#F9CB43", "#E52020"],
+                                                        "positions": ["0%", "50%", "100%"]
+                                                        }
+                                                    ];
+                                                };
+
+                                                // 5. Partial Application of addBackground to always apply
+                                                // background to the magicalUnderlines constant
+                                                const addBackgroundToUnderlines = addBackground(magicalUnderlines);
+
+                                                // GRADIENT FUNCTIONS
+
+                                                // 1. Build CSS formatted linear-gradient from API data
+                                                const buildGradient = obj => `linear-gradient(${obj.direction}, ${mergeArrays(obj.colors, obj.positions)})`;
+
+                                                // 2. Get single gradient from data pulled in array and
+                                                // apply single gradient to a callback function
+                                                const applyGradient = async (url, callback) => {
+                                                  const data = await getData(url);
+                                                  const gradient = buildGradient(data[randNumInRange(data.length)]);
+                                                  callback(gradient);
+                                                };
+
+                                                // RESULT
+                                                applyGradient(gradientAPI, addBackgroundToUnderlines);
+                                            </script>
+                                        
+        
+<script>
+            function updateFloatingAlignment() {
+              // Select all components that should change alignment
+              const components = document.querySelectorAll('html');
+
+
+              // Check if the viewport width is at or below the mobile threshold
+              if (window.innerWidth <= 768) {
+                components.forEach(component => {
+                  // Change the alignment attribute to "left"
+                    component.setAttribute('data-alignment', 'left');
+                });
+
+
+              } else {
+                // Optionally, reset to the default (or original) alignment
+                components.forEach(component => {
+                    component.setAttribute('data-alignment', 'center');
+                });
+
+
+              }
+
+            }
+
+            // Run the function on initial page load
+            window.addEventListener('DOMContentLoaded', updateFloatingAlignment);
+
+            // Run the function when the window is resized
+            window.addEventListener('resize', updateFloatingAlignment);
+
+              const floatingToc = document.querySelectorAll('.trigger');
+              const staticToc = document.querySelectorAll('#light-toc');
+
+        if (CSS.supports('interpolate-size: allow-keywords')) {
+
+                floatingToc.forEach(component => {
+                    component.style.display = 'inherit';
+                })
+
+                staticToc.forEach(component => {
+                    component.style.display = 'none';
+                })
+        }else{
+                floatingToc.forEach(component => {
+                    component.style.display = 'none';
+                })
+
+
+                staticToc.forEach(component => {
+                        component.style.display = 'inherit';
+                    })
+
+        }
+        </script>
+
+
+
+</body></html>

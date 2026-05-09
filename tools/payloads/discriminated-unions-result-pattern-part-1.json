@@ -1,0 +1,577 @@
+{
+  "slug": "discriminated-unions-result-pattern-part-1",
+  "values": [
+    {
+      "editorAlias": "Umbraco.TextArea",
+      "culture": null,
+      "segment": null,
+      "alias": "title",
+      "value": "Discriminated Unions & Result Pattern"
+    },
+    {
+      "editorAlias": "Umbraco.TextArea",
+      "culture": null,
+      "segment": null,
+      "alias": "description",
+      "value": "Have you ever wondered how you can make your code both robust and beautiful? In the realm of functional programming, discriminated unions (also known as algebraic data types) offer a powerful way to represent data with clarity and precision."
+    },
+    {
+      "editorAlias": "Umbraco.Integer",
+      "culture": null,
+      "segment": null,
+      "alias": "readTime",
+      "value": 6
+    },
+    {
+      "editorAlias": "Umbraco.MediaPicker3",
+      "culture": null,
+      "segment": null,
+      "alias": "heroImage",
+      "value": [
+        {
+          "key": "c8d043e9-3d30-4541-84aa-9474154fa08a",
+          "mediaKey": "b292480c-3045-42af-82c6-30ffde81265a",
+          "mediaTypeAlias": "Image",
+          "crops": [],
+          "focalPoint": null
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.MultiNodeTreePicker",
+      "culture": null,
+      "segment": null,
+      "alias": "category",
+      "value": [
+        {
+          "type": "document",
+          "unique": "bb9d1afe-7c12-4711-bf8a-907caa37ba95"
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.TextBox",
+      "culture": null,
+      "segment": null,
+      "alias": "bodyTitle",
+      "value": "Discriminated Unions & Result Pattern"
+    },
+    {
+      "editorAlias": "Umbraco.TextBox",
+      "culture": null,
+      "segment": null,
+      "alias": "bodyDescription",
+      "value": "Have you ever wondered how you can make your code both robust and beautiful? In the realm of functional programming, discriminated unions (also known as algebraic data types) offer a powerful way to r"
+    },
+    {
+      "editorAlias": "Umbraco.MediaPicker3",
+      "culture": null,
+      "segment": null,
+      "alias": "cardImage",
+      "value": [
+        {
+          "key": "fbee0433-30ac-4362-af5d-2b676f736eba",
+          "mediaKey": "3a2e0343-efdf-4db9-b03f-859c58d88a66",
+          "mediaTypeAlias": "Image",
+          "crops": [],
+          "focalPoint": null
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.BlockGrid",
+      "culture": null,
+      "segment": null,
+      "alias": "content",
+      "value": {
+        "layout": {
+          "Umbraco.BlockGrid": [
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "3befa8f0-9e08-405d-9c5f-0f4c9fc5da51",
+              "settingsKey": "0fbe5e93-3b96-4348-be53-6d9777927a8e"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "7f693533-0944-407a-9582-752a2e981220",
+              "settingsKey": "b3ca819d-67db-4f64-8f18-6290fc7b2606"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "f205b2cd-8bc9-470b-973e-af64f11d8f05",
+              "settingsKey": "1c378db7-48ee-4fe2-ad46-66e519afe4b2"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "2a3f4f02-5cfa-4ada-84b3-84f160d3f060",
+              "settingsKey": "287bddf3-e56e-4d33-90e8-a5278971b074"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "83ffc2c4-f93b-4a49-9015-b4f7a1236d60",
+              "settingsKey": "9ebc94b6-6a92-4e4d-aad8-3801d3fb8489"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "b167e66c-5dd3-41e2-91bb-37da6ade6ccf",
+              "settingsKey": "b5c70156-d631-49c4-8837-bd9e834aa1ef"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "da98fe6c-65ef-4636-abfb-425402d04db8",
+              "settingsKey": "d1b91f1f-ae6c-49c4-ae4e-e11e928626e4"
+            }
+          ]
+        },
+        "contentData": [
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "3befa8f0-9e08-405d-9c5f-0f4c9fc5da51",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<h3>What Are Discriminated Unions?</h3>\n<p>Imagine you’re an artist with a <strong>perfectly organized palette</strong>. Each color is distinct, and you know exactly when and how to use it. Discriminated unions work similarly—they allow you to define a type that can be one of several distinct variants. Each variant can carry its own specific data, making the whole construct a clear, self-documenting model of your domain.</p>\n<h3>A Simple Pseudocode Example:</h3>\n<p>The Option Type Consider a common scenario: you want to represent a value that might or might not be present. In many languages, this is done using a nullable type, but discriminated unions take a more explicit approach:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "7f693533-0944-407a-9582-752a2e981220",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\ntype Option<T> =\n    | Some(value: T)\n    | None"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "f205b2cd-8bc9-470b-973e-af64f11d8f05",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Isn’t it refreshing to know that an <code>Option</code> is always either <code>Some</code> value or <code>None</code>— there’s no room for ambiguity?</p>\n<h3>A Philosophical Detour: Mathematics, Art, and Code</h3>\n<p>Let’s take a moment to appreciate the deeper roots of discriminated unions. In mathematics, there is the concept of a <em>disjoint union</em> —a way of combining sets so that each element’s origin is preserved. This idea is as old as mathematics itself, reflecting a timeless desire for clarity and order.</p>\n<p><strong>Programming, at its best, is much like art or philosophy</strong>. Every time you choose a design pattern or a type system, you’re making a statement about how you wish to interact with the world. By opting for discriminated unions, you’re saying, “I value explicitness, safety, and elegance.” Isn’t it inspiring to think that your code can be a canvas where logic meets creativity?</p>\n<hr>\n<h3>Pattern Matching: The Heartbeat of Functional Programming</h3>\n<p>Once you’ve defined a discriminated union, the next step is to work with it. Enter <strong>pattern matching</strong>. This is the functional programmer’s secret weapon: a way to deconstruct and handle each variant explicitly.</p>\n<h3>A Pseudocode Example: Handling an Option</h3>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "2a3f4f02-5cfa-4ada-84b3-84f160d3f060",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\nfunction process(option: Option<T>) {\n    match option {\n        case Some(value):\n            print(\"Found a value: \" + value)\n        case None:\n            print(\"No value found.\")\n    }\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "83ffc2c4-f93b-4a49-9015-b4f7a1236d60",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Ask yourself: wouldn’t it be comforting to know that every possible case is handled? That’s the promise of pattern matching—it forces you to consider all outcomes, leaving no room for forgotten edge cases.</p>\n<h3>The Benefits: Clarity, Safety, and Joy</h3>\n<p>1. Expressiveness and Self-Documentation</p>\n<p>When you define a type with a discriminated union, you lay out all possible states right before your eyes. No hidden surprises. Every variant is explicitly named, making your code not only easier to understand but also easier to maintain.</p>\n<p>2. Exhaustive Checking</p>\n<p>Languages that support discriminated unions often come with compilers that check for exhaustive handling. This means if you add a new variant, your compiler will cheerfully (or sometimes sternly) remind you to handle it everywhere. Can you imagine the relief of knowing that your compiler is looking out for you?</p>\n<p>3. Eliminating Null-Related Bugs</p>\n<p>By modeling optional values with a type like <code>Option</code>, you force yourself to handle both the presence and absence of data explicitly. This approach virtually eliminates those annoying null pointer exceptions. Isn’t it time we said goodbye to those runtime gremlins?</p>\n<hr>\n<h3>Discriminated Unions vs. Object-Oriented Polymorphism</h3>\n<p>In object-oriented programming, you might use polymorphism and inheritance to achieve similar behavior. However, discriminated unions offer a more straightforward and less error-prone alternative. Instead of navigating complex inheritance trees, you declare every possibility upfront.</p>\n<p>A Pseudocode Example: Modeling Errors</p>\n<p>Consider a system that can encounter different kinds of errors:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "b167e66c-5dd3-41e2-91bb-37da6ade6ccf",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\ntype Error =\n    | NotFound(message: String)\n    | PermissionDenied(message: String)"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "da98fe6c-65ef-4636-abfb-425402d04db8",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Every time you handle an <code>Error</code>, you must account for both possibilities. There’s no chance for an unhandled error type to slip through the cracks.</p>\n<hr>\n<p><em>Are you ready to let your code reflect the precision of a mathematician and the creativity of an artist?</em></p>\n<p>We will continue journey with the unions in the next chapter of series</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "settingsData": [
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "0fbe5e93-3b96-4348-be53-6d9777927a8e",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "b3ca819d-67db-4f64-8f18-6290fc7b2606",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "1c378db7-48ee-4fe2-ad46-66e519afe4b2",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "287bddf3-e56e-4d33-90e8-a5278971b074",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "javascript"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "9ebc94b6-6a92-4e4d-aad8-3801d3fb8489",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "b5c70156-d631-49c4-8837-bd9e834aa1ef",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "d1b91f1f-ae6c-49c4-ae4e-e11e928626e4",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

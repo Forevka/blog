@@ -1,0 +1,1129 @@
+{
+  "slug": "developing-a-cross-platform-pdf-to-svgpng-wrapper-for-net",
+  "values": [
+    {
+      "editorAlias": "Umbraco.TextArea",
+      "culture": null,
+      "segment": null,
+      "alias": "title",
+      "value": "Developing a Cross-Platform PDF-to-SVG/PNG Wrapper for .NET"
+    },
+    {
+      "editorAlias": "Umbraco.TextArea",
+      "culture": null,
+      "segment": null,
+      "alias": "description",
+      "value": "Building a Cross-Platform PDF-to-SVG Bridge for .NET"
+    },
+    {
+      "editorAlias": "Umbraco.Integer",
+      "culture": null,
+      "segment": null,
+      "alias": "readTime",
+      "value": 8
+    },
+    {
+      "editorAlias": "Umbraco.MediaPicker3",
+      "culture": null,
+      "segment": null,
+      "alias": "heroImage",
+      "value": [
+        {
+          "key": "f88afe00-0696-4687-bd39-17eab9ad88e6",
+          "mediaKey": "1275b9ee-bbb9-4383-ae4d-729b4b400734",
+          "mediaTypeAlias": "Image",
+          "crops": [],
+          "focalPoint": null
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.MultiNodeTreePicker",
+      "culture": null,
+      "segment": null,
+      "alias": "category",
+      "value": [
+        {
+          "type": "document",
+          "unique": "bb9d1afe-7c12-4711-bf8a-907caa37ba95"
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.TextBox",
+      "culture": null,
+      "segment": null,
+      "alias": "bodyTitle",
+      "value": "Developing a Cross-Platform PDF-to-SVG/PNG Wrapper for .NET"
+    },
+    {
+      "editorAlias": "Umbraco.TextBox",
+      "culture": null,
+      "segment": null,
+      "alias": "bodyDescription",
+      "value": "Building a Cross-Platform PDF-to-SVG Bridge for "
+    },
+    {
+      "editorAlias": "Umbraco.MediaPicker3",
+      "culture": null,
+      "segment": null,
+      "alias": "cardImage",
+      "value": [
+        {
+          "key": "f0191662-9704-4ea6-b374-e70d6c66fd35",
+          "mediaKey": "3a2e0343-efdf-4db9-b03f-859c58d88a66",
+          "mediaTypeAlias": "Image",
+          "crops": [],
+          "focalPoint": null
+        }
+      ]
+    },
+    {
+      "editorAlias": "Umbraco.BlockGrid",
+      "culture": null,
+      "segment": null,
+      "alias": "content",
+      "value": {
+        "layout": {
+          "Umbraco.BlockGrid": [
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "1c78b78b-91cc-4434-80f1-5dce627ba40f",
+              "settingsKey": "578aecff-cf8f-4c70-bcfb-d7c25953a4cc"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "d0fdd330-cdd8-4686-8864-726545b7fc69",
+              "settingsKey": "3db46b1d-9d06-4832-bf8c-fd645fe9454b"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "41e22b61-5c1c-455a-9e66-78af541f83d0",
+              "settingsKey": "b731d6d9-d4b7-4853-bb28-af36bcb40306"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "29531688-c77c-4696-ae7f-34100312b4c0",
+              "settingsKey": "532bc85b-732e-4934-a7c7-99f03294b2da"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "594efd5d-d90d-46fd-bafe-802f6a163193",
+              "settingsKey": "3e4e8242-58e8-4117-a67b-c004a53d7ec8"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "c54ceb01-a6e5-420f-9c4a-f6d60e08dca9",
+              "settingsKey": "65d03dd5-5fd4-4382-b584-cc4631ef43a4"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "e4fc56f2-2725-4256-9e7d-7eb6362a8c96",
+              "settingsKey": "0644f0f4-7300-470c-9944-121823b5c20a"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "aa91b95c-a16c-4e99-94cc-50db1ff54b82",
+              "settingsKey": "b527316c-dc5d-4453-ba2d-10573ce0575c"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "46d0c8ad-5c40-48dd-83c8-116a00639b02",
+              "settingsKey": "77bd86d9-a94d-49ec-a3cc-b759eeb2aed3"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "a6506e6c-bfbd-422a-b8aa-4444c726df76",
+              "settingsKey": "f3ab15c8-b137-477f-b010-bb800b7a80d4"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "8f05d416-1f21-42a4-8768-1a48efb1f0ab",
+              "settingsKey": "7753a021-f761-46fd-88e9-260d75178f5a"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "23f68cff-9a42-4eda-ab48-e36317543603",
+              "settingsKey": "d55f00fc-b1e2-452d-8047-3a83cd2ef541"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "135bc0ef-4689-4436-9cb9-4c2928455a0d",
+              "settingsKey": "f4da749e-d4b3-47ad-95e7-67861b2cecc1"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "cac1a310-3c80-4b61-888f-76975d90d77f",
+              "settingsKey": "a47dee48-c785-40de-9c6a-b00ecf4d28f7"
+            },
+            {
+              "$type": "BlockGridLayoutItem",
+              "columnSpan": 3,
+              "rowSpan": 1,
+              "areas": [],
+              "contentUdi": null,
+              "settingsUdi": null,
+              "contentKey": "45eac94d-d88e-4e5f-a915-89e9b6705659",
+              "settingsKey": "daaae813-daed-481c-85b9-1ab9df718a9a"
+            }
+          ]
+        },
+        "contentData": [
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "1c78b78b-91cc-4434-80f1-5dce627ba40f",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<h2>The business problem</h2>\n<p>A few weeks ago a customer asked for <strong>PDF pages to appear inside a generated DOCX report</strong>.</p>\n<ul>\n<li>\n<p>Converting each page to <strong>raster images (PNG/JPEG)</strong> ballooned the file size and slowed down the pipeline.</p>\n</li>\n<li>\n<p>Embedding raw PDF was out - the Word rendering engine would not display it reliably.</p>\n</li>\n</ul>\n<blockquote>\n<p><strong>Goal:</strong> <em>“If a page can be expressed as scalable vector graphics, embed it as SVG; otherwise fall back to a single PNG bitmap.”</em></p>\n</blockquote>\n<p>That single sentence drove the rest of the journey.</p>\n<h2>Designing the native engine</h2>\n<h3>Choosing the tools</h3>\n<ul>\n<li>\n<p><strong>Poppler</strong> - mature PDF parser / renderer.</p>\n</li>\n<li>\n<p><strong>Cairo</strong> - can paint to many back-ends, including an <strong>SVG and PNG surfaces</strong>.</p>\n</li>\n</ul>\n<p>Together they let us walk the display list that a PDF page contains and stream the final drawing instructions into memory - no temp files required.</p>\n<h3>A minimal C API</h3>\n<p>The C++ core is wrapped in five plain-C entry points so any language with FFI can bind to it:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "d0fdd330-cdd8-4686-8864-726545b7fc69",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\n/* pdf2svg.h - simplified */\nvoid* pdf_open_doc(const unsigned char* bytes, int len, int* out_page_count);\nvoid  pdf_close_doc(void* doc);\n\nunsigned char* pdf_get_page_data(\n        void* doc, int page_num,\n        bool force_to_png,          /* fallback switch           */\n        int  dpi,                   /* raster DPI for PNG pages  */\n        int* out_len,\n        bool* out_is_svg            /* tells caller PNG vs SVG   */\n);\n\nvoid pdf_release_buffer(unsigned char* buffer);"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "41e22b61-5c1c-455a-9e66-78af541f83d0",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>Under the hood <code>pdf_get_page_data</code> looks at Poppler’s text mapping to decide whether the page is vector-friendly. If it’s an “image only” page (e.g., a scanned sheet), Cairo renders it onto a PNG surface at the requested DPI.</p>\n<p>Implementation of the - <code>pdf_get_page_data</code></p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "29531688-c77c-4696-ae7f-34100312b4c0",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\nunsigned char*\npdf_get_page_data(void*   doc_handle,\n       int     page_num,\n       bool    force_to_png,\n       int     dpi,\n       int*    out_len,\n       bool*   out_is_svg)\n{\n    auto* ctx = static_cast<PdfDoc*>(doc_handle);\n    PopplerPage* page = poppler_document_get_page(ctx->doc, page_num);\n    if (!page) {\n        *out_len    = 0;\n        *out_is_svg = false;\n        return nullptr;\n    }\n\n    double w, h;\n    poppler_page_get_size(page, &w, &h);\n\n    bool has_text = false;\n    bool image_only = false;\n\n    if (!force_to_png) {\n        char* txt = poppler_page_get_text(page);\n        has_text = (txt && *txt != '\\0');\n        g_free(txt);\n\n        GList* images = poppler_page_get_image_mapping(page);\n        const double tol = 0.5;\n\n        for (GList* iter = images; iter; iter = iter->next) {\n            auto* m = static_cast<PopplerImageMapping*>(iter->data);\n            if (fabs(m->area.x1) < tol &&\n                fabs(m->area.y1) < tol &&\n                fabs(m->area.x2 - w) < tol &&\n                fabs(m->area.y2 - h) < tol)\n            {\n                image_only = true;\n                break;\n            }\n        }\n        poppler_page_free_image_mapping(images);\n    } else {\n        image_only = true;\n    }\n\n    std::vector<unsigned char> buf;\n    if (image_only && !has_text) {\n        if (dpi <= 0)\n            dpi = 72;\n\n        double scale      = dpi / 72.0;\n        int    width_px   = static_cast<int>(std::ceil(w * scale));\n        int    height_px  = static_cast<int>(std::ceil(h * scale));\n\n        // Rasterize to PNG\n        cairo_surface_t* img_surf = cairo_image_surface_create(\n            CAIRO_FORMAT_ARGB32,\n            width_px,\n            height_px);\n\n        cairo_t* img_cr = cairo_create(img_surf);\n\n        cairo_scale(img_cr, scale, scale);\n\n        poppler_page_render(page, img_cr);\n\n        cairo_destroy(img_cr);\n\n        cairo_surface_write_to_png_stream(img_surf, write_cb, &buf);\n\n        cairo_surface_destroy(img_surf);\n\n        *out_is_svg = false;\n    } else {\n        // Emit SVG\n        cairo_surface_t* svg_surf = cairo_svg_surface_create_for_stream(\n            write_cb, &buf, w, h);\n\n        cairo_t* svg_cr = cairo_create(svg_surf);\n        poppler_page_render_for_printing(page, svg_cr);\n\n        cairo_destroy(svg_cr);\n        cairo_surface_destroy(svg_surf);\n\n        *out_is_svg = true;\n    }\n\n    g_object_unref(page);\n\n    *out_len = static_cast<int>(buf.size());\n    if (*out_len == 0) {\n        *out_len    = 0;\n        *out_is_svg = false;\n        return nullptr;\n    }\n\n    unsigned char* out = static_cast<unsigned char*>(std::malloc(buf.size()));\n    if (!out) {\n        *out_len    = 0;\n        *out_is_svg = false;\n        return nullptr;\n    }\n\n    std::memcpy(out, buf.data(), buf.size());\n\n    return out;\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "594efd5d-d90d-46fd-bafe-802f6a163193",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p><strong>Key decisions</strong></p>\n<ul>\n<li>\n<p><strong>Single marshalled buffer.</strong> The native side allocates one contiguous block so any .NET caller - Mono, CoreCLR, AOT - can copy and free safely.</p>\n</li>\n<li>\n<p><code>ByteSink</code> is a trivial <code>std::vector&lt;uint8_t&gt;</code> wrapper</p>\n</li>\n</ul>\n<p>no libpng or gzip is pulled in - Cairo writes PNG/SVG bytes directly.</p>\n<ul>\n<li><strong>Tolerance for &ldquo;mixed&rdquo; pages.</strong> If <em>any</em> vector/text survives, keep SVG</li>\n</ul>\n<p>otherwise fall back to PNG. That rule kept our Word files tiny yet visually identical.</p>\n<h3>Building the shared object / DLL</h3>\n<p>The repository is set up with <strong>CMake + vcpkg</strong> :</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "c54ceb01-a6e5-420f-9c4a-f6d60e08dca9",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\ngit clone https://github.com/Forevka/pdf2svgwrapper\ncd pdf2svgwrapper\ngit submodule update --init --recursive   # pulls vcpkg\nmkdir build && cd build\ncmake .. -DCMAKE_BUILD_TYPE=Release\ncmake --build ."
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "e4fc56f2-2725-4256-9e7d-7eb6362a8c96",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>This produces <code>pdf2svgwrapper.dll</code> + bunch dependencies (Windows) or <code>libpdf2svgwrapper.so</code> (Linux).</p>\n<h2>Shipping it to .NET</h2>\n<h3>P/Invoke bindings</h3>\n<p>Because the native API is pure C, the C# side is a handful of <code>[DllImport]</code> declarations:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "aa91b95c-a16c-4e99-94cc-50db1ff54b82",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\nstatic class NativeMethods \n{\n  [DllImport(\"native-svg2pdf/pdf2svgwrapper\", CallingConvention = CallingConvention.Cdecl)]\n  public static extern IntPtr pdf_open_doc(\n    IntPtr pdfData,\n    int pdfLen,\n    out int pageCount\n  );\n\n  [DllImport(\"native-svg2pdf/pdf2svgwrapper\", CallingConvention = CallingConvention.Cdecl)]\n  public static extern IntPtr pdf_get_page_data(\n    IntPtr docHandle,\n    int pageNum,\n    bool isForcePng,\n    int dpi,\n    out int dataLen,\n    out bool isSvg\n  );\n\n  [DllImport(\"native-svg2pdf/pdf2svgwrapper\", CallingConvention = CallingConvention.Cdecl)]\n  public static extern void pdf_close_doc(IntPtr docHandle);\n\n  [DllImport(\"native-svg2pdf/pdf2svgwrapper\", CallingConvention = CallingConvention.Cdecl)]\n  public static extern void pdf_release_buffer(IntPtr ptr);\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "46d0c8ad-5c40-48dd-83c8-116a00639b02",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>A thin <code>Pdf2SvgInterop</code> class converts those raw pointers into managed <code>byte[]</code> or <code>MemoryStream</code>.</p>\n<p>Explaining <code>Pdf2SvgInterop.ConvertPdfPages</code></p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "a6506e6c-bfbd-422a-b8aa-4444c726df76",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\npublic static IEnumerable<PdfPageData> ConvertPdfPages(byte[] pdfBytes, bool isForceToPng, int dpi = 300)\n{\n    // pin the managed array\n    var handle = GCHandle.Alloc(pdfBytes, GCHandleType.Pinned);\n    try\n    {\n        IntPtr ptr = NativeMethods.pdf_open_doc(handle.AddrOfPinnedObject(), pdfBytes.Length, out int pageCount);\n        if (ptr == IntPtr.Zero) \n                 throw new PopplerCairoConvertationException(\"Failed to open PDF.\");\n\n        try\n        {\n            for (int i = 0; i < pageCount; i++)\n            {\n                IntPtr dataBuf = NativeMethods.pdf_get_page_data(ptr, i, isForceToPng, dpi, out int dataLen, out\n                    var isSvg);\n\n                if (dataBuf == IntPtr.Zero) throw new PopplerCairoConvertationException($ \"Page {i} conversion failed.\");\n\n                try\n                {\n                    var dataBytes = new byte[dataLen];\n                    Marshal.Copy(dataBuf, dataBytes, 0, dataLen);\n\n                    yield return new PdfPageData\n                    {\n                        Data = new MemoryStream(dataBytes, writable: false),\n                        IsSvg = isSvg,\n                    };\n                }\n                finally\n                {\n                    NativeMethods.pdf_release_buffer(dataBuf);\n                }\n            }\n        }\n        finally\n        {\n            NativeMethods.pdf_close_doc(ptr);\n        }\n    }\n    finally\n    {\n        handle.Free();\n    }\n}"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "8f05d416-1f21-42a4-8768-1a48efb1f0ab",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<h3>Why this shape?</h3>\n<table>\n<thead>\n<tr>\n<th>Concern</th>\n<th>How the method addresses it</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>GC pinning</strong></td>\n<td>We never hand managed memory to C++; instead C++ allocates, C# copies.</td>\n</tr>\n<tr>\n<td><strong>Large PDFs</strong></td>\n<td>Because we use generators:</td>\n</tr>\n<tr>\n<td>Only one page’s bytes sit on the managed heap at any moment.</td>\n<td></td>\n</tr>\n<tr>\n<td><code>try/finally</code> in an iterator runs when the enumerator is disposed, so the native Poppler document cannot leak - even if the consumer breaks out of the <code>foreach</code>.</td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Thread safety</strong></td>\n<td>Each call operates on its own document handle - no global state.</td>\n</tr>\n<tr>\n<td><strong>AOT friendliness</strong></td>\n<td>Pure <code>[DllImport]</code>, no <code>Marshal.StructureToPtr</code>, so the IL linker keeps only what it needs on iOS/Android trims.</td>\n</tr>\n<tr>\n<td><strong>Back-pressure</strong></td>\n<td>The caller decides when to dispose or stream each <code>PageResult</code>; we don’t hold unmanaged buffers past the loop.</td>\n</tr>\n</tbody>\n</table>\n<p>No <code>SafeHandle</code> close-over a <code>try/finally</code> instead - this keeps allocations to a minimum in the hot loop.</p>\n<p><strong>Cross-platform lookup</strong> is handled by the NuGet’s <code>runtimes/*/native/</code> layout, so <code>pdf2svgwrapper</code> resolves to <code>pdf2svgwrapper.dll</code>, <code>.so</code>, or <code>.dylib</code> automatically.</p>\n<h2>NuGet Access</h2>\n<p>This package can be added to your project via this command</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "23f68cff-9a42-4eda-ab48-e36317543603",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\ndotnet add package PDF2SVG.PopplerCairo.Bindings"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "135bc0ef-4689-4436-9cb9-4c2928455a0d",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>That does three things automatically:</p>\n<p>What happens| <br>\n&mdash;|&mdash;<br>\n<strong>Managed DLL is referenced</strong> (<code>PDF2SVG.PopplerCairo.Bindings.dll</code>)| Gives you the <code>Pdf2SvgInterop</code> class out of the box.<br>\n<strong>Native binaries are copied</strong> to <code>runtimes/*/native/</code> in <code>obj</code>/<code>bin</code>| The correct <code>pdf2svgwrapper</code> (<code>.dll</code>, <code>.so</code>, or <code>.dylib</code>) lands beside your app at publish time - no extra MSBuild tweaks.<br>\n<code>DllImport</code><strong>resolution just works</strong> on Windows and Linux.| You can <code>dotnet publish -r win-x64</code> or<code>linux-x64</code>and run immediately.  </p>\n<h2>Example of usage</h2>\n<p>The sample program shows basic usage:</p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "24ccda54-e3a7-416b-b503-6f2f534777f1",
+            "key": "cac1a310-3c80-4b61-888f-76975d90d77f",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextArea",
+                "culture": null,
+                "segment": null,
+                "alias": "content",
+                "value": "\nbyte[] pdfBytes = File.ReadAllBytes(\"./input-2.pdf\");\n\nvar pageData = Pdf2SvgInterop.ConvertPdfPages(pdfBytes, true); // optional dpi can be provided\n\nvar index = 0;\nforeach (var pdfPageData in pageData)\n{\n    if (pdfPageData.IsSvg)\n        File.WriteAllBytes($\"./output-{index}.svg\", pdfPageData.Data.ToArray());\n    else\n    {\n        File.WriteAllBytes($\"./output-{index}.png\", pdfPageData.Data.ToArray());\n    }\n\n    Console.WriteLine($\"Pdf page {index} processed\");\n    index++;\n}\n\n\nConsole.WriteLine(\"Pdf processed\");"
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3678bf30-0761-4fa0-8ea7-8e369180b43a",
+            "key": "45eac94d-d88e-4e5f-a915-89e9b6705659",
+            "values": [
+              {
+                "editorAlias": "Umbraco.RichText",
+                "culture": null,
+                "segment": null,
+                "alias": "text",
+                "value": {
+                  "markup": "<p>This will read <code>input-2.pdf</code> from the project directory and create <code>output-{index}.svg</code> or <code>output-{index}.png</code> for each page.</p>\n<h2>Where to Grab the Code</h2>\n<p>| Repository| <br>\n&mdash;|&mdash;|&mdash;<br>\n<strong>Native C++ engine</strong> - Poppler + Cairo wrapper| <a href=\"https://github.com/Forevka/pdf2svgwrapper\">https://github.com/Forevka/pdf2svgwrapper</a>| CMake project, minimal C API, vcpkg manifests, ready to cross-compile Windows / Linux<br>\n<strong>.NET bindings &amp; convenience helpers</strong>| <a href=\"https://github.com/Forevka/pdf2svg_poppler_cairo\">https://github.com/Forevka/pdf2svg_poppler_cairo</a>| <code>PDF2SVG.PopplerCairo.Bindings</code> source, P/Invoke layer, sample console app<br>\n<strong>Published NuGet package</strong>| <a href=\"https://www.nuget.org/packages/PDF2SVG.PopplerCairo.Bindings/\">https://www.nuget.org/packages/PDF2SVG.PopplerCairo.Bindings</a>| Pre-built managed DLL plus platform-specific native binaries<br>\n<strong>End-to-end demo</strong>| <code>PDF2SVG.PopplerCairo.Use/Program.cs</code> file (inside the binding repo)| Opens a PDF, streams each page to SVG/PNG in-memory, and drops them into a disk  </p>\n<h2>Conclusion</h2>\n<p>In under a week I went from &ldquo;Word reports with blurry screenshots&rdquo; to a <strong>drop-in</strong><code>.NET</code><strong>helper that streams crisp SVG pages straight into Open XML</strong>. The recipe was simple:</p>\n<ol>\n<li>\n<p>Leverage <strong>battle-tested C libraries</strong> (Poppler + Cairo).</p>\n</li>\n<li>\n<p>Hide them behind a <strong>five-function C facade</strong>.</p>\n</li>\n<li>\n<p>Use <strong>P/Invoke</strong> to light them up in C#.</p>\n</li>\n<li>\n<p>Pack the native bits so downstream teams just reference a NuGet.</p>\n</li>\n</ol>\n<p>The result feels almost unfair: a few hundred lines of C++, a few dozen lines of C#, and suddenly every .NET app gets a PDF-to-SVG super-power.</p>\n<p>So next time you bump into a &ldquo;native only&rdquo; library, remember - <em>bridging C/C++ to C# is usually the easy part.</em> The real magic is deciding <strong>exactly the problem you want that native code to solve.</strong></p>",
+                  "blocks": {
+                    "layout": {},
+                    "contentData": [],
+                    "settingsData": [],
+                    "expose": []
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "settingsData": [
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "578aecff-cf8f-4c70-bcfb-d7c25953a4cc",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "3db46b1d-9d06-4832-bf8c-fd645fe9454b",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "b731d6d9-d4b7-4853-bb28-af36bcb40306",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "532bc85b-732e-4934-a7c7-99f03294b2da",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "2"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "python"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "3e4e8242-58e8-4117-a67b-c004a53d7ec8",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "65d03dd5-5fd4-4382-b584-cc4631ef43a4",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "3"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "0644f0f4-7300-470c-9944-121823b5c20a",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "b527316c-dc5d-4453-ba2d-10573ce0575c",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "4"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "77bd86d9-a94d-49ec-a3cc-b759eeb2aed3",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "f3ab15c8-b137-477f-b010-bb800b7a80d4",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "5"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "7753a021-f761-46fd-88e9-260d75178f5a",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "d55f00fc-b1e2-452d-8047-3a83cd2ef541",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "6"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "f4da749e-d4b3-47ad-95e7-67861b2cecc1",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "ac645e60-86f5-4a89-8d68-4a1c87f599fe",
+            "key": "a47dee48-c785-40de-9c6a-b00ecf4d28f7",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "7"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 0
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "languageName",
+                "value": "csharp"
+              },
+              {
+                "editorAlias": "Umbraco.CheckBoxList",
+                "culture": null,
+                "segment": null,
+                "alias": "languageTheme",
+                "value": [
+                  "github-dark"
+                ]
+              }
+            ]
+          },
+          {
+            "contentTypeKey": "3a551aef-0004-46cb-9026-c43cfa453337",
+            "key": "daaae813-daed-481c-85b9-1ab9df718a9a",
+            "values": [
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocText",
+                "value": "8"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocAnchor",
+                "value": "8"
+              },
+              {
+                "editorAlias": "Umbraco.TextBox",
+                "culture": null,
+                "segment": null,
+                "alias": "tocLevel",
+                "value": "1"
+              },
+              {
+                "editorAlias": "Umbraco.TrueFalse",
+                "culture": null,
+                "segment": null,
+                "alias": "isEnabled",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

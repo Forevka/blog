@@ -1,0 +1,28 @@
+.giscus, .giscus-frame {
+  width: 100%;
+  min-height: 150px;
+}
+
+.giscus-frame {
+  border: none;
+  color-scheme: light dark;
+}
+.giscus-frame--loading {
+  opacity: 0;
+}
+
+/*
+     FILE ARCHIVED ON 21:02:34 Jun 22, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:23:59 May 09, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.517
+  load_resource: 76.387
+  PetaboxLoader3.resolve: 31.69
+  PetaboxLoader3.datanode: 38.802
+*/
