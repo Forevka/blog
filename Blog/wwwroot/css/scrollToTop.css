@@ -1,196 +1,99 @@
-﻿/* Border morph keyframes (with vendor prefix and standard version) */
-@-webkit-keyframes border-transform {
-    0%, 100% {
-        border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-    }
+/* ============================================================
+   Scroll-to-top — dark rounded floating pill, editorial style
+   ============================================================ */
 
-    14% {
-        border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
-    }
-
-    28% {
-        border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
-    }
-
-    42% {
-        border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
-    }
-
-    56% {
-        border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
-    }
-
-    70% {
-        border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
-    }
-
-    84% {
-        border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
-    }
-}
-
-@keyframes border-transform {
-    0%, 100% {
-        border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-    }
-
-    14% {
-        border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
-    }
-
-    28% {
-        border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
-    }
-
-    42% {
-        border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
-    }
-
-    56% {
-        border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
-    }
-
-    70% {
-        border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
-    }
-
-    84% {
-        border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
-    }
-}
-
-/* TOC Index Button (styled .progress-wrap) */
 .progress-wrap {
     position: fixed;
-    right: 30px;
-    bottom: 30px;
+    right: 1.75rem;
+    bottom: 1.75rem;
     height: 46px;
     width: 46px;
     cursor: pointer;
     display: block;
-    /* Blue inset border with outer glow */
-    box-shadow: inset 0 0 0 2px rgba(0,123,255,0.5), 0 0 8px rgba(0,123,255,0.5);
     z-index: 10000;
     opacity: 0;
     visibility: hidden;
     transform: translateY(15px);
-    transition: all 200ms linear;
-    border-radius: 0.75rem;
-    background: #0d6efd; /* Blue background */
+    transition: opacity 220ms ease,
+                transform 220ms ease,
+                visibility 220ms ease,
+                background 200ms ease;
+    border-radius: 14px;
+    background: hsl(0 0% 8%);
     color: #fff;
     border: 0;
-    outline-color: white;
-    /* Apply the border morph animation (paused by default) */
-    animation: border-transform 4s infinite alternate;
-    animation-play-state: paused;
+    box-shadow:
+        0 12px 30px -12px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset;
 }
 
-    /* Show the button when active */
-    .progress-wrap.active-progress {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
+.progress-wrap.active-progress {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 
-    /* On hover, resume the border morph animation */
-    .progress-wrap:hover {
-        animation-play-state: running;
-    }
+.progress-wrap:hover {
+    background: hsl(0 0% 14%);
+    transform: translateY(-2px);
+}
 
-    /* Optional overlay effect (can be used to darken/lighten on hover) */
-    .progress-wrap::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 46px;
-        width: 46px;
-        z-index: 1;
-        background: rgba(255,255,255,0.1);
-        border-radius: inherit;
-        transition: opacity 200ms linear;
-    }
+.progress-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(circle at 50% 30%,
+        rgba(255, 255, 255, 0.08), transparent 60%);
+    border-radius: inherit;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+}
 
-    .progress-wrap:hover::after {
-        opacity: 0;
-    }
+.progress-wrap:hover::after { opacity: 1.4; }
 
-    /* SVG circle outline styling */
-    .progress-wrap svg path {
-        fill: none;
-    }
+.progress-wrap svg path { fill: none; }
+.progress-wrap svg.progress-circle path {
+    stroke: rgba(255, 255, 255, 0.55);
+    stroke-width: 4;
+    transition: stroke 200ms ease;
+}
+.progress-wrap:hover svg.progress-circle path {
+    stroke: rgba(255, 255, 255, 0.85);
+}
 
-    .progress-wrap svg.progress-circle path {
-        stroke: rgba(255,255,255,0.6);
-        stroke-width: 4;
-        transition: all 200ms linear;
-    }
-
-/* Arrow icon styling */
+/* Arrow chevron in the centre */
 .arrow {
     cursor: pointer;
-    height: 30px;
-    width: 20px;
+    height: 22px;
+    width: 16px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
-    transition: transform 0.1s;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    transition: transform 0.15s ease;
     z-index: 2;
 }
-
 .arrow-top,
 .arrow-bottom {
-    background-color: rgba(255,255,255,0.8);
-    height: 2px;
+    background-color: rgba(255, 255, 255, 0.85);
+    height: 1.5px;
     width: 100%;
     position: absolute;
     top: 50%;
-    left: -3px;
+    left: -2px;
+    border-radius: 2px;
+}
+.arrow-top    { transform: rotate(45deg);  transform-origin: bottom right; }
+.arrow-bottom { transform: rotate(-45deg); transform-origin: top right; }
+
+.progress-wrap:hover .arrow {
+    transform: translate(-50%, -52%) rotate(-90deg);
+}
+.progress-wrap:active {
+    transform: translateY(0) scale(0.96);
 }
 
-    .arrow-top:after,
-    .arrow-bottom:after {
-        content: "";
-        background-color: rgba(255,255,255,1);
-        height: 100%;
-        position: absolute;
-        top: 0;
-        transition: all 0.15s;
-    }
-
-.arrow-top {
-    transform: rotate(45deg);
-    transform-origin: bottom right;
-}
-
-    .arrow-top:after {
-        left: 100%;
-        right: 0;
-        transition-delay: 0s;
-    }
-
-.arrow-bottom {
-    transform: rotate(-45deg);
-    transform-origin: top right;
-}
-
-    .arrow-bottom:after {
-        left: 0;
-        right: 100%;
-        transition-delay: 0.15s;
-    }
-
-.arrow:hover .arrow-top:after {
-    left: 0;
-    transition-delay: 0.15s;
-}
-
-.arrow:hover .arrow-bottom:after {
-    right: 0;
-    transition-delay: 0s;
-}
-
-.arrow:active {
-    transform: translateX(-50%) translateY(-50%) rotate(-90deg) scale(0.9);
+@media (max-width: 720px) {
+    .progress-wrap { right: 1rem; bottom: 1rem; }
 }
