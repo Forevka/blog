@@ -7,6 +7,15 @@
 @layer base {
     html {
         scroll-behavior: smooth;
+        /* Defense against wide content expanding the layout viewport on iOS Safari,
+           which would push fixed centered elements (floating TOC) off to the side */
+        overflow-x: hidden;
+    }
+
+    @supports (overflow-x: clip) {
+        html {
+            overflow-x: clip;
+        }
     }
 
     body {
@@ -210,7 +219,12 @@
     }
 
     .rich-text table:not(.hljs-ln) {
+        /* display:block + overflow-x lets wide tables scroll inside their own box
+           instead of widening the whole page (which misplaces fixed elements on mobile) */
+        display: block;
         width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
         margin: 2rem 0;
         border-collapse: collapse;
         font-size: 0.875rem;
