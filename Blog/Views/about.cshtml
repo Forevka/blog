@@ -1,58 +1,106 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Blog.Helper
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits UmbracoViewPage<About>
 @{
-
     Layout = "master.cshtml";
 
     ViewData["Title"] = "About";
+
+    var images = Model.AboutImagesList?.ToList() ?? [];
+    var portrait = images.FirstOrDefault();
+    var galleryImages = images.Skip(1).ToList();
+
+    // Render the headline with the last word in the white->slate gradient, like the mockup hero
+    var headline = Model.LeftWhatText ?? "Who Am I?";
+    var headlineWords = headline.Split(' ');
+    var headlineStart = string.Join(" ", headlineWords.Take(headlineWords.Length - 1));
+    var headlineEnd = headlineWords.Last();
 }
 
-
-<div class="section sticky">
-    <div class="container no-bottom-padding">
-        <div class="text-box centre">
-            <div class="text-align-centre">
-                @await Html.PartialAsync("AuroraTitle", "Who Am I?")
-
-                <div class="spacer _24"></div>
-                <div class="spacer _24"></div>
-                <div class="spacer _24"></div>
-            </div>
-            <div class="spacer _80"></div>
-        </div>
-    </div>
-</div>
-
-<div class="section posts">
-
-    <div class="inset-container">
-
-        <div class="container">
-            <div class="_1-2-column-layout">
-                <h2>@Model.LeftWhatText</h2>
-                <div class="rich-text w-richtext">
-                    @Model.WhatDescription
+<!-- Hero Section: Portrait & Intro -->
+<section class="max-w-6xl mx-auto mb-32 pt-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative group">
+            <div class="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden glass border-white/10 group-hover:border-white/20 transition-all duration-500">
+                @if (portrait != null)
+                {
+                    <img src="@portrait.Url()" alt="BohdanL" class="w-full h-full object-cover">
+                }
+                else
+                {
+                    <div class="w-full h-full accent-gradient"></div>
+                }
+                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+                <div class="absolute bottom-8 left-8 right-8">
+                    <h2 class="text-2xl font-bold mb-1">Bohdan L.</h2>
+                    <p class="text-indigo-400 font-mono text-sm font-medium tracking-wide">SOFTWARE ENGINEER // FOREVKA.DEV</p>
                 </div>
             </div>
         </div>
 
-        <div class="about-images-wrapper">
+        <div class="space-y-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold tracking-widest uppercase">
+                The Mission
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                @headlineStart <span class="text-gradient">@headlineEnd</span>
+            </h1>
+            <div class="rich-text text-slate-400 text-lg leading-relaxed font-light">
+                @Model.WhatDescription
+            </div>
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="https://github.com/Forevka" target="_blank" rel="noopener" class="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition-all">
+                    @Icons.Render("github", "w-5 h-5") View GitHub
+                </a>
+                <a href="/contacts" class="flex items-center gap-2 px-6 py-3 glass text-white font-bold rounded-xl hover:bg-white/10 transition-all">
+                    @Icons.Render("mail", "w-5 h-5 text-indigo-400") Contact
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
-            @foreach (var img in Model.AboutImagesList!.Select((x, i) => new { x, i = i + 1 }))
+<!-- Who Am I -->
+<section class="max-w-6xl mx-auto mb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+            <h2 class="text-3xl font-bold mb-4">@Model.WhoLeftText</h2>
+            <div class="h-px bg-white/5 w-full md:w-1/2 mb-4"></div>
+            @if (galleryImages.Count > 0)
             {
-                <img src="@img.x.Url()" loading="eager" alt="About image" class="about-image-@img.i">
-            }
-
-        </div>
-
-        <div class="container">
-            <div class="_1-2-column-layout">
-                <h2>@Model.WhoLeftText</h2>
-                <div class="rich-text w-richtext">
-                    @Model.WhoDescription
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    @foreach (var img in galleryImages)
+                    {
+                        <div class="glass rounded-2xl overflow-hidden aspect-square">
+                            <img src="@img.Url()" loading="lazy" alt="About image" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    }
                 </div>
-            </div>
+            }
         </div>
-
+        <div class="rich-text text-slate-400 text-lg leading-relaxed font-light">
+            @Model.WhoDescription
+        </div>
     </div>
-</div>
+</section>
+
+<!-- CTA -->
+<section class="max-w-4xl mx-auto text-center py-20">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-8 tracking-tighter">Let's build something <span class="text-gradient">resilient.</span></h2>
+    <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto font-light">Open to interesting .NET projects, architecture discussions, and open-source collaboration.</p>
+
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <a href="mailto:me@forevka.dev" class="group relative px-10 py-4 bg-indigo-600 rounded-full font-bold overflow-hidden transition-all hover:scale-105">
+            <span class="relative z-10 flex items-center gap-2">Say Hello @Icons.Render("mail", "w-5 h-5")</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </a>
+        <div class="flex items-center gap-4 py-4 px-8 glass rounded-full">
+            <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)" class="text-slate-400 hover:text-white transition-colors">@Icons.Render("twitter", "w-5 h-5")</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-slate-400 hover:text-white transition-colors">@Icons.Render("instagram", "w-5 h-5")</a>
+            <a href="https://github.com/Forevka" target="_blank" rel="noopener" aria-label="GitHub" class="text-slate-400 hover:text-white transition-colors">@Icons.Render("github", "w-5 h-5")</a>
+            <div class="w-[1px] h-4 bg-white/10 mx-2"></div>
+            <span class="text-xs font-mono text-slate-500">BOHDAN@@FOREVKA.DEV</span>
+        </div>
+    </div>
+</section>

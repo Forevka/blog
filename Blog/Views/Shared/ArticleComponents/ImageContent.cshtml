@@ -1,14 +1,14 @@
-﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ImageContent, ImageContentSettings>>
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ImageContent, ImageContentSettings>>
 @{
     Layout = "ArticleComponents/BaseContainer";
 }
 
-
-<div class="style-guide-section-header">
-    <figure style="max-width" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-        <div>
-            <img src="@Model.Content.Image!.Url()" loading="lazy" alt="">
-        </div>
-        <figcaption>@Model.Content.Title</figcaption>
-    </figure>
-</div>
+<figure class="my-10">
+    <div class="rounded-2xl overflow-hidden border border-white/10">
+        <img src="@Model.Content.Image!.Url()" loading="lazy" alt="@Model.Content.Title" class="w-full">
+    </div>
+    @if (!string.IsNullOrWhiteSpace(Model.Content.Title))
+    {
+        <figcaption class="font-mono text-xs text-slate-500 text-center pt-3">@Model.Content.Title</figcaption>
+    }
+</figure>

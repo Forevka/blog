@@ -1,6 +1,58 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Blog.Helper
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
+
+    ViewData["Title"] = "Archive";
+
+    var categories = (Umbraco.GetPageByAlias("articleCategories") as ArticleCategories)?
+        .Descendants()
+        .OfType<ArticleCategory>()
+        .ToList() ?? [];
+
+    var posts = Model.Descendants().OfType<ArticlesItem>().OrderByDescending(x => x.CreateDate).ToList();
 }
 
+<!-- Hero Section -->
+<section class="max-w-4xl mx-auto text-center mb-20">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold mb-6 tracking-widest uppercase">
+        The Archive
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
+        Every <span class="text-gradient">article</span> ever written.
+    </h1>
+</section>
+
+<!-- Dynamic Filter & Search -->
+<section class="max-w-6xl mx-auto mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
+    <div class="space-y-4">
+        <div class="flex flex-wrap gap-4 border-b border-white/5 pb-2">
+            <button data-filter="" class="filter-tab text-white border-b-2 border-indigo-500 pb-2 px-1 font-semibold transition-colors">All Articles</button>
+            @foreach (var cat in categories)
+            {
+                <button data-filter="@cat.ArticleCategoryName" class="filter-tab text-slate-500 hover:text-slate-300 pb-2 px-1 transition-colors">@cat.ArticleCategoryName</button>
+            }
+        </div>
+    </div>
+    <div class="relative w-full md:w-64">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">@Icons.Render("search", "w-4 h-4")</span>
+        <input type="text" id="article-search" placeholder="Search archive..." class="w-full bg-white/5 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-indigo-500/50 transition-all">
+    </div>
+</section>
+
+<!-- Articles Grid -->
+<section id="article-grid" class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+    @for (var i = 0; i < posts.Count; i++)
+    {
+        ViewData["CardIndex"] = i;
+        @await Html.PartialAsync("_BlogPostItem", posts[i], ViewData)
+    }
+</section>
+
+<!-- Empty state for filter/search -->
+<section id="no-results" class="hidden max-w-6xl mx-auto mb-32">
+    <div class="glass rounded-2xl p-12 text-center">
+        <p class="text-slate-400 font-light">Nothing matches that filter. <span class="font-mono text-xs text-slate-500">// try another query</span></p>
+    </div>
+</section>

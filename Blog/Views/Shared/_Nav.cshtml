@@ -1,124 +1,47 @@
-﻿@using Blog.Helper
+@using Blog.Helper
 @using Umbraco.Cms.Web.Common
 @inject UmbracoHelper helper
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     var home = Model.AncestorOrSelf<Home>()!;
 
-    // Retrieve all root nodes
     var contactsPage = Umbraco.GetPageByAlias("contacts");
     var aboutPage = Umbraco.GetPageByAlias("about");
+    var archivePage = Umbraco.GetPageByAlias("articlesMain");
     var pageName = Umbraco.AssignedContentItem;
+
+    var isAbout = pageName.ContentType.Alias == "about";
+    var isContacts = pageName.ContentType.Alias == "contacts";
+    var isArchive = pageName.ContentType.Alias == "articlesMain";
 }
 
-<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
-
-    <div class="nav-container">
-        <div class="inset-nav-container" id="nav-fill">
-            <div class="logo-wrapper">
-                <a href="@home.Url()" aria-label="Logo" class="logo w-nav-brand">
-                    <div>@home.HeaderText</div>
-                </a>
+<nav id="site-nav" class="fixed top-0 w-full z-50 px-6 py-4 transition-opacity duration-300">
+    <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-full px-6 py-3">
+        <a href="@home.Url()" aria-label="Logo" class="text-xl font-extrabold tracking-tighter flex items-center gap-2">
+            <div class="w-8 h-8 accent-gradient rounded-lg flex items-center justify-center">
+                @Icons.Render("terminal", "w-5 h-5 text-white")
             </div>
-            <nav role="navigation" class="nav-menu w-nav-menu">
-                <div class="links-wrapper">
-                    <a href="@aboutPage!.Url()" class="navigation-link w-nav-link @(pageName.ContentType.Alias == "about" ? "w--current" : "")">About</a>
-                    <a href="@contactsPage!.Url()" class="navigation-link w-nav-link @(pageName.ContentType.Alias == "contacts" ? "w--current" : "")">Contact</a>
-                </div>
-            </nav>
-            <div class="menu-button w-nav-button" style="-webkit-user-select: text" aria-label="menu" role="button" tabindex="0" id="nav-button">
-                <div class="menu-icon">
-                    <div class="menu-icon-line-top"></div>
-                    <div class="menu-icon-line-bottom"></div>
-                </div>
-            </div>
+            <span>@home.HeaderText</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+            @if (archivePage != null)
+            {
+                <a href="@archivePage.Url()" class="hover:text-white transition-colors @(isArchive ? "border-b border-indigo-500 text-white" : "")">Archive</a>
+            }
+            <a href="@aboutPage!.Url()" class="hover:text-white transition-colors @(isAbout ? "border-b border-indigo-500 text-white" : "")">About</a>
+            <a href="@contactsPage!.Url()" class="px-5 py-2 glass rounded-full hover:bg-white hover:text-black transition-all @(isContacts ? "text-white" : "")">Contact</a>
         </div>
+        <button id="nav-toggle" class="md:hidden" aria-label="menu" aria-expanded="false">
+            <span id="nav-icon-open">@Icons.Render("menu", "w-6 h-6")</span>
+            <span id="nav-icon-close" class="hidden">@Icons.Render("x", "w-6 h-6")</span>
+        </button>
     </div>
-    <div class="w-nav-overlay">
-        <nav role="navigation" id="w-node-_7ecd2c46-248a-916e-eb95-08abb6aec6aa-b6aec6a5" class="nav-menu w-nav-menu" style="transition: all, transform 400ms; transform: translateY(0px) translateX(0px);" data-nav-menu-open="">
-
-            <div class="links-wrapper">
-                <a href="@aboutPage!.Url()" class="navigation-link w-nav-link w--nav-link-open @(pageName.ContentType.Alias == "about" ? "w--current" : "")">About</a>
-                <link rel="prefetch" href="@aboutPage!.Url()">
-                <a href="@contactsPage!.Url()" class="navigation-link w-nav-link w--nav-link-open @(pageName.ContentType.Alias == "contacts" ? "w--current" : "")">Contact</a>
-                <link rel="prefetch" href="@contactsPage!.Url()">
-            </div>
-        </nav>
-
+    <div id="nav-mobile" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass rounded-2xl p-6 flex-col gap-4 text-sm font-medium text-slate-300">
+        @if (archivePage != null)
+        {
+            <a href="@archivePage.Url()" class="py-2 hover:text-white transition-colors @(isArchive ? "text-indigo-400" : "")">Archive</a>
+        }
+        <a href="@aboutPage!.Url()" class="py-2 hover:text-white transition-colors @(isAbout ? "text-indigo-400" : "")">About</a>
+        <a href="@contactsPage!.Url()" class="py-2 hover:text-white transition-colors @(isContacts ? "text-indigo-400" : "")">Contact</a>
     </div>
-</div>
-
-<script>
-    document.getElementById('nav-button').addEventListener('click', function () {
-        const overlay = document.querySelector('.w-nav-overlay');
-        const topLine = document.querySelector('.menu-icon-line-top');
-        const bottomLine = document.querySelector('.menu-icon-line-bottom');
-
-        if (overlay.hasAttribute('data-nav-menu-open')) {
-            overlay.removeAttribute('data-nav-menu-open');
-
-            // Remove inline styles
-            if (topLine) topLine.style.transform = 'translate3d(0px, 0.0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)';
-            if (topLine) topLine.style.transformStyle = '';
-
-            if (bottomLine) bottomLine.style.transform = 'translate3d(0px, 0.0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)';
-            if (bottomLine) bottomLine.style.transformStyle = '';
-        } else {
-            overlay.setAttribute('data-nav-menu-open', '');
-
-            // Apply inline styles
-            if (topLine) {
-                topLine.style.transform = 'translate3d(0px, 0.25rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg)';
-                topLine.style.transformStyle = 'preserve-3d';
-            }
-
-            if (bottomLine) {
-                bottomLine.style.transform = 'translate3d(0px, -0.25rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg)';
-                bottomLine.style.transformStyle = 'preserve-3d';
-            }
-        }
-    });
-
-    if (!CSS.supports('interpolate-size: allow-keywords')) {
-        function throttle(func, delay) {
-          let lastCall = 0;
-          return function (...args) {
-            const now = new Date().getTime();
-            if (now - lastCall >= delay) {
-              func(...args);
-              lastCall = now;
-            }
-          };
-        }
-
-        let ticking = false;
-        const progressUpdate = () => {
-          if (!ticking) {
-            window.requestAnimationFrame(() => {
-              const docElement = document.documentElement;
-              const scrollTop = docElement.scrollTop || document.body.scrollTop;
-              const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
-              const scrollPercent = (scrollTop / scrollHeight) * 100;
-
-              const navFill = document.getElementById('nav-fill');
-              if (navFill) {
-                let notFilled = 100 - scrollPercent;
-                let scrollGradient;
-
-                if (scrollPercent >= 50) {
-                  scrollGradient = `linear-gradient(to right, var(--color--500) ${scrollPercent}%, var(--color--300) ${notFilled}%)`;
-                } else {
-                  scrollGradient = `linear-gradient(to left, var(--color--300) ${notFilled}%, var(--color--500) ${scrollPercent}%)`;
-                }
-
-                navFill.style.background = scrollGradient;
-              }
-              ticking = false;
-            });
-            ticking = true;
-          }
-        };
-
-        //window.addEventListener('scroll', progressUpdate);
-    }
-</script>
+</nav>

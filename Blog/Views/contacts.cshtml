@@ -1,47 +1,58 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Blog.Helper
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     Layout = "master.cshtml";
 
     ViewData["Title"] = "Contacts";
+
+    var socials = new[]
+    {
+        new { Name = "X (Twitter)", Url = "https://x.com/", Icon = "twitter", Handle = "@X.COM" },
+        new { Name = "Instagram", Url = "https://www.instagram.com/", Icon = "instagram", Handle = "@INSTAGRAM" },
+        new { Name = "Threads", Url = "https://www.threads.net/", Icon = "external-link", Handle = "@THREADS" },
+        new { Name = "Bluesky", Url = "https://bsky.app/", Icon = "external-link", Handle = "@BLUESKY" },
+    };
 }
 
-<div class="section sticky">
-    <div class="container no-bottom-padding">
-        <div class="text-box centre">
-            <div class="text-align-centre">
-                @await Html.PartialAsync("AuroraTitle", "Contact Me")
+<!-- Hero / CTA -->
+<section class="max-w-4xl mx-auto text-center pt-8 mb-24">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold mb-6 tracking-widest uppercase">
+        Open Channel
+    </div>
+    <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Let's build something <span class="text-gradient">resilient.</span></h2>
+    <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto font-light">Ready to hear from you — questions, collaboration ideas, or just to say hi.</p>
 
-                <div class="spacer _24"></div>
-                <div class="spacer _24"></div>
-                <div class="spacer _24"></div>
-            </div>
-            <div class="spacer _80"></div>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <a href="mailto:me@forevka.dev" class="group relative px-10 py-4 bg-indigo-600 rounded-full font-bold overflow-hidden transition-all hover:scale-105">
+            <span class="relative z-10 flex items-center gap-2">Say Hello @Icons.Render("mail", "w-5 h-5")</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </a>
+        <div class="flex items-center gap-4 py-4 px-8 glass rounded-full">
+            <span class="text-xs font-mono text-slate-500">ME@@FOREVKA.DEV</span>
         </div>
     </div>
-</div>
+</section>
 
-<div class="section posts">
-    <div class="inset-container">
-        <div class="container">
-            <div class="_1-2-column-layout with-divider">
-                <h2>Email</h2>
-                <div class="rich-text w-richtext">
-                    <p>Ready to hear you at</p>
-                    <p>
-                        <a href="mailto:hi@email.com">me@@forevka.dev →</a>
-                    </p>
+<!-- Social Cards -->
+<section class="max-w-4xl mx-auto mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        @foreach (var social in socials)
+        {
+            <a href="@social.Url" target="_blank" rel="noopener" class="glass p-6 rounded-3xl flex items-center justify-between group hover:border-indigo-500/40 transition-all">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
+                        @Icons.Render(social.Icon, "w-5 h-5")
+                    </div>
+                    <div>
+                        <div class="font-bold group-hover:text-indigo-400 transition-colors">@social.Name</div>
+                        <div class="text-[10px] font-mono text-slate-500 tracking-widest">@social.Handle</div>
+                    </div>
                 </div>
-            </div>
-            <div class="_1-2-column-layout with-divider">
-                <h2>Social</h2>
-                <div class="_2-column-layout">
-                    <a href="https://x.com/" class="text-link">X (Twitter) →</a>
-                    <a href="https://www.instagram.com/" class="text-link">Instagram →</a>
-                    <a href="https://www.threads.net/" class="text-link">Threads →</a>
-                    <a href="https://bsky.app/" class="text-link">Bluesky →</a>
-                </div>
-            </div>
-        </div>
+                <span class="p-2 glass rounded-full group-hover:bg-indigo-500 transition-colors">
+                    @Icons.Render("arrow-up-right", "w-4 h-4 text-white")
+                </span>
+            </a>
+        }
     </div>
-</div>
+</section>

@@ -1,59 +1,65 @@
-﻿@using Blog.Helper
+@using Blog.Helper
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits UmbracoViewPage<Home>
 @{
-
     Layout = "master.cshtml";
 
     ViewData["Title"] = "Home";
 
-    var categories = (Umbraco.GetPageByAlias("articleCategories") as ArticleCategories)?.Descendants().Select(x => x as ArticleCategory);
+    var categories = (Umbraco.GetPageByAlias("articleCategories") as ArticleCategories)?
+        .Descendants()
+        .OfType<ArticleCategory>()
+        .ToList() ?? [];
+
+    var posts = Model.ArticlesHighlight!.OfType<ArticlesItem>().OrderByDescending(x => x.CreateDate).ToList();
 }
 
+<!-- Hero Section -->
+<section class="max-w-4xl mx-auto text-center mb-32">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold mb-6 tracking-widest uppercase">
+        <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+        </span>
+        Engineering Journals
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
+        <span class="text-gradient">@Model.HeroText</span>
+    </h1>
+    <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+        A technical exploration of .NET internals, modern design patterns, and the relentless pursuit of clean, scalable code.
+    </p>
+</section>
 
-@* Header banner (could also be a partial if used on multiple pages) *@
-<div class="section sticky">
-    <div class="container">
-        <div class="text-box _700px centre">
-            <div class="text-align-centre">
-                @await Html.PartialAsync("AuroraTitle", @Model.HeroText)
-
-                <div class="spacer _40"></div>
-            </div>
+<!-- Dynamic Filter & Search -->
+<section class="max-w-6xl mx-auto mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
+    <div class="space-y-4">
+        <div class="flex flex-wrap gap-4 border-b border-white/5 pb-2">
+            <button data-filter="" class="filter-tab text-white border-b-2 border-indigo-500 pb-2 px-1 font-semibold transition-colors">Latest Articles</button>
+            @foreach (var cat in categories)
+            {
+                <button data-filter="@cat.ArticleCategoryName" class="filter-tab text-slate-500 hover:text-slate-300 pb-2 px-1 transition-colors">@cat.ArticleCategoryName</button>
+            }
         </div>
     </div>
-</div>
-
-@* Blog posts section *@
-<div class="section posts">
-    <div class="inset-container">
-        <div class="container">
-            <div class="blog-grid">
-                <div class="navigation-wrapper">
-                    <a href="" class="navigation-link">All</a>
-
-                    <div class="w-dyn-list">
-                        <div role="list" class="collection-list-nav w-dyn-items">
-                            @foreach (var cat in categories!)
-                            {
-                                <div role="listitem" class="w-dyn-item">
-                                    <a href="" class="navigation-link">@cat!.ArticleCategoryName</a>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="posts-wrapper w-dyn-list">
-                    <div role="list" class="posts-grid w-dyn-items">
-
-                        @foreach (var post in Model.ArticlesHighlight!.OrderByDescending(x => x.CreateDate))
-                        {
-                            @await Html.PartialAsync("_BlogPostItem", post as ArticlesItem)
-                        }
-
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="relative w-full md:w-64">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">@Icons.Render("search", "w-4 h-4")</span>
+        <input type="text" id="article-search" placeholder="Search archive..." class="w-full bg-white/5 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-indigo-500/50 transition-all">
     </div>
-</div>
+</section>
+
+<!-- Articles Grid -->
+<section id="article-grid" class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+    @for (var i = 0; i < posts.Count; i++)
+    {
+        ViewData["CardIndex"] = i;
+        @await Html.PartialAsync("_BlogPostItem", posts[i], ViewData)
+    }
+</section>
+
+<!-- Empty state for filter/search -->
+<section id="no-results" class="hidden max-w-6xl mx-auto mb-32">
+    <div class="glass rounded-2xl p-12 text-center">
+        <p class="text-slate-400 font-light">Nothing matches that filter. <span class="font-mono text-xs text-slate-500">// try another query</span></p>
+    </div>
+</section>

@@ -1,0 +1,521 @@
+@import "./highlight.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-base text-slate-200 font-sans antialiased;
+    }
+}
+
+@layer components {
+    /* ===== Verbatim from redesign mockup <style> blocks ===== */
+    .glass {
+        background: rgba(15, 15, 20, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .accent-gradient {
+        background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+    }
+
+    .blob {
+        position: fixed;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+        filter: blur(90px);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .badge-glass {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .badge-glass:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(99, 102, 241, 0.5);
+        transform: translateY(-2px);
+    }
+
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #6366f1, #ec4899);
+        z-index: 100;
+    }
+
+    @keyframes subtle-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .float-animation {
+        animation: subtle-float 6s ease-in-out infinite;
+    }
+
+    /* ===== Prose styles for CMS-generated HTML (.rich-text) ===== */
+    .rich-text {
+        @apply text-slate-300 text-lg leading-relaxed font-light;
+    }
+
+    .rich-text p {
+        margin: 1.5rem 0;
+    }
+
+    .rich-text h1,
+    .rich-text h2 {
+        @apply text-2xl font-bold text-white tracking-tight;
+        margin: 3rem 0 1rem;
+    }
+
+    .rich-text h3 {
+        @apply text-xl font-bold text-white tracking-tight;
+        margin: 2rem 0 0.75rem;
+    }
+
+    .rich-text h4 {
+        @apply text-lg font-bold text-white tracking-tight;
+        margin: 1.75rem 0 0.75rem;
+    }
+
+    /* Auto-numbered sections: the mockup's `01.` indigo prefixes on h2 headings.
+       The counter lives on .article-body (page level) so numbering runs across blocks. */
+    .article-body {
+        counter-reset: section;
+    }
+
+    .article-body h2::before {
+        counter-increment: section;
+        content: counter(section, decimal-leading-zero) ". ";
+        color: #6366f1;
+    }
+
+    .rich-text a {
+        @apply text-indigo-400 underline decoration-indigo-500/40 underline-offset-4 transition-colors;
+    }
+
+    .rich-text a:hover {
+        @apply text-indigo-300 decoration-indigo-400/70;
+    }
+
+    .rich-text a svg {
+        display: inline-block;
+        vertical-align: text-bottom;
+        margin-left: 0.15em;
+        width: 1em;
+        height: 1em;
+    }
+
+    .rich-text strong {
+        color: #fff;
+        font-weight: 600;
+        background-image: linear-gradient(90deg, #6366f1, #ec4899);
+        background-size: 100% 2px;
+        background-position: 0 100%;
+        background-repeat: no-repeat;
+        padding-bottom: 2px;
+    }
+
+    .rich-text blockquote {
+        background: rgba(99, 102, 241, 0.05);
+        border-left: 4px solid #6366f1;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 0.75rem 0.75rem 0;
+        font-style: italic;
+        color: #e0e7ff;
+    }
+
+    .rich-text blockquote p {
+        margin: 0;
+    }
+
+    .rich-text ul,
+    .rich-text ol {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    .rich-text ul {
+        list-style: disc;
+    }
+
+    .rich-text ol {
+        list-style: decimal;
+    }
+
+    .rich-text li::marker {
+        color: #6366f1;
+    }
+
+    .rich-text :not(pre) > code {
+        @apply font-mono text-indigo-300 bg-white/5 rounded px-1.5 py-0.5;
+        font-size: 0.9em;
+    }
+
+    .rich-text pre,
+    .code-block {
+        background: #0a0a0c;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        overflow-x: auto;
+    }
+
+    .rich-text pre code,
+    .code-block code {
+        @apply font-mono;
+        font-size: 0.9em;
+        color: #a5b4fc;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .rich-text img {
+        border-radius: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .rich-text figure {
+        margin: 2.5rem 0;
+    }
+
+    .rich-text figcaption {
+        @apply font-mono text-xs text-slate-500 text-center;
+        padding-top: 0.75rem;
+    }
+
+    .rich-text table:not(.hljs-ln) {
+        width: 100%;
+        margin: 2rem 0;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+    }
+
+    .rich-text table:not(.hljs-ln) th {
+        @apply text-white font-semibold bg-white/5;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+        text-align: left;
+    }
+
+    .rich-text table:not(.hljs-ln) td {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+    }
+
+    .rich-text hr {
+        border: 0;
+        height: 1px;
+        margin: 3rem 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    }
+
+    /* Numbered TOC list (floating popover + static fallback).
+       Uses a flex row with a ::before counter instead of ::marker so the
+       numbers center-align with the item text. */
+    .toc-list {
+        list-style: none;
+        counter-reset: toc;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toc-list li {
+        counter-increment: toc;
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+    }
+
+    .toc-list li::before {
+        content: counter(toc, decimal-leading-zero);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: #6366f1;
+        flex: none;
+        transition: color 0.2s;
+    }
+
+    .toc-list li:has(a:is(:hover, :focus-visible))::before {
+        color: #a5b4fc;
+    }
+
+    /* Subtle highlight when jumping to a TOC anchor */
+    .article-body :target {
+        animation: anchor-flash 1.2s ease-out forwards;
+        border-radius: 0.75rem;
+    }
+
+    @keyframes anchor-flash {
+        from { background-color: rgba(99, 102, 241, 0.12); }
+        to { background-color: transparent; }
+    }
+}
+
+/* =========================================================
+   Floating TOC (HTML Popover API)
+   Behavioral rules ported from the previous toc/inlineToc.css,
+   recolored to the glass / indigo design language.
+   ========================================================= */
+
+:root {
+    --toc-speed: 0.3s;
+    --toc-trigger-width: 190px;
+    --toc-trigger-height: 48px;
+    --toc-power-in: linear( 0 0%, 0.0039 6.25%, 0.0156 12.5%, 0.0352 18.75%, 0.0625 25%, 0.0977 31.25%, 0.1407 37.5%, 0.1914 43.74%, 0.2499 49.99%, 0.3164 56.25%, 0.3906 62.5%, 0.5625 75%, 0.7656 87.5%, 1 100% );
+    --toc-power-out: linear( 0 0%, 0.2342 12.49%, 0.4374 24.99%, 0.6093 37.49%, 0.6835 43.74%, 0.7499 49.99%, 0.8086 56.25%, 0.8593 62.5%, 0.9023 68.75%, 0.9375 75%, 0.9648 81.25%, 0.9844 87.5%, 0.9961 93.75%, 1 100% );
+    --toc-ease: var(--toc-power-in);
+}
+
+:root:has(:popover-open) {
+    --toc-ease: var(--toc-power-out);
+}
+
+/* Scroll-driven reading-progress counter shown inside the TOC trigger */
+@property --progress {
+    initial-value: 0;
+    syntax: "<integer>";
+    inherits: true;
+}
+
+:root {
+    timeline-scope: --content;
+    scroll-timeline: --content;
+    animation: scroll-progress both linear;
+    animation-timeline: --content;
+    counter-reset: progress var(--progress);
+}
+
+@keyframes scroll-progress {
+    to {
+        --progress: 100;
+    }
+}
+
+.toc-trigger {
+    anchor-name: --toc-opener;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    translate: -50% 0;
+    z-index: 40;
+    view-transition-name: toc-trigger;
+    cursor: pointer;
+    width: var(--toc-trigger-width);
+    height: var(--toc-trigger-height);
+    padding: 0;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(12px);
+    color: #e2e8f0;
+    display: none; /* shown by site.js when interpolate-size is supported */
+}
+
+.toc-trigger:focus-visible {
+    outline: 2px solid #818cf8;
+    outline-offset: 2px;
+}
+
+.toc-trigger-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+    width: 100%;
+    min-height: var(--toc-trigger-height);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.toc-trigger-details svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    color: #818cf8;
+}
+
+.toc-trigger-details > span:first-of-type {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 0.35rem;
+}
+
+.toc-progress {
+    border-radius: 9999px;
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+    padding: 0.25rem 0.6rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+}
+
+.toc-progress::before {
+    font-variant-numeric: tabular-nums;
+    content: counter(progress) "%";
+}
+
+#toc-popover {
+    flex-direction: column-reverse;
+    position-anchor: --toc-opener;
+    transition-property: display, overlay, width, height;
+    transition-duration: var(--toc-speed);
+    transition-behavior: allow-discrete;
+    transition-timing-function: var(--toc-ease);
+    color: #e2e8f0;
+    margin: unset;
+    inset: unset;
+    bottom: 1.5rem;
+    left: 50%;
+    translate: -50% 0;
+    width: var(--toc-trigger-width);
+    height: var(--toc-trigger-height);
+    z-index: 50;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: visible;
+    interpolate-size: allow-keywords;
+}
+
+#toc-popover:popover-open {
+    display: flex;
+    width: var(--toc-content-width, fit-content);
+    height: var(--toc-content-height, fit-content);
+}
+
+@starting-style {
+    #toc-popover:popover-open {
+        width: var(--toc-trigger-width);
+        height: var(--toc-trigger-height);
+    }
+}
+
+.toc-contents {
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    flex-direction: column-reverse;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 12, 0.92);
+    backdrop-filter: blur(12px);
+    padding: 0 6px;
+    transition: padding var(--toc-speed);
+    transform: translate3d(0, 0, 0);
+}
+
+#toc-popover:popover-open .toc-contents {
+    padding: 1rem;
+}
+
+@starting-style {
+    #toc-popover:popover-open .toc-contents {
+        padding: 0 6px;
+    }
+}
+
+#toc-popover .toc-trigger-details {
+    min-height: 44px;
+    flex-basis: 44px;
+}
+
+#toc-popover button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+}
+
+#toc-popover ol {
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    width: max-content;
+    max-width: min(85vw, 30rem);
+    flex-direction: column;
+    filter: blur(4px);
+    opacity: 0;
+    transition: filter var(--toc-speed), opacity var(--toc-speed);
+    transition-timing-function: var(--toc-ease);
+}
+
+#toc-popover:popover-open ol {
+    filter: blur(0px);
+    opacity: 1;
+}
+
+@starting-style {
+    #toc-popover:popover-open ol {
+        filter: blur(4px);
+        opacity: 0;
+    }
+}
+
+#toc-popover ol a {
+    color: #94a3b8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-block: 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+    flex: 1;
+    min-width: 0;
+    transition: color 0.2s;
+}
+
+#toc-popover ol a:hover,
+#toc-popover ol a:focus-visible {
+    color: #fff;
+}
+
+#toc-popover::backdrop {
+    transition-property: overlay, display, opacity;
+    transition-duration: var(--toc-speed);
+    transition-behavior: allow-discrete;
+    transition-timing-function: var(--toc-ease);
+    background: hsl(0 0% 0% / 0.4);
+    opacity: 0;
+    backdrop-filter: blur(8px);
+    mask: linear-gradient(180deg, #0000 0%, #fff 100%);
+}
+
+#toc-popover:popover-open::backdrop {
+    opacity: 1;
+}
+
+@starting-style {
+    #toc-popover:popover-open::backdrop {
+        opacity: 0;
+    }
+}

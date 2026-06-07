@@ -37,4 +37,28 @@
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
 
+  <!-- Tailwind CSS (standalone CLI, no npm). Pinned to v3.4.x to match the design mockups (Play CDN = v3.4). -->
+  <PropertyGroup>
+    <TailwindVersion>3.4.17</TailwindVersion>
+    <TailwindDir>$(MSBuildProjectDirectory)\..\tools\tailwind</TailwindDir>
+    <TailwindExeName Condition="$([MSBuild]::IsOSPlatform('Windows'))">tailwindcss-windows-x64.exe</TailwindExeName>
+    <TailwindExeName Condition="$([MSBuild]::IsOSPlatform('Linux'))">tailwindcss-linux-x64</TailwindExeName>
+    <TailwindExeName Condition="$([MSBuild]::IsOSPlatform('OSX'))">tailwindcss-macos-arm64</TailwindExeName>
+    <TailwindExe>$(TailwindDir)\$(TailwindExeName)</TailwindExe>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TailwindInputs Include="Styles\**\*.css;tailwind.config.js;Views\**\*.cshtml;wwwroot\js\**\*.js" />
+  </ItemGroup>
+
+  <Target Name="EnsureTailwindCli" Condition="!Exists('$(TailwindExe)')">
+    <MakeDir Directories="$(TailwindDir)" />
+    <DownloadFile SourceUrl="https://github.com/tailwindlabs/tailwindcss/releases/download/v$(TailwindVersion)/$(TailwindExeName)" DestinationFolder="$(TailwindDir)" Retries="3" />
+    <Exec Condition="!$([MSBuild]::IsOSPlatform('Windows'))" Command="chmod +x &quot;$(TailwindExe)&quot;" />
+  </Target>
+
+  <Target Name="TailwindBuild" DependsOnTargets="EnsureTailwindCli" BeforeTargets="AssignTargetPaths" Inputs="@(TailwindInputs)" Outputs="wwwroot\css\app.css">
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="&quot;$(TailwindExe)&quot; -c tailwind.config.js -i Styles\input.css -o wwwroot\css\app.css --minify" />
+  </Target>
+
 </Project>

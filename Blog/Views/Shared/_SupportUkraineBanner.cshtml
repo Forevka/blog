@@ -1,25 +1,28 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@{
-    var home = Model.AncestorOrSelf<Home>()!;
-}
+@using Blog.Helper
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 
-<div class="section">
-    <div class="inset-container cta">
-        
-
-        <div class="container support-ukraine">
-            <div class="text-box _700px centre" style="    max-width: 60rem !important;">
-                <div class="text-align-centre">
-                    <a href="https://u24.gov.ua/" style="display: block !important;" target="_blank" id="trackableLinkSupportUkraine">
-                        <img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-no-action.svg">
-                    </a>
-                </div>
+<section class="max-w-6xl mx-auto mb-32 mt-32">
+    <div class="relative overflow-hidden rounded-3xl p-1 shadow-2xl bg-gradient-to-r from-blue-600 to-yellow-500">
+        <div class="relative bg-black/90 p-8 md:p-12 rounded-[1.4rem] flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1 space-y-4">
+                <h2 class="text-2xl md:text-4xl font-extrabold flex items-center gap-3">
+                    @Icons.Render("heart", "text-blue-500 fill-blue-500")
+                    Stand with Ukraine
+                </h2>
+                <p class="text-slate-300 text-lg leading-relaxed font-light">
+                    Russia invaded Ukraine, displacing millions and threatening democracy. Join the global effort to defend freedom and human rights. Every contribution counts.
+                </p>
             </div>
-            <div class="blurred-circle"></div>
-            <div class="blurred-circle bottom-right"></div>
+            <div class="w-full md:w-auto">
+                <a href="https://u24.gov.ua/" target="_blank" rel="noopener" id="trackableLinkSupportUkraine" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-[#FFD700] text-black font-extrabold rounded-full hover:scale-105 transition-transform overflow-hidden">
+                    <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12"></div>
+                    HELP DEFEND FREEDOM
+                    @Icons.Render("external-link", "w-5 h-5")
+                </a>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 <script>
     document.getElementById('trackableLinkSupportUkraine').addEventListener('click', function(event) {

@@ -1,30 +1,18 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     var home = Model.AncestorOrSelf<Home>()!;
 }
 
-<div class="section">
-    <div class="container">
-        <div class="footer-wrapper">
-
-            <ul role="list" class="footer-list w-list-unstyled">
-                <li class="footer-list-item">
-                    <a href="@home.Url()" class="navigation-link">Home</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="/about" class="navigation-link">About</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="/contacts" class="navigation-link">Contact</a>
-                </li>
-            </ul>
-
-            <ul role="list" class="footer-list w-list-unstyled">
-                <li class="footer-list-item">
-                    <div class="paragraph small text-color-600">©BohdanL 2024</div>
-                </li>
-            </ul>
-
+<footer class="border-t border-white/5 py-12 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+        <div class="space-y-2">
+            <a href="@home.Url()" class="font-extrabold text-xl tracking-tighter">@home.HeaderText</a>
+            <p class="text-slate-500 text-xs font-mono">© BohdanL @DateTime.Now.Year • Built with precision.</p>
+        </div>
+        <div class="flex gap-8 text-sm font-medium text-slate-400">
+            <a href="https://github.com/Forevka" target="_blank" rel="noopener" class="hover:text-white transition-colors underline decoration-indigo-500/50 underline-offset-4">GitHub</a>
+            <a href="/about" class="hover:text-white transition-colors underline decoration-purple-500/50 underline-offset-4">About</a>
+            <a href="/contacts" class="hover:text-white transition-colors underline decoration-pink-500/50 underline-offset-4">Contact</a>
         </div>
     </div>
-</div>
+</footer>

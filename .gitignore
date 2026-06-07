@@ -138,3 +138,7 @@ _NCrunch*
 
 # Rider IDE config files
 .idea/
+
+# Tailwind standalone CLI binary + generated stylesheet (built by `dotnet build`)
+tools/tailwind/
+Blog/wwwroot/css/app.css

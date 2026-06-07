@@ -1,19 +1,59 @@
-﻿@inherits UmbracoViewPage<ArticlesItem>
+@using System.Globalization
+@using Blog.Helper
+@inherits UmbracoViewPage<ArticlesItem>
+@{
+    // Accent palette cycles indigo -> purple -> pink per card, like the design mockup.
+    // Full literal class strings (never concatenated) so the Tailwind scanner picks them up.
+    var accents = new[]
+    {
+        new { Border = "hover:border-indigo-500/50", Chip = "text-indigo-400", TitleHover = "group-hover:text-indigo-400", Btn = "group-hover:bg-indigo-500" },
+        new { Border = "hover:border-purple-500/50", Chip = "text-purple-400", TitleHover = "group-hover:text-purple-400", Btn = "group-hover:bg-purple-500" },
+        new { Border = "hover:border-pink-500/50", Chip = "text-pink-400", TitleHover = "group-hover:text-pink-400", Btn = "group-hover:bg-pink-500" },
+    };
+    var index = ViewData["CardIndex"] as int? ?? Model.Id;
+    var accent = accents[index % 3];
 
-<div role="listitem" class="post-item w-dyn-item">
-    <a href="@Model.Url()" class="post-item-content w-inline-block">
-        <div class="image-wrapper">
-            <img alt="@Model.Title" loading="lazy" src="@Model.CardImage?.Url()" class="post-item-image" />
-        </div>
-        <div class="content">
-            <h2 class="heading medium">@Model.Title</h2>
-            <div class="post-details-wrapper">
-                <div class="post-detail">@string.Join(", ", Model.Category!.Select(x => (x as ArticleCategory)?.ArticleCategoryName).ToList())</div>
-                <div class="post-detail">·</div>
-                <div class="post-detail">@Model.ReadTime min</div>
-                <div class="post-detail">·</div>
-                <div class="post-detail">@Model.CreateDate.ToString("yyyy/MM/dd")</div>
+    var categories = (Model.Category ?? []).OfType<ArticleCategory>().Select(x => x.ArticleCategoryName).ToList();
+    var hashtags = string.Join(" ", categories.Select(c => "#" + c!.Replace(" ", "").ToLowerInvariant()));
+}
+
+<article class="group relative flex flex-col bg-[#0a0a0c] border border-white/10 rounded-2xl overflow-hidden @accent.Border transition-all duration-500"
+         data-title="@Model.Title?.ToLowerInvariant()"
+         data-description="@Model.Description?.ToLowerInvariant()"
+         data-categories="@string.Join(",", categories)">
+    <a href="@Model.Url()" class="aspect-video relative overflow-hidden block" tabindex="-1" aria-hidden="true">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] to-transparent z-10"></div>
+        @if (Model.CardImage != null)
+        {
+            <img src="@Model.CardImage.Url()" alt="@Model.Title" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        }
+        else
+        {
+            <div class="w-full h-full accent-gradient opacity-40 group-hover:scale-110 transition-transform duration-700"></div>
+        }
+        @if (categories.Count > 0)
+        {
+            <div class="absolute top-4 left-4 z-20">
+                <span class="px-3 py-1 glass rounded-md text-[10px] font-bold tracking-widest uppercase @accent.Chip">@categories[0]</span>
             </div>
-        </div>
+        }
     </a>
-</div>
+    <div class="p-6 flex flex-col flex-grow">
+        <div class="flex items-center gap-4 text-[10px] text-slate-500 font-mono mb-4">
+            <span class="flex items-center gap-1">@Icons.Render("calendar", "w-3 h-3") @Model.CreateDate.ToString("MMM dd, yyyy", CultureInfo.InvariantCulture)</span>
+            <span class="flex items-center gap-1">@Icons.Render("clock", "w-3 h-3") @Model.ReadTime MIN</span>
+        </div>
+        <h3 class="text-xl font-bold mb-3 @accent.TitleHover transition-colors leading-snug">
+            <a href="@Model.Url()">@Model.Title</a>
+        </h3>
+        <p class="text-slate-400 text-sm font-light mb-6 line-clamp-3">
+            @Model.Description
+        </p>
+        <div class="mt-auto pt-6 border-t border-white/5 flex justify-between items-center">
+            <span class="text-xs font-bold text-slate-500">@hashtags</span>
+            <a href="@Model.Url()" aria-label="Read @Model.Title" class="p-2 glass rounded-full @accent.Btn transition-colors">
+                @Icons.Render("arrow-up-right", "w-4 h-4 text-white")
+            </a>
+        </div>
+    </div>
+</article>

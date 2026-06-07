@@ -15,7 +15,7 @@ builder.CreateUmbracoBuilder()
             Enabled = true,
             ContentTypes = [RichTextContent.ModelTypeAlias, ImageContent.ModelTypeAlias, CodeBlockContent.ModelTypeAlias],
             ViewLocations = ["/Views/Shared/ArticleComponents/{0}.cshtml"],
-            Stylesheets = ["/css/site.css"],
+            Stylesheets = ["/css/app.css"],
         };
 
         options.BlockList = new()

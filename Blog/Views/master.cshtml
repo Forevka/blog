@@ -1,31 +1,10 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-
     Layout = null;
-
-    ViewData["MetaImage"] = "";
-
-    ViewData["MetaDescription"] = "Writing code with a bit of philosophy";
-
-    ViewData["MetaTitle"] = "";
-    // section metatags doesnt work for master template
-}
-
-@section metatags 
-{
-    <meta content="" property="twitter:image">
-    <meta content="Writing code with a bit of philosophy" property="twitter:description">
-    <meta content="Forevka · Personal blog" property="twitter:title">
-
-    <meta content="" property="og:image">
-    <meta content="Writing code with a bit of philosophy" property="og:description">
-    <meta content="Forevka · Personal blog" property="og:title">
-
-    <meta content="Writing code with a bit of philosophy" name="description">
 }
 
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-alignment="center">
+<html lang="en" class="scroll-smooth">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YGYX48ND7"></script>
@@ -37,100 +16,62 @@
             gtag('config', 'G-3YGYX48ND7');
         </script>
 
-    @await RenderSectionAsync("metatags", false)
+    @if (IsSectionDefined("metatags"))
+    {
+        @await RenderSectionAsync("metatags", false)
+    }
+    else
+    {
+        <meta content="" property="twitter:image">
+        <meta content="Writing code with a bit of philosophy" property="twitter:description">
+        <meta content="Forevka · Personal blog" property="twitter:title">
+
+        <meta content="" property="og:image">
+        <meta content="Writing code with a bit of philosophy" property="og:description">
+        <meta content="Forevka · Personal blog" property="og:title">
+
+        <meta content="Writing code with a bit of philosophy" name="description">
+    }
 
     <meta content="summary_large_image" name="twitter:card">
     <meta property="og:type" content="website">
-
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"] - Forevka</title>
 
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Add other CSS links, fonts, or meta tags as needed -->
+    <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" />
+
     @await RenderSectionAsync("HeadContent", required: false)
 </head>
-<body>
-    @await Html.PartialAsync("ScrollToTop")
+<body class="selection:bg-indigo-500/30 overflow-x-hidden">
 
-    @* Navigation bar (partial view) *@
+    <div class="reading-progress" id="progress-bar"></div>
+
+    <!-- Background Elements -->
+    <div class="blob top-[-10%] right-[-10%]"></div>
+    <div class="blob bottom-[-10%] left-[-10%] opacity-50"></div>
+
     @await Html.PartialAsync("_Nav")
 
-    @* Main content placeholder *@
-    <div class="main-content">
+    <main class="pt-32 pb-20 px-6">
         @RenderBody()
-    </div>
 
-    @if (!IsSectionDefined("metatags"))
-    {
-    }
+        @await Html.PartialAsync("_SupportUkraineBanner")
 
-    @await Html.PartialAsync("_SupportUkraineBanner")
+        @await Html.PartialAsync("_SubscribeCTA")
+    </main>
 
-    @* Subscribe CTA (partial view) *@
-    @await Html.PartialAsync("_SubscribeCTA")
-
-    @* Footer (partial view) *@
     @await Html.PartialAsync("_Footer")
 
+    @await Html.PartialAsync("ScrollToTop")
+
+    <script src="~/js/site.js" asp-append-version="true" defer></script>
+
     @await RenderSectionAsync("Scripts", required: false)
-        
-<script>
-            function updateFloatingAlignment() {
-              // Select all components that should change alignment
-              const components = document.querySelectorAll('html');
-
-
-              // Check if the viewport width is at or below the mobile threshold
-              if (window.innerWidth <= 768) {
-                components.forEach(component => {
-                  // Change the alignment attribute to "left"
-                    component.setAttribute('data-alignment', 'left');
-                });
-
-
-              } else {
-                // Optionally, reset to the default (or original) alignment
-                components.forEach(component => {
-                    component.setAttribute('data-alignment', 'center');
-                });
-
-
-              }
-
-            }
-
-            // Run the function on initial page load
-            window.addEventListener('DOMContentLoaded', updateFloatingAlignment);
-
-            // Run the function when the window is resized
-            window.addEventListener('resize', updateFloatingAlignment);
-
-              const floatingToc = document.querySelectorAll('.trigger');
-              const staticToc = document.querySelectorAll('#light-toc');
-
-        if (CSS.supports('interpolate-size: allow-keywords')) {
-
-                floatingToc.forEach(component => {
-                    component.style.display = 'inherit';
-                })
-
-                staticToc.forEach(component => {
-                    component.style.display = 'none';
-                })
-        }else{
-                floatingToc.forEach(component => {
-                    component.style.display = 'none';
-                })
-
-
-                staticToc.forEach(component => {
-                        component.style.display = 'inherit';
-                    })
-
-        }
-        </script>
 </body>
 </html>
